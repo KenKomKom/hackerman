@@ -14,6 +14,10 @@ config/name="Hackerman"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalEvent="*res://scripts/GlobalEvent.gd"
+
 [input]
 
 up={

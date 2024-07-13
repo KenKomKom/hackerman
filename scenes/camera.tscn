@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ifqxvqx2xl88"]
+
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="1_cqarx"]
+
+[sub_resource type="Environment" id="Environment_ykkap"]
+background_mode = 1
+background_color = Color(0.196078, 0.196078, 0.196078, 1)
+background_energy_multiplier = 0.5
+ssil_enabled = true
+glow_intensity = 0.0
+
+[node name="Camera" type="Camera3D"]
+environment = SubResource("Environment_ykkap")
+script = ExtResource("1_cqarx")

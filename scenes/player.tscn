@@ -21,17 +21,25 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10vy8"]
+size = Vector3(0.7, 0.618604, 0.7)
 
 [node name="player" type="CharacterBody3D"]
 motion_mode = 1
 script = ExtResource("1_6ywd8")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-2.3474e-08, 0, 0.465565, 0, 0.537023, 0, -0.537023, 0, -2.03505e-08, 0, 0, 0)
+billboard = 1
 sprite_frames = SubResource("SpriteFrames_gai0n")
 animation = &"idle"
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54934, 0)
+light_energy = 3.0
+omni_range = 4.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0109619, 0)
 shape = SubResource("BoxShape3D_10vy8")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cakbi4dixnbgk"]
+
+[ext_resource type="PackedScene" uid="uid://cl852hlas84gy" path="res://scenes/tiles/tile.tscn" id="1_wvqca"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("1_wvqca")]
