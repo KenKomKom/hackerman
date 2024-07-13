@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://phh0wi1xv21q"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_6ywd8"]
+[ext_resource type="Texture2D" uid="uid://ch3f4h8mkcejg" path="res://icon.svg" id="1_abpqy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gai0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abpqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_abpqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_abpqy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10vy8"]
+
+[node name="player" type="CharacterBody3D"]
+motion_mode = 1
+script = ExtResource("1_6ywd8")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_gai0n")
+animation = &"idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_10vy8")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(1, 0, 0)
