@@ -24,7 +24,7 @@ var inputs = {"right": Vector3(0,0,-1),
 
 func _ready():
 	position = position.snapped(Vector3.ONE * tile_size)
-	position += Vector3(1,0,1) * tile_size / 2
+	position += Vector3(0,0,0) * tile_size / 2
 
 func _process(delta):
 	move(delta)
