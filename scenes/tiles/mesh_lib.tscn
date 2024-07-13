@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cakbi4dixnbgk"]
+[gd_scene load_steps=3 format=3 uid="uid://cakbi4dixnbgk"]
 
-[ext_resource type="PackedScene" uid="uid://cl852hlas84gy" path="res://scenes/tiles/tile.tscn" id="1_wvqca"]
+[ext_resource type="PackedScene" uid="uid://s2qxxt2d206n" path="res://scenes/tiles/floor.tscn" id="1_lervh"]
+[ext_resource type="PackedScene" uid="uid://muxjhwlyqwuu" path="res://scenes/tiles/wall.tscn" id="2_xiasx"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" parent="." instance=ExtResource("1_wvqca")]
+[node name="floor2" parent="." instance=ExtResource("1_lervh")]
+
+[node name="wall" parent="." instance=ExtResource("2_xiasx")]

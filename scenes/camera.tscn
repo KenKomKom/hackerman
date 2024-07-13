@@ -1,15 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ifqxvqx2xl88"]
+[gd_scene load_steps=2 format=3 uid="uid://ifqxvqx2xl88"]
 
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="1_cqarx"]
 
-[sub_resource type="Environment" id="Environment_ykkap"]
-background_mode = 1
-background_color = Color(0.243137, 0.0627451, 0.2, 1)
-background_energy_multiplier = 1.2
-glow_intensity = 0.0
-
 [node name="Camera" type="Camera3D"]
-environment = SubResource("Environment_ykkap")
 script = ExtResource("1_cqarx")
 
 [node name="Timer" type="Timer" parent="."]
