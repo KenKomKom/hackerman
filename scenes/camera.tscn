@@ -12,3 +12,8 @@ glow_intensity = 0.0
 [node name="Camera" type="Camera3D"]
 environment = SubResource("Environment_ykkap")
 script = ExtResource("1_cqarx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

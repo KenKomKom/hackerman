@@ -29,7 +29,6 @@ script = ExtResource("1_6ywd8")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(-2.3474e-08, 0, 0.465565, 0, 0.537023, 0, -0.537023, 0, -2.03505e-08, 0, 0, 0)
-billboard = 1
 sprite_frames = SubResource("SpriteFrames_gai0n")
 animation = &"idle"
 

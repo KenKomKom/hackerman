@@ -15,7 +15,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, -8, 0)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_sjmfe")]
-transform = Transform3D(0.0115072, -0.764584, 0.644421, 0.0136507, 0.644524, 0.764462, -0.999841, -9.31273e-10, 0.0178538, 4.78188, 4.47173, 0)
+transform = Transform3D(-0.0160429, -0.765876, 0.642788, 0.0134615, 0.642647, 0.766044, -0.999781, 0.0209425, -2.80971e-08, 4.78188, 4.47173, 0)
 fov = 40.0
 target = NodePath("../player")
 speed = 20.0
