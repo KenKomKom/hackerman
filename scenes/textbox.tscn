@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://yv225f5s5pkx"]
+[gd_scene load_steps=3 format=3 uid="uid://yv225f5s5pkx"]
 
+[ext_resource type="Script" path="res://scripts/textbox.gd" id="1_4f5eq"]
 [ext_resource type="Texture2D" uid="uid://ch3f4h8mkcejg" path="res://icon.svg" id="1_6vylv"]
 
 [node name="textbox" type="MarginContainer"]
@@ -14,6 +15,7 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
+script = ExtResource("1_4f5eq")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -26,29 +28,48 @@ patch_margin_bottom = 10
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_constants/margin_left = 70
-
-[node name="Label" type="Label" parent="MarginContainer"]
-layout_mode = 2
-text = "Tekan Spasi untuk lanjut"
+text = "Tekan Spasi untuk Lanjut      "
 horizontal_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
 
-[node name="pembicara" type="Label" parent="MarginContainer2/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_6vylv")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="pembicara" type="Label" parent="MarginContainer2/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "pembicara"
 
-[node name="dialogue" type="Label" parent="MarginContainer2/VBoxContainer"]
+[node name="dialogue" type="Label" parent="MarginContainer2/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "dialgoue"
+
+[node name="haram" type="Label" parent="MarginContainer2/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "                                                                                                    "

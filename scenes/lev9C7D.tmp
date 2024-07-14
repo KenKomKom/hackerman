@@ -290,7 +290,6 @@ target = NodePath("../player")
 speed = 20.0
 
 [node name="DialogueManager" parent="." instance=ExtResource("6_17514")]
-visible = false
 
 [node name="player" parent="." instance=ExtResource("1_uy4xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.610539, 0)
@@ -330,5 +329,5 @@ camera_attributes = SubResource("CameraAttributesPractical_5tjpu")
 generate_probes_subdiv = 4
 
 [node name="enemy" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("7_8qwws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.627195, 4.35656)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.437557, 4.35656)
 movement_target = NodePath("../player")

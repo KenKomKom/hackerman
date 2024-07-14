@@ -290,7 +290,6 @@ target = NodePath("../player")
 speed = 20.0
 
 [node name="DialogueManager" parent="." instance=ExtResource("6_17514")]
-visible = false
 
 [node name="player" parent="." instance=ExtResource("1_uy4xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.610539, 0)

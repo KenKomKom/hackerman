@@ -5,7 +5,7 @@ extends CanvasLayer
 func _ready():
 	GlobalEvent.connect("start_dialogue",load_dialog)
 
-func load_dialog(file_path, player_name="Joni"): #File path ini dapet dari DialogueEnum
+func load_dialog(file_path, player_name="Joni"):
 	textbox.visible=true
 	
 	if FileAccess.file_exists(file_path):
@@ -18,7 +18,6 @@ func load_dialog(file_path, player_name="Joni"): #File path ini dapet dari Dialo
 				line["dialogue"] = fix_length(line["dialogue"])
 				textbox.display_line(line["nama"], line["dialogue"], line["emosi"])
 				await textbox.go_to_next_line
-				print("go to next line")
 			textbox.visible=false
 			GlobalEvent.emit_signal("end_dialogue")
 		else:
@@ -27,20 +26,19 @@ func load_dialog(file_path, player_name="Joni"): #File path ini dapet dari Dialo
 	else:
 		print("file not exists")
 
-func fix_length(str : String):
+func fix_length(string : String):
 	var start=0
 	var split=false
 	while not split:
-		if (len(str)-start)>50:
-			var break_position = str.findn(" ", start+40)
+		if (len(string)-start)>50:
+			var break_position = string.findn(" ", start+40)
 			if break_position-start>50:
 				break_position=start+45
-				str = str.substr(0, break_position)+"-\n"+str.substr(break_position,len(str))
-				print(str)
+				string = string.substr(0, break_position)+"-\n"+string.substr(break_position,len(string))
 				start=break_position+2
 			else:
-				str[break_position] = "\n"
+				string[break_position] = "\n"
 				start=break_position+1
 		else:
 			split=true
-	return str
+	return string

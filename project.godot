@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalEvent="*res://scripts/GlobalEvent.gd"
+GameManager="*res://scripts/GameManager.gd"
 
 [filesystem]
 
@@ -49,6 +50,13 @@ right={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="wall"
+3d_physics/layer_3="enemy"
+
 [rendering]
 
+global_illumination/gi/use_half_resolution=true
 occlusion_culling/use_occlusion_culling=true

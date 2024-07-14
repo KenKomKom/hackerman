@@ -28,6 +28,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_d76iq")
 occluder = SubResource("BoxOccluder3D_r82gs")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor" index="1"]
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_uavio")

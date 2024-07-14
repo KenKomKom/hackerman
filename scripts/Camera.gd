@@ -25,12 +25,12 @@ func _physics_process(delta):
 
 func handle_player_move(dir):
 	reset_rotation_timer.start()
-	if dir=="left":
+	if GameManager.player_chased and dir=="left":
 		player_idle=false
 		relative= lerp(relative,-2.0,0.5)
 		var tween = create_tween()
 		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,94,rotation_degrees.z), 0.5)
-	elif dir=="right":
+	elif GameManager.player_chased and dir=="right":
 		player_idle=false
 		relative= lerp(relative,2.0,0.5)
 		var tween = create_tween()
