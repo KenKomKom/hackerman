@@ -22,6 +22,8 @@ emission_energy_multiplier = 2.0
 [node name="wall" instance=ExtResource("1_62n24")]
 
 [node name="Wall" parent="." index="0"]
+cast_shadow = 0
+lod_bias = 0.2
 surface_material_override/0 = SubResource("StandardMaterial3D_awvfh")
 surface_material_override/1 = SubResource("StandardMaterial3D_qhu34")
 

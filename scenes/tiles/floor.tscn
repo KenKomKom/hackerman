@@ -19,6 +19,8 @@ roughness = 0.0
 [node name="floor2" instance=ExtResource("1_gluwk")]
 
 [node name="floor" parent="." index="0"]
+cast_shadow = 0
+lod_bias = 0.1
 surface_material_override/0 = SubResource("StandardMaterial3D_bn47k")
 surface_material_override/1 = SubResource("StandardMaterial3D_d76iq")
 
