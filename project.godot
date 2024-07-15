@@ -12,12 +12,16 @@ config_version=5
 
 config/name="Hackerman"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0.121569, 0.121569, 0.121569, 1)
+boot_splash/image="res://2dassets/tim.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalEvent="*res://scripts/GlobalEvent.gd"
 GameManager="*res://scripts/GameManager.gd"
+TransitionLayer="*res://scenes/transition_layer.tscn"
 
 [filesystem]
 

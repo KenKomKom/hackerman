@@ -14,8 +14,12 @@ func ready_state():
 	parent_enemy.mesh_node.get_surface_override_material(0).emission = Color("51000a")
 
 func do_something(delta):
+	GameManager.player_chased=true
+	
+	#Change state
 	if (parent_enemy.movement_target_position-parent_enemy.global_position).length()>4:
 		parent_enemy.change_current_state(next_target[0])
+		GameManager.player_chased=false
 	
 	if parent_enemy.navigation_agent.is_navigation_finished():
 		return

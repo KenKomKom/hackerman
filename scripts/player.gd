@@ -27,8 +27,6 @@ func _ready():
 	position.x = position.snapped(Vector3.ONE * tile_size).x
 	position.z = position.snapped(Vector3.ONE * tile_size).z
 	position += Vector3(1,0,1) * tile_size / 2
-	
-	#GlobalEvent.emit_signal("start_dialogue", "res://testing.json")
 
 func _physics_process(delta):
 	move(delta)
