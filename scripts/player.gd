@@ -72,7 +72,7 @@ func step(dir):
 			animate_movement(dir, true)
 			target_position_after_move = global_position + inputs[dir] * tile_size
 
-func animate_movement(dir, is_moving):
+func animate_movement(_dir, _is_moving):
 	pass
 	#if is_moving:
 		#if dir=="left":

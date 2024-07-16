@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://der7mnuhoefpo"]
+[gd_scene load_steps=9 format=3 uid="uid://der7mnuhoefpo"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fulge"]
 [ext_resource type="Script" path="res://scripts/shield_idle_state.gd" id="2_mrj8m"]
+[ext_resource type="Script" path="res://scripts/collision_front.gd" id="3_607rs"]
 [ext_resource type="Script" path="res://scripts/shield_chasing_state.gd" id="3_l57jc"]
 [ext_resource type="PackedScene" uid="uid://pam3eg35uuji" path="res://scenes/shield.tscn" id="4_3w22y"]
 
@@ -11,7 +12,11 @@ height = 0.688841
 
 [sub_resource type="BoxMesh" id="BoxMesh_44wgg"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ahv2e"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="enemy_shield" type="CharacterBody3D" node_paths=PackedStringArray("current_state")]
+collision_layer = 4
 script = ExtResource("1_fulge")
 current_state = NodePath("states/idle")
 
@@ -34,8 +39,18 @@ rotation_edit_mode = 1
 visible = false
 mesh = SubResource("BoxMesh_44wgg")
 
+[node name="penis" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.78647, 0)
+collision_layer = 8
+script = ExtResource("3_607rs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="penis"]
+shape = SubResource("BoxShape3D_ahv2e")
+disabled = true
+
 [node name="RayCast3D" type="RayCast3D" parent="."]
-collision_mask = 7
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249265, 0)
+collision_mask = 15
 
 [node name="states" type="Node" parent="."]
 

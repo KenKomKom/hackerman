@@ -13,7 +13,7 @@ var rng:= RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 
-func display_line(nama: String, dialogue:String, emosi, nama_pulau:String = "", fun_fact:String = ""):
+func display_line(nama: String, dialogue:String, emosi):
 	still_typing=true
 	name_label.text = nama
 	dialogue_label.visible_ratio=0.0
@@ -24,7 +24,7 @@ func display_line(nama: String, dialogue:String, emosi, nama_pulau:String = "", 
 	# TODO Atur sprite emosi
 	
 	# Munculin karakter satu per satu
-	for char in dialogue:
+	for characther in dialogue:
 		dialogue_label.visible_ratio+=type_speed
 		await get_tree().create_timer(0.01).timeout
 	still_typing=false

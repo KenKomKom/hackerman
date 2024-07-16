@@ -11,6 +11,7 @@ var movement_target_position: Vector3
 @onready var ray = $RayCast3D
 @onready var states = $states
 @onready var mesh_node = $"shield/shield body"
+@onready var penis = $penis
 
 func _ready():
 	position.x = position.snapped(Vector3.ONE * tile_size).x
