@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://pam3eg35uuji"]
+[gd_scene load_steps=8 format=3 uid="uid://pam3eg35uuji"]
 
 [ext_resource type="PackedScene" uid="uid://dug70qnbfw4f3" path="res://3dassets/shield.glb" id="1_me0id"]
+[ext_resource type="Script" path="res://scripts/enemy_mesh.gd" id="2_n2e04"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgc70"]
 transparency = 1
@@ -53,8 +54,10 @@ _data = {
 
 [node name="shield" instance=ExtResource("1_me0id")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("2_n2e04")
 
 [node name="shield body" parent="." index="0"]
+layers = 4
 surface_material_override/0 = SubResource("StandardMaterial3D_xgc70")
 surface_material_override/1 = SubResource("StandardMaterial3D_jdox4")
 

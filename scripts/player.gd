@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 @onready var ray = $RayCast3D
-@onready var animated_sprite = $AnimatedSprite3D
+@onready var animated_sprite = $MeshInstance3D/AnimatedSprite3D
 
 @export var animation_speed := 7.0
 @export var tile_size = 8.0
@@ -85,3 +85,9 @@ func animate_movement(_dir, _is_moving):
 			#animated_sprite.play("idle")
 		#elif dir == "up":
 			#animated_sprite.play("idle")
+
+func _on_area_3d_body_entered(body):
+	body.set_visible_by_cam(true)
+
+func _on_area_3d_body_exited(body):
+	body.set_visible_by_cam(false)

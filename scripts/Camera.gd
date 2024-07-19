@@ -19,7 +19,6 @@ func _physics_process(delta):
 		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,88,rotation_degrees.z), 0.5)
 	if target!=null:
 		var target_dir = (target.global_position - self.global_position).normalized()
-		#position += speed * target_dir * delta
 		global_position.x = (lerp(global_position.x, target.global_position.x+5, delta*speed))
 		global_position.z = (lerp(global_position.z+(relative*0.1), target.global_position.z, delta*speed))
 
