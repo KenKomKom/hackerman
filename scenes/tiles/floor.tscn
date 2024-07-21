@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://s2qxxt2d206n"]
 
-[ext_resource type="PackedScene" uid="uid://5u3grcl3e4eg" path="res://3dassets/floor.glb" id="1_gluwk"]
+[ext_resource type="PackedScene" uid="uid://5u3grcl3e4eg" path="res://3dassets/envi/floor.glb" id="1_gluwk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bn47k"]
 albedo_color = Color(1, 0.662745, 1, 1)
