@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://muxjhwlyqwuu"]
 
-[ext_resource type="PackedScene" uid="uid://c1divhi8mbgn2" path="res://3dassets/wall.glb" id="1_62n24"]
+[ext_resource type="PackedScene" uid="uid://c1divhi8mbgn2" path="res://3dassets/envi/wall.glb" id="1_62n24"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awvfh"]
 transparency = 1
