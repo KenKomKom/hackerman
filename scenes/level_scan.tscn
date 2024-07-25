@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3udjpxagacjq"]
+
+[ext_resource type="Script" path="res://scripts/LevelScan.gd" id="1_r1ggb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3txp"]
+size = Vector3(1, 1, 11.0974)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rhdeu"]
+size = Vector3(1, 1, 12)
+
+[node name="LevelScan" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_r1ggb")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_l3txp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rhdeu")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

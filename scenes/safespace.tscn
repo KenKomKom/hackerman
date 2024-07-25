@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3oa21fklkwyu"]
+
+[ext_resource type="Script" path="res://scripts/safespace.gd" id="1_5lt8n"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ftoix"]
+orientation = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5gpmw"]
+
+[node name="safespace" type="StaticBody3D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_5lt8n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 8
+mesh = SubResource("QuadMesh_ftoix")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5gpmw")

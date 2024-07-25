@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0a77klvo2axy"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gr6ps"]
+
+[node name="main menu" type="CanvasLayer"]
+script = ExtResource("1_gr6ps")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Start"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

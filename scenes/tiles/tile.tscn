@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl852hlas84gy"]
+
+[ext_resource type="Texture2D" uid="uid://ch3f4h8mkcejg" path="res://icon.svg" id="1_qyv6l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u63sx"]
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_cx381"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhmcd"]
+albedo_texture = ExtResource("1_qyv6l")
+uv1_scale = Vector3(3, 2, 1)
+disable_receive_shadows = true
+distance_fade_mode = 2
+distance_fade_min_distance = 5.0
+distance_fade_max_distance = 20.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_me5m2"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_u63sx")
+mesh = SubResource("BoxMesh_cx381")
+surface_material_override/0 = SubResource("StandardMaterial3D_yhmcd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_me5m2")
