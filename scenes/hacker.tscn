@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj3x4gftxmu6m"]
+
+[ext_resource type="PackedScene" uid="uid://bxxo0gupstama" path="res://3dassets/char/hacker/hacker animated.glb" id="1_7mbja"]
+[ext_resource type="Material" uid="uid://dk1b24u4awr4" path="res://3dassets/char/hacker/hacker.tres" id="2_a1kw2"]
+
+[node name="hacker animated" instance=ExtResource("1_7mbja")]
+
+[node name="hand_003" parent="Armature_001/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_a1kw2")
+
+[node name="head_003" parent="Armature_001/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("2_a1kw2")
+
+[node name="hood_005" parent="Armature_001/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("2_a1kw2")
+
+[node name="jacket (pocket)_004" parent="Armature_001/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("2_a1kw2")
+
+[node name="scarf_005" parent="Armature_001/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("2_a1kw2")
+
+[node name="zipper_003" parent="Armature_001/Skeleton3D" index="5"]
+surface_material_override/0 = ExtResource("2_a1kw2")
