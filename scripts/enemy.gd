@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+#Class Name
+class_name	Enemy
+
 var movement_speed: float = 0.15
 @export var tile_size:float = 1
 @export var current_state: enemy_state
@@ -13,6 +16,8 @@ var movement_target_position: Vector3
 @onready var mesh_node = $"shield/shield body"
 @onready var penis = $penis
 @onready var instance_on_cam = $MeshInstance3D2
+
+var central: Central
 
 func _ready():
 	position.x = position.snapped(Vector3.ONE * tile_size).x
@@ -46,6 +51,13 @@ func look_towards(dir:Vector3):
 		0.1
 	)
 
+
 func set_visible_by_cam(status):
 	instance_on_cam.set_layer_mask_value(1,status)
 	mesh_node.get_parent().make_visible_on_zoom_out(status)
+
+func subscribe_to_central(ctrl : Central):
+	central = ctrl
+
+func unsubscribe_to_central():
+	central = null

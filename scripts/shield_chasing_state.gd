@@ -1,5 +1,7 @@
 extends enemy_state
 
+class_name 	enemy_chasing_state
+
 var moving=false
 var target_position_after_move :Vector3
 var time_for_timer:float
