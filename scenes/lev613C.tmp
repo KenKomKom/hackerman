@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b53eojuvl0058"]
+[gd_scene load_steps=18 format=3 uid="uid://b53eojuvl0058"]
 
 [ext_resource type="Script" path="res://scripts/abstract_level.gd" id="1_ljq10"]
 [ext_resource type="PackedScene" uid="uid://phh0wi1xv21q" path="res://scenes/player.tscn" id="1_uy4xc"]
 [ext_resource type="PackedScene" uid="uid://ifqxvqx2xl88" path="res://scenes/camera.tscn" id="2_sjmfe"]
 [ext_resource type="Texture2D" uid="uid://dwd2ysac8sllj" path="res://2dassets/grid.png" id="4_bflwd"]
-[ext_resource type="PackedScene" uid="uid://d3oa21fklkwyu" path="res://scenes/safespace.tscn" id="5_0wl4p"]
 [ext_resource type="MeshLibrary" uid="uid://cbjq2o1r4ytba" path="res://scenes/tiles/floor and wall.tres" id="5_ow7d5"]
 [ext_resource type="PackedScene" uid="uid://c3udjpxagacjq" path="res://scenes/level_scan.tscn" id="5_wp7fa"]
 [ext_resource type="PackedScene" uid="uid://bpgprrhaxtrvb" path="res://scenes/dialogue_manager.tscn" id="6_17514"]
@@ -85,13 +84,9 @@ bake_mask = 4294967292
 visible = false
 
 [node name="LevelScan" parent="." node_paths=PackedStringArray("end_target") instance=ExtResource("5_wp7fa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78627, -0.610539, -2.4043)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50504, -0.610539, -2.4043)
 end_target = NodePath("../Marker3D")
 speed = 10.0
-wait_time = 2.0
-
-[node name="safespace" parent="." instance=ExtResource("5_0wl4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23748, -0.95, -3.32484)
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57313, -0.610539, -2.4043)
