@@ -80,7 +80,6 @@ occluder = SubResource("QuadOccluder3D_spayv")
 bake_mask = 4294967292
 
 [node name="DialogueManager" parent="." instance=ExtResource("6_17514")]
-visible = false
 
 [node name="player" parent="." instance=ExtResource("1_uy4xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06002, -0.610539, -2.4043)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ywd8"]
 [ext_resource type="Texture2D" uid="uid://ch3f4h8mkcejg" path="res://icon.svg" id="1_abpqy"]
-[ext_resource type="PackedScene" uid="uid://ctjkqpoeilysg" path="res://scenes/hacker.tscn" id="4_psk2p"]
+[ext_resource type="PackedScene" uid="uid://dc2732n2vrq4p" path="res://3dassets/char/hacker/hacker animated.glb" id="3_n2qto"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gai0n"]
 animations = [{
@@ -28,9 +28,10 @@ size = Vector3(0.7, 0.618604, 0.7)
 radius = 2.0
 
 [node name="player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 motion_mode = 1
 script = ExtResource("1_6ywd8")
+animation_speed = null
+tile_size = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.3474e-08, 0, 0.465565, 0, 0.537023, 0, -0.537023, 0, -2.03505e-08, 0, 0, 0)
@@ -58,6 +59,9 @@ light_bake_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0109619, 0)
 shape = SubResource("BoxShape3D_10vy8")
 
+[node name="hacker animated" parent="." instance=ExtResource("3_n2qto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
+
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(1, 0, 0)
 collision_mask = 6
@@ -68,9 +72,6 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FogOfWar"]
 shape = SubResource("CylinderShape3D_gt5i4")
-
-[node name="hacker animated" parent="." instance=ExtResource("4_psk2p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
 
 [connection signal="body_entered" from="FogOfWar" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="FogOfWar" to="." method="_on_area_3d_body_exited"]

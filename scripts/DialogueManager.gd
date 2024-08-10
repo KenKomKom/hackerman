@@ -7,13 +7,13 @@ func _ready():
 
 func load_dialog(file_path, player_name="Joni"):
 	textbox.visible=true
-	
 	if FileAccess.file_exists(file_path):
 		var dataFile = FileAccess.open(file_path, FileAccess.READ)
 		var parsedFile = JSON.parse_string(dataFile.get_as_text())
 		
 		if parsedFile is Array:
 			for line in parsedFile:
+				print(line)
 				line["dialogue"] = line["dialogue"].replace("{nama}", player_name)
 				line["dialogue"] = fix_length(line["dialogue"])
 				textbox.display_line(line["nama"], line["dialogue"], line["emosi"])
@@ -32,7 +32,7 @@ func fix_length(string : String):
 	while not split:
 		if (len(string)-start)>50:
 			var break_position = string.findn(" ", start+40)
-			if break_position-start>50:
+			if break_position-start>50 or break_position==-1:
 				break_position=start+45
 				string = string.substr(0, break_position)+"-\n"+string.substr(break_position,len(string))
 				start=break_position+2

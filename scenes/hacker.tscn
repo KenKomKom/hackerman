@@ -1,24 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj3x4gftxmu6m"]
+[gd_scene load_steps=8 format=3 uid="uid://ctjkqpoeilysg"]
 
-[ext_resource type="PackedScene" uid="uid://bxxo0gupstama" path="res://3dassets/char/hacker/hacker animated.glb" id="1_7mbja"]
-[ext_resource type="Material" uid="uid://dk1b24u4awr4" path="res://3dassets/char/hacker/hacker.tres" id="2_a1kw2"]
+[ext_resource type="PackedScene" uid="uid://dc2732n2vrq4p" path="res://3dassets/char/hacker/hacker animated.glb" id="3_s7hjw"]
 
-[node name="hacker animated" instance=ExtResource("1_7mbja")]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s5afp"]
+animation = &"Idle"
 
-[node name="hand_003" parent="Armature_001/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("2_a1kw2")
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_brlnw"]
+animation = &"Run"
 
-[node name="head_003" parent="Armature_001/Skeleton3D" index="1"]
-surface_material_override/0 = ExtResource("2_a1kw2")
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dyl5r"]
+advance_mode = 2
 
-[node name="hood_005" parent="Armature_001/Skeleton3D" index="2"]
-surface_material_override/0 = ExtResource("2_a1kw2")
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xjxd2"]
+switch_mode = 1
+advance_mode = 2
 
-[node name="jacket (pocket)_004" parent="Armature_001/Skeleton3D" index="3"]
-surface_material_override/0 = ExtResource("2_a1kw2")
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lbcpu"]
+advance_mode = 2
 
-[node name="scarf_005" parent="Armature_001/Skeleton3D" index="4"]
-surface_material_override/0 = ExtResource("2_a1kw2")
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jktsr"]
+states/End/position = Vector2(838, 90)
+states/Idle/node = SubResource("AnimationNodeAnimation_s5afp")
+states/Idle/position = Vector2(425, 90)
+states/Run/node = SubResource("AnimationNodeAnimation_brlnw")
+states/Run/position = Vector2(615, 90)
+states/Start/position = Vector2(243, 90)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_dyl5r"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_xjxd2"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_lbcpu")]
+graph_offset = Vector2(-54, -22)
 
-[node name="zipper_003" parent="Armature_001/Skeleton3D" index="5"]
-surface_material_override/0 = ExtResource("2_a1kw2")
+[node name="hacker animated" instance=ExtResource("3_s7hjw")]
+
+[node name="Skeleton3D" parent="Armature_001" index="0"]
+bones/0/rotation = Quaternion(0.00484644, 0, 0, 0.999988)
+bones/2/rotation = Quaternion(0.00536063, 1.41354e-17, 2.05216e-15, 0.999986)
+bones/3/rotation = Quaternion(-0.010207, 4.18794e-18, -2.05229e-15, 0.999948)
+bones/5/rotation = Quaternion(0.511794, -0.482112, 0.518279, 0.486849)
+bones/6/rotation = Quaternion(0.129843, 0.0104384, -0.0125911, 0.9914)
+bones/7/rotation = Quaternion(0.0706028, 0.00028942, 0.00797642, 0.997473)
+bones/8/rotation = Quaternion(-0.0178033, 0.694825, -0.0552306, 0.716834)
+bones/9/rotation = Quaternion(-0.0245299, 0.00228992, -0.018671, 0.999522)
+bones/10/rotation = Quaternion(0.0236084, -0.695245, 0.0576595, 0.716068)
+bones/11/rotation = Quaternion(0.0614582, -0.0194411, -0.305629, 0.949966)
+bones/12/rotation = Quaternion(-0.133372, -0.00261258, 0.187107, 0.97324)
+bones/14/rotation = Quaternion(-0.0258515, -0.000457704, -0.00075223, 0.999665)
+bones/15/rotation = Quaternion(0.00184096, 0.728044, 0.0134659, 0.685396)
+bones/16/rotation = Quaternion(-0.511794, -0.482112, 0.518279, -0.486849)
+bones/17/rotation = Quaternion(0.129843, -0.0104384, 0.0125911, 0.9914)
+bones/18/rotation = Quaternion(0.0706028, -0.00028954, -0.00797644, 0.997473)
+bones/19/rotation = Quaternion(-0.0178034, -0.694825, 0.0552306, 0.716834)
+bones/21/rotation = Quaternion(0.0236085, 0.695245, -0.0576595, 0.716068)
+bones/22/rotation = Quaternion(0.0614581, 0.0194412, 0.305629, 0.949966)
+bones/23/rotation = Quaternion(-0.133372, 0.00261256, -0.187108, 0.97324)
+bones/24/rotation = Quaternion(-0.0925299, -0.0180874, -0.0829188, 0.992086)
+bones/25/rotation = Quaternion(-0.0258515, 0.000457554, 0.000752218, 0.999665)
+bones/26/rotation = Quaternion(0.00184098, -0.728044, -0.0134659, 0.685396)
+bones/27/rotation = Quaternion(-0.000203245, -0.00255652, 0.996605, -0.0822879)
+bones/28/rotation = Quaternion(0.712256, -7.73871e-07, 0.00172001, 0.701918)
+bones/29/rotation = Quaternion(0.000203245, -0.00255652, 0.996605, 0.0822879)
+bones/30/rotation = Quaternion(0.712256, 7.00481e-07, -0.00172009, 0.701918)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_jktsr")
+anim_player = NodePath("../AnimationPlayer")
