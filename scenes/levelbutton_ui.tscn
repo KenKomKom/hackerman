@@ -1,0 +1,177 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnp1k7ft48gp7"]
+
+[ext_resource type="Script" path="res://scripts/levelbutton_ui.gd" id="1_8ducd"]
+[ext_resource type="Texture2D" uid="uid://ujp5jy8fvwwd" path="res://2dassets/level_ui/map/1.png" id="2_w1txs"]
+[ext_resource type="FontFile" uid="uid://h4fgd4kgv6bo" path="res://font/MonomaniacOne-Regular.ttf" id="3_egyvp"]
+[ext_resource type="Texture2D" uid="uid://c8ckggre1lf4c" path="res://2dassets/level_ui/info/anonymity.png" id="4_wcccl"]
+[ext_resource type="Texture2D" uid="uid://tf1fr3cdj1s4" path="res://2dassets/level_ui/info/time.png" id="5_q06be"]
+[ext_resource type="Texture2D" uid="uid://m1lwt8hap8hw" path="res://2dassets/level_ui/Rectangle 123.png" id="6_hlkwp"]
+[ext_resource type="Texture2D" uid="uid://b4o3uy5offe6d" path="res://2dassets/level_ui/selec.png" id="6_oso22"]
+
+[node name="button" type="Button"]
+anchors_preset = -1
+anchor_left = 0.407
+anchor_right = 0.598
+anchor_bottom = 0.5
+offset_left = -11.44
+offset_top = -7.0
+offset_right = -9.16016
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+flat = true
+expand_icon = true
+script = ExtResource("1_8ducd")
+level_name = "WAITLIST GENERAL"
+hex_color = "FF62D2"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.5
+offset_right = 182.5
+offset_bottom = 540.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_w1txs")
+
+[node name="id" type="Label" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+offset_right = 431.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_egyvp")
+theme_override_font_sizes/font_size = 64
+text = "  01"
+
+[node name="name" type="RichTextLabel" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -19.0
+offset_right = 333.0
+offset_bottom = 71.0
+grow_vertical = 0
+rotation = 4.71239
+theme_override_fonts/normal_font = ExtResource("3_egyvp")
+theme_override_font_sizes/normal_font_size = 32
+text = "WAITLIST GENERAL"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0.458824, 0.133333, 0.588235, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="anon" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/anon"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("4_wcccl")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="Anonimity" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.486275, 1, 1)
+theme_override_fonts/font = ExtResource("3_egyvp")
+theme_override_font_sizes/font_size = 20
+text = "Anonimity"
+
+[node name="anonimity_status" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_egyvp")
+theme_override_font_sizes/font_size = 32
+text = "-
+"
+
+[node name="time" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/time"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("5_q06be")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="time" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.486275, 1, 1)
+theme_override_fonts/font = ExtResource("3_egyvp")
+theme_override_font_sizes/font_size = 20
+text = "Anonimity"
+
+[node name="time_status" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_egyvp")
+theme_override_font_sizes/font_size = 32
+text = "-"
+
+[node name="disable" type="TextureRect" parent="."]
+self_modulate = Color(0.133333, 0.133333, 0.133333, 0.67451)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.5
+offset_right = 186.5
+offset_bottom = 547.0
+grow_horizontal = 2
+texture = ExtResource("6_hlkwp")
+
+[node name="selected" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -201.5
+offset_top = -19.0
+offset_right = 200.5
+offset_bottom = 564.0
+grow_horizontal = 2
+texture = ExtResource("6_oso22")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

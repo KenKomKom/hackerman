@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 #Class Name
-class_name	Enemy
+class_name Enemy
 
 var movement_speed: float = 0.15
 @export var tile_size:float = 1

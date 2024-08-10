@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpi5syyc38erf"]
+
+[ext_resource type="Texture2D" uid="uid://c0fx5a4oy3xp8" path="res://2dassets/skills_ui/Frame 7.png" id="1_55t15"]
+[ext_resource type="Script" path="res://scenes/skill_cooldown.gd" id="2_knimv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3uglm"]
+bg_color = Color(0.168627, 0.0941176, 0.286275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gbk0"]
+bg_color = Color(0.145098, 0.0901961, 0.25098, 1)
+
+[node name="TextureRect" type="TextureRect"]
+texture = ExtResource("1_55t15")
+script = ExtResource("2_knimv")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.745098)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3uglm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4gbk0")
+value = 80.0
+fill_mode = 3
+show_percentage = false
+
+[node name="randomStart" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="randomStart" to="." method="_on_random_start_timeout"]

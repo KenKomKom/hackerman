@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://uo1v22d2qujk"]
+
+[ext_resource type="PackedScene" uid="uid://dpi5syyc38erf" path="res://scenes/skill_cooldown.tscn" id="1_lcsk2"]
+[ext_resource type="Texture2D" uid="uid://bl5mf2cejh55p" path="res://2dassets/skills_ui/Frame 9.png" id="2_hcrst"]
+[ext_resource type="Texture2D" uid="uid://bpcq2ksnpub0s" path="res://2dassets/skills_ui/Frame 8.png" id="3_2eorr"]
+[ext_resource type="Texture2D" uid="uid://cx84y28mv7j2y" path="res://2dassets/skills_ui/Frame 6.png" id="4_r36mq"]
+
+[node name="playerskill_ui" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_lcsk2")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_lcsk2")]
+layout_mode = 2
+texture = ExtResource("2_hcrst")
+
+[node name="TextureRect3" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_lcsk2")]
+layout_mode = 2
+texture = ExtResource("3_2eorr")
+
+[node name="TextureRect4" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_lcsk2")]
+layout_mode = 2
+texture = ExtResource("4_r36mq")
