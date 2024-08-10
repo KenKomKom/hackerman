@@ -18,7 +18,21 @@ func save_file():
 		"anon_status" : anon_status,
 		"best_time" : best_time,
 		"level_unlocked" : level_unlocked,
+		"level_finished" : level_finished,
 		"player_name":player_name
+	}
+	var jstr = JSON.stringify(data)
+	file.store_line(jstr)
+
+func create_new_save_file(id):
+	print(SAVE_PATH+str(id)+".txt")
+	var file = FileAccess.open(SAVE_PATH+str(id)+".txt", FileAccess.WRITE)
+	var data : Dictionary = {
+		"anon_status" : ["-","-","-",'-'],
+		"best_time" : ["-","-","-",'-'],
+		"level_unlocked" : [true, false,false, false],
+		"level_finished" : [false,false,false,false],
+		"player_name": "player_name"
 	}
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
@@ -52,3 +66,5 @@ func load_file(id_selected):
 				player_name = current_line["player_name"]
 				level_finished=current_line['level_finished']
 				current_save_id = id_selected
+			return true
+	return false

@@ -36,7 +36,6 @@ func _process(_delta):
 	elif _select_level_displayed:
 		if GameManager.level_unlocked[3]:
 			level_grid.set("theme_override_constants/separation",  lerp(level_grid.get("theme_override_constants/separation"),40,0.04))
-			$TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton4.right = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton5
 		level_grid.set("theme_override_constants/separation",  lerp(level_grid.get("theme_override_constants/separation"),80,0.04))
 		_handle_change_selected()
 		_handle_select()
@@ -76,8 +75,10 @@ func _set_up_saveselect():
 	for i in range(len(saves)):
 		var save = saves[i]
 		var save_info = GameManager.load_file_info(i)
+		
+		save.set_default(i, save_info['exist'])
 		if save_info['exist']:
-			save.set_status(i, save_info["level_finished"], save_info['player_name'])
+			save.set_status(save_info["level_finished"], save_info['player_name'])
 	
 	for i in range(0,2):
 		await get_tree().create_timer(0.1).timeout
@@ -96,8 +97,6 @@ func _set_up_levelselect():
 	
 	for i in range(len(levels)):
 		levels[i].set_status(GameManager.anon_status[i], GameManager.best_time[i],GameManager.level_unlocked[i])
-		if not GameManager.level_unlocked[i]:
-			levels[i].disable_level()
 	
 	for i in range(0,2):
 		await get_tree().create_timer(0.1).timeout
@@ -106,6 +105,8 @@ func _set_up_levelselect():
 		level_select.modulate=Color(1, 1, 1, 1)
 	await get_tree().create_timer(1).timeout
 	if GameManager.level_unlocked[3]:
+		$TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton.left = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton5
+		$TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton4.right = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton5
 		level_4.visible=true
 		await get_tree().create_timer(0.1).timeout
 		level_4.modulate=Color(1, 1, 1, 0)
@@ -113,6 +114,8 @@ func _set_up_levelselect():
 		level_4.modulate=Color(1, 1, 1, 1)
 
 func _on_savebutton_button_up(id):
-	GameManager.load_file(id)
+	var success = GameManager.load_file(id)
+	if not success:
+		GameManager.create_new_save_file(id)
 	_set_up_levelselect()
 	$TabContainer.current_tab=2
