@@ -15,7 +15,6 @@ func _on_timer_timeout():
 	onfire = true
 	anim_player.play("fire_on")
 	var overlappings = fire_wall_aoe.get_overlapping_bodies()
-	print(overlappings)
 	if len(overlappings)!=0:
 		check_for_kill()
 	await anim_player.animation_finished

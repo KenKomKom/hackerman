@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+class_name Player
 
 @onready var ray = $RayCast3D
 @onready var animated_sprite = $MeshInstance3D/AnimatedSprite3D

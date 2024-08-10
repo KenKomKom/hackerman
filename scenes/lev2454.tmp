@@ -82,6 +82,7 @@ occluder = SubResource("QuadOccluder3D_spayv")
 bake_mask = 4294967292
 
 [node name="DialogueManager" parent="." instance=ExtResource("6_17514")]
+visible = false
 
 [node name="LevelScan" parent="." node_paths=PackedStringArray("end_target") instance=ExtResource("5_wp7fa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78627, -0.610539, -2.4043)
