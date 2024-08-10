@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnymkcyljhsk6"]
+
+[ext_resource type="Script" path="res://scripts/savebutton.gd" id="1_pbs4x"]
+[ext_resource type="Texture2D" uid="uid://b5vcqd6x3cx7p" path="res://2dassets/save/file folder/nosave.png" id="2_ilgsq"]
+[ext_resource type="FontFile" uid="uid://h4fgd4kgv6bo" path="res://font/MonomaniacOne-Regular.ttf" id="3_15158"]
+[ext_resource type="Texture2D" uid="uid://b4o3uy5offe6d" path="res://2dassets/level_ui/selec.png" id="4_n32nt"]
+
+[node name="savebutton" type="Button"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -4.0
+offset_right = 4.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+focus_mode = 0
+disabled = true
+flat = true
+script = ExtResource("1_pbs4x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.5
+offset_right = 182.5
+offset_bottom = 363.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ilgsq")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_15158")
+theme_override_font_sizes/font_size = 48
+text = "New Folder"
+horizontal_alignment = 1
+
+[node name="selected" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_top = -15.0
+offset_right = 204.0
+offset_bottom = 307.0
+grow_horizontal = 2
+texture = ExtResource("4_n32nt")
+
+[connection signal="button_up" from="." to="." method="on_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer" to="." method="_on_v_box_container_mouse_exited"]

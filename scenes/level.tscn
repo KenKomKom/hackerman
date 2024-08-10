@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b53eojuvl0058"]
+[gd_scene load_steps=20 format=3 uid="uid://b53eojuvl0058"]
 
 [ext_resource type="Script" path="res://scripts/abstract_level.gd" id="1_ljq10"]
 [ext_resource type="PackedScene" uid="uid://phh0wi1xv21q" path="res://scenes/player.tscn" id="1_uy4xc"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3udjpxagacjq" path="res://scenes/level_scan.tscn" id="5_wp7fa"]
 [ext_resource type="PackedScene" uid="uid://bpgprrhaxtrvb" path="res://scenes/dialogue_manager.tscn" id="6_17514"]
 [ext_resource type="PackedScene" uid="uid://der7mnuhoefpo" path="res://scenes/enemy.tscn" id="7_8qwws"]
+[ext_resource type="PackedScene" uid="uid://uo1v22d2qujk" path="res://scenes/playerskill_ui.tscn" id="7_djnjv"]
 [ext_resource type="PackedScene" uid="uid://c6ce1pduy55fj" path="res://scenes/firewall.tscn" id="8_hfeuh"]
 
 [sub_resource type="Environment" id="Environment_eaoja"]
@@ -83,8 +84,9 @@ bake_mask = 4294967292
 
 [node name="DialogueManager" parent="." instance=ExtResource("6_17514")]
 
-[node name="LevelScan" parent="." node_paths=PackedStringArray("end_target") instance=ExtResource("5_wp7fa")]
+[node name="LevelScan" parent="." node_paths=PackedStringArray("safe_spaces", "end_target") instance=ExtResource("5_wp7fa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78627, -0.610539, -2.4043)
+safe_spaces = [NodePath("../safespace")]
 end_target = NodePath("../Marker3D")
 speed = 10.0
 wait_time = 2.0
@@ -100,6 +102,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06002, -0.610539, -2.4043)
 motion_mode = 0
 animation_speed = 1.0
 tile_size = 1.0
+
+[node name="playerskill_ui" parent="player" instance=ExtResource("7_djnjv")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0184076, 0)
