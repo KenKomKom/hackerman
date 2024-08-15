@@ -31,13 +31,14 @@ func on_button_up():
 		# TODO Kalo udh set up semua level ganti ke ini
 		#TransitionLayer.change_scene("res://scenes/level"+str(id)+".tscn") 
 
-func disable_level():
-	$disable.visible=true
+func _disable_level(status):
+	$disable.visible=not status
 
 func set_status(new_anon, new_time, unlocked):
 	label_anon_status.text = new_anon
 	label_time_status.text = new_time
 	_unlocked = unlocked
+	_disable_level(_unlocked)
 
 func set_selected(status):
 	$selected.visible=status
