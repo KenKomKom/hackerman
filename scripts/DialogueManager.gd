@@ -3,9 +3,10 @@ extends CanvasLayer
 @onready var textbox = $textbox
 
 func _ready():
-	GlobalEvent.connect("start_dialogue",load_dialog)
+	GlobalEvent.connect("start_dialogue",_load_dialog)
 
-func load_dialog(file_path, player_name="Joni"):
+# Masukin text ke dialog
+func _load_dialog(file_path, player_name="Joni"):
 	textbox.visible=true
 	
 	if FileAccess.file_exists(file_path):
@@ -15,7 +16,7 @@ func load_dialog(file_path, player_name="Joni"):
 		if parsedFile is Array:
 			for line in parsedFile:
 				line["dialogue"] = line["dialogue"].replace("{nama}", player_name)
-				line["dialogue"] = fix_length(line["dialogue"])
+				line["dialogue"] = _fix_length(line["dialogue"])
 				textbox.display_line(line["nama"], line["dialogue"], line["emosi"])
 				await textbox.go_to_next_line
 			textbox.visible=false
@@ -26,7 +27,8 @@ func load_dialog(file_path, player_name="Joni"):
 	else:
 		print("file not exists")
 
-func fix_length(string : String):
+# Betulin string biar gk bocor dari textbox
+func _fix_length(string : String):
 	var start=0
 	var split=false
 	while not split:

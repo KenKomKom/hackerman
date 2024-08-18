@@ -12,6 +12,7 @@ var player_idle=true
 func _ready():
 	GlobalEvent.connect("player_move", handle_player_move)
 
+# Follow target umumnya player
 func _physics_process(delta):
 	if player_idle:
 		relative= lerp(relative,0.0,0.1)
@@ -22,6 +23,7 @@ func _physics_process(delta):
 		global_position.x = (lerp(global_position.x, target.global_position.x+5, delta*speed))
 		global_position.z = (lerp(global_position.z+(relative*0.1), target.global_position.z, delta*speed))
 
+# Offset camera kalo di kejar
 func handle_player_move(dir):
 	reset_rotation_timer.start()
 	if GameManager.player_chased and dir=="left":

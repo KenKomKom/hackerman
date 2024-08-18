@@ -34,12 +34,14 @@ func _physics_process(delta):
 
 func move(delta):
 	if moving:
+		# Animasiin pergerakannya
 		ease_move-=delta
 		global_position = lerp(global_position,target_position_after_move,0.2)
 		if (global_position-target_position_after_move).length()<0.08:
 			global_position=target_position_after_move
 			moving=false
 	elif is_active:
+		# Terima input dari user buat arah gerak
 		for dir in inputs.keys():
 			if dir!="stand" and Input.is_action_pressed(dir):
 				last_dir=dir
@@ -47,10 +49,12 @@ func move(delta):
 
 func step(dir):
 	if moving:
+		# Set up coyote move -> cari di google coyote jump
 		ease_move = 0.02
 		forced_dir = dir
 		return
 	
+	# Set raycast ke arah gerak pemain
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
 	
@@ -58,6 +62,7 @@ func step(dir):
 	
 	# gak gerak tapi user ada sisa input tengah pergerakan sebelumnya
 	if not moving and ease_move > 0:
+		# Gerak kalo raycat gk ketemu apapun
 		if !ray.is_colliding():
 			moving=true
 			ease_move=0
@@ -87,6 +92,7 @@ func animate_movement(_dir, _is_moving):
 		#elif dir == "up":
 			#animated_sprite.play("idle")
 
+# Fog of war abal abal
 func _on_area_3d_body_entered(body):
 	body.set_visible_by_cam(true)
 

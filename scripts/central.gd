@@ -3,8 +3,7 @@ extends Area3D
 class_name Central
 
 @export var enemy_array: Array[Enemy] = []
-@export var player : Node3D
-	
+
 func _ready():
 	#Tries to subscribe registered enemies to Central
 	for enemy in enemy_array:
@@ -13,7 +12,7 @@ func _ready():
 
 func _on_body_entered(body):
 	#TODO: Mini-Game hack hivemin(?)
-	if(player.name != body.name): return
+	if body is Player : return
 	
 	#unsub
 	delete_central_func()
@@ -21,6 +20,7 @@ func _on_body_entered(body):
 	queue_free()
 	
 
+# Send Signal ke robot di array lokasi terakhir player
 func send_alert_signal():
 	# Tries to Send Alerted signal to all registered enemies in array
 	# ini agak wacky karena selalu triggered di array idx 0
@@ -31,7 +31,7 @@ func send_alert_signal():
 		#TODO: Gantiin ini ke enemy-ny ke last know position dari player
 		enemy.change_current_state(enemy.current_state.next_target[0])
 
-
+# Run ketika central rusak
 func delete_central_func():
 	for enemy in enemy_array:
 		enemy.unsubscribe_to_central()
