@@ -15,14 +15,12 @@ var _dir
 var _movement_vector_length = 1
 var can_move = true
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	_start_pos=global_position
 	_dir = (end_target.global_position-_start_pos).normalized()
 	trigger.body_entered.connect(_player_entered)
 	timer.wait_time=wait_time
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if (abs(global_position-end_target.global_position).length()<0.1):
 		global_position=_start_pos
@@ -34,6 +32,7 @@ func _physics_process(delta):
 		velocity=Vector3.ZERO
 	move_and_slide()
 
+# Cek apakah player aman saat kena scan
 func _player_entered(body:Player):
 	var safe = false
 	for safe_space:Node3D in safe_spaces:
@@ -44,5 +43,6 @@ func _player_entered(body:Player):
 		print("player entered moving scan")
 	return safe
 
+# Lari lagi kalo udh timeout
 func _on_timer_timeout():
 	can_move=true

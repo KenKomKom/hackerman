@@ -3,10 +3,11 @@ extends CanvasLayer
 @onready var textbox = $textbox
 
 func _ready():
-	GlobalEvent.connect("start_dialogue",load_dialog)
+	GlobalEvent.connect("start_dialogue", _load_dialog)
 	GlobalEvent.emit_signal("start_dialogue","res://dialogue/level 1/dialogue 1-ingame end.json")
 
-func load_dialog(file_path, player_name="Joni"):
+# Masukin text ke dialog
+func _load_dialog(file_path, player_name="Joni"):
 	textbox.visible=true
 	if FileAccess.file_exists(file_path):
 		var dataFile = FileAccess.open(file_path, FileAccess.READ)
@@ -17,7 +18,7 @@ func load_dialog(file_path, player_name="Joni"):
 				print(line)
 				line["dialogue"] = line["dialogue"].replace("{name}", player_name)
 				
-				#ubah warna
+				#ubah warna, replace nama jadi hexcode
 				line["dialogue"] = line["dialogue"].replace("[color=hackerman]", "[color=#80E6ED]")
 				line["dialogue"] = line["dialogue"].replace("[color=shadow]", "[color=#D458FF]")
 				if(line["nama"] == "h"): 
@@ -38,7 +39,8 @@ func load_dialog(file_path, player_name="Joni"):
 	else:
 		print("file not exists")
 
-func fix_length(string : String):
+# Betulin string biar gk bocor dari textbox
+func _fix_length(string : String):
 	var start=0
 	var split=false
 	while not split:

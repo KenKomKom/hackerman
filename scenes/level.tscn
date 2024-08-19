@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b53eojuvl0058"]
+[gd_scene load_steps=22 format=3 uid="uid://b53eojuvl0058"]
 
 [ext_resource type="Script" path="res://scripts/abstract_level.gd" id="1_ljq10"]
 [ext_resource type="PackedScene" uid="uid://phh0wi1xv21q" path="res://scenes/player.tscn" id="1_uy4xc"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://der7mnuhoefpo" path="res://scenes/enemy.tscn" id="7_8qwws"]
 [ext_resource type="PackedScene" uid="uid://uo1v22d2qujk" path="res://scenes/playerskill_ui.tscn" id="7_djnjv"]
 [ext_resource type="PackedScene" uid="uid://c6ce1pduy55fj" path="res://scenes/firewall.tscn" id="8_hfeuh"]
+[ext_resource type="PackedScene" uid="uid://bby81bhqf480q" path="res://scenes/startui.tscn" id="12_crgon"]
+[ext_resource type="PackedScene" uid="uid://q4fn0h3q2til" path="res://scenes/death_screen.tscn" id="13_mrafn"]
 
 [sub_resource type="Environment" id="Environment_eaoja"]
 background_mode = 1
@@ -159,3 +161,7 @@ movement_target = NodePath("../../player")
 [node name="enemy_shield" parent="robots" node_paths=PackedStringArray("movement_target") instance=ExtResource("7_8qwws")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.627195, 4.35656)
 movement_target = NodePath("../../player")
+
+[node name="startui" parent="." instance=ExtResource("12_crgon")]
+
+[node name="DeathScreen" parent="." instance=ExtResource("13_mrafn")]

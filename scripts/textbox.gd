@@ -13,6 +13,7 @@ var rng:= RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 
+# Munculin satu satu huruf nya
 func display_line(nama: String, dialogue:String, emosi):
 	still_typing=true
 	dialogue_label.visible_ratio=0.0
@@ -36,6 +37,7 @@ func display_line(nama: String, dialogue:String, emosi):
 	still_typing=false
 	$MarginContainer.visible = true
 
+# Terima inout user buat lanjutin dialog
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept") and still_typing:
 		dialogue_label.visible_ratio=1

@@ -11,19 +11,20 @@ func _ready():
 	position.z = position.snapped(Vector3.ONE * tile_size).z
 	position += Vector3(1,0,1) * tile_size / 2
 
+# Mainin animasi tiap timer timeout
 func _on_timer_timeout():
 	onfire = true
 	anim_player.play("fire_on")
-	var overlappings = fire_wall_aoe.get_overlapping_bodies()
-	if len(overlappings)!=0:
-		check_for_kill()
 	await anim_player.animation_finished
 	onfire = false
 	timer.start()
 
+# saat player masuk ke firewall
 func _on_firewall_aoe_body_entered(body):
-	check_for_kill()
+	var player_is_dead = _check_for_kill()
+	GlobalEvent.emit_signal("player_is_dead")
 
-func check_for_kill():
-	if onfire: # TODO make legit dead cycle
-		TransitionLayer.change_scene("res://scenes/main_menu.tscn")
+# cek mati apa gk si pemain
+func _check_for_kill():
+	if onfire:
+		return true

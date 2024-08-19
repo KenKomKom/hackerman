@@ -10,7 +10,6 @@ func ready_state():
 		Color("34240f"),
 		1
 	)
-	#parent_enemy.mesh_node.get_surface_override_material(0).emission = Color("34240f")
 
 func do_something(delta):
 	if (parent_enemy.movement_target_position-parent_enemy.global_position).length()<3:

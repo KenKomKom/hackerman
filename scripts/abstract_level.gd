@@ -6,6 +6,7 @@ extends Node3D
 func _ready():
 	GlobalEvent.emit_signal("start_dialogue", "res://testing.json")
 
+# Atur camera
 func _process(delta):
 	if Input.is_action_just_released("camera"):
 		if main_camera.current:

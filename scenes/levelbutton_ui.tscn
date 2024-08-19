@@ -25,8 +25,6 @@ focus_mode = 0
 flat = true
 expand_icon = true
 script = ExtResource("1_8ducd")
-level_name = "WAITLIST GENERAL"
-hex_color = "FF62D2"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 show_behind_parent = true
