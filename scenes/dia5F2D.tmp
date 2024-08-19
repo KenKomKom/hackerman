@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpgprrhaxtrvb"]
+
+[ext_resource type="Script" path="res://scripts/DialogueManager.gd" id="1_7hnui"]
+[ext_resource type="PackedScene" uid="uid://yv225f5s5pkx" path="res://scenes/textbox.tscn" id="2_w3d0c"]
+
+[node name="DialogueManager" type="CanvasLayer"]
+script = ExtResource("1_7hnui")
+
+[node name="textbox" parent="." instance=ExtResource("2_w3d0c")]
+visible = false
