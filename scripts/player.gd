@@ -35,7 +35,7 @@ func _physics_process(delta):
 
 func look_towards(dir:Vector3):
 	var rad = atan2(-dir.z,dir.x) + (PI/2)
-	print(rad_to_deg(rad))
+	#print(rad_to_deg(rad))
 	#mesh_node.rotation = Vector3(0,rad_to_deg((rad)),0)
 	var q = Quaternion(Vector3.UP, rad)
 	var tween = create_tween()
@@ -91,7 +91,7 @@ func step(dir):
 			ease_move=0
 			animate_movement(forced_dir, true)
 			target_position_after_move = global_position + inputs[forced_dir] * tile_size
-	
+	print(ray.get_collider())
 	# gak gerak
 	if not moving:
 		if !ray.is_colliding():

@@ -3,7 +3,8 @@ extends CanvasLayer
 @onready var textbox = $textbox
 
 func _ready():
-	GlobalEvent.connect("start_dialogue",_load_dialog)
+	GlobalEvent.connect("start_dialogue", _load_dialog)
+	GlobalEvent.emit_signal("start_dialogue","res://dialogue/level 1/dialogue 1-ingame end.json")
 
 # Masukin text ke dialog
 func _load_dialog(file_path, player_name="Joni"):
@@ -15,8 +16,19 @@ func _load_dialog(file_path, player_name="Joni"):
 		if parsedFile is Array:
 			for line in parsedFile:
 				print(line)
-				line["dialogue"] = line["dialogue"].replace("{nama}", player_name)
-				line["dialogue"] = _fix_length(line["dialogue"])
+				line["dialogue"] = line["dialogue"].replace("{name}", player_name)
+				
+				#ubah warna, replace nama jadi hexcode
+				line["dialogue"] = line["dialogue"].replace("[color=hackerman]", "[color=#80E6ED]")
+				line["dialogue"] = line["dialogue"].replace("[color=shadow]", "[color=#D458FF]")
+				if(line["nama"] == "h"): 
+					line["dialogue"] = line["dialogue"].replace("[color=whisper]", "[color=#9D96FF]")
+				else:
+					line["dialogue"] = line["dialogue"].replace("[color=whisper]", "[color=#B274D7]")
+				line["dialogue"] = line["dialogue"].replace("[color=hint]", "[color=#FFCF55]")
+				line["dialogue"] = line["dialogue"].replace("[color=obstacle]", "[color=#FF5D97]")
+				
+				#line["dialogue"] = fix_length(line["dialogue"])
 				textbox.display_line(line["nama"], line["dialogue"], line["emosi"])
 				await textbox.go_to_next_line
 			textbox.visible=false

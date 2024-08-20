@@ -1,0 +1,22 @@
+[
+    {
+        "nama":"h",
+        "dialogue":"The primary objective is the hospital’s core database, right?.",
+        "emosi":"default"
+    },
+    {
+        "nama":"h",
+        "dialogue":"Wait, so all the medical records of all patients of this hospital’s will be...",
+        "emosi":"shock"
+    },
+    {
+        "nama":"h",
+        "dialogue":"Nah, it's too late to back down now... and it’s not like I have any other options.",
+        "emosi":"sad"
+    },
+    {
+        "nama":"h",
+        "dialogue":"The database should be [color=hint]located to the north from here[/color].",
+        "emosi":"shock"
+    }
+]

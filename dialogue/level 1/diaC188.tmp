@@ -1,0 +1,97 @@
+[
+	{
+		"nama":"sh",
+		"dialogue":"Have you received the attachment?",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Yes I have, Mr...?",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Please, [color=hackerman]{name}[/color], you should know better than anyone that this line of work requires anonymity.",
+		"emosi":"laugh"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Uhm, doesn’t stop you from asking my alias though.",
+		"emosi":"eyeroll"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Well I am the client here, the one paying your bills.",
+		"emosi":"serious"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"But if you really need a name, just call me [color=shadow]Shadow[/color].",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"[color=whisper]That’s so edgy…[/color]",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"What about pronouns?",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Look that really does not matter okay! Now did you, or did u not receive the attachment?",
+		"emosi":"angry"
+	},
+	{
+		"nama":"h",
+		"dialogue":"I did, it’s the private hospital right?",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Yeah, the one that mugged me off cause I couldn’t use my BPJS-",
+		"emosi":"angry"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"S : Anyways, I’ve heard great things about you, [color=hackerman]{name}[/color].",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Complete the job flawlessly and you’ll be rewarded handsomely, how generous I am! Ho Ho Ho",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"[color=whisper]Who even tries using BPJS at a private hospital[/color]",
+		"emosi":"eyeroll"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Oh yes, I'll get this over in a flash!",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"I’ll help you out as soon as you have the data ready, so you don’t need to worry about that. I’m such a noble soul, aren’t I?",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Sure, anything you say, [color=shadow]Shadow[/color]...",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"[color=whisper]Taking sensitive medical information is kinda sussy, but I guess I have to since he’s offering a lot for this job.[/color]",
+		"emosi":"eyeroll"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Better get going then.",
+		"emosi":"default"
+	}
+]
