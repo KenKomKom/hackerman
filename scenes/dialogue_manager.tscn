@@ -7,3 +7,4 @@
 script = ExtResource("1_7hnui")
 
 [node name="textbox" parent="." instance=ExtResource("2_w3d0c")]
+visible = false
