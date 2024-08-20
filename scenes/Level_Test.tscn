@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bpgprrhaxtrvb" path="res://scenes/dialogue_manager.tscn" id="2_pr5oa"]
 [ext_resource type="PackedScene" uid="uid://phh0wi1xv21q" path="res://scenes/player.tscn" id="3_l5ybi"]
 [ext_resource type="Texture2D" uid="uid://dwd2ysac8sllj" path="res://2dassets/grid.png" id="4_rbhdx"]
-[ext_resource type="PackedScene" uid="uid://der7mnuhoefpo" path="res://scenes/enemy.tscn" id="5_6dvog"]
+[ext_resource type="PackedScene" uid="uid://der7mnuhoefpo" path="res://scenes/guards/enemy.tscn" id="5_6dvog"]
 [ext_resource type="PackedScene" uid="uid://krvp7dlad7mh" path="res://scenes/Scenes_kael/central.tscn" id="6_8dvtx"]
 [ext_resource type="PackedScene" uid="uid://bby81bhqf480q" path="res://scenes/startui.tscn" id="7_2xxsu"]
 

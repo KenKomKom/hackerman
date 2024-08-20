@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://pam3eg35uuji"]
 
-[ext_resource type="PackedScene" uid="uid://dug70qnbfw4f3" path="res://3dassets/char/robot/shield.glb" id="1_me0id"]
-[ext_resource type="Script" path="res://scripts/enemy_mesh.gd" id="2_n2e04"]
+[ext_resource type="PackedScene" uid="uid://dug70qnbfw4f3" path="res://3dassets/char/robot/shield.glb" id="1_r2g1c"]
+[ext_resource type="Script" path="res://scripts/enemy_mesh.gd" id="2_lnqvb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgc70"]
 transparency = 1
@@ -52,9 +52,9 @@ _data = {
 "idle": SubResource("Animation_omy3e")
 }
 
-[node name="shield" instance=ExtResource("1_me0id")]
+[node name="shield" instance=ExtResource("1_r2g1c")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-script = ExtResource("2_n2e04")
+script = ExtResource("2_lnqvb")
 
 [node name="shield body" parent="." index="0"]
 layers = 4

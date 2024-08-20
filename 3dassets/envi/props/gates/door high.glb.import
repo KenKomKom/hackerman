@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c1divhi8mbgn2"
-path="res://.godot/imported/wall.glb-add2cbdad0c6df03d3e6c47c3c28cfc3.scn"
+uid="uid://c8tmfr8rkjesq"
+path="res://.godot/imported/door high.glb-9207d07ebe1e915eeabce31198c08ccb.scn"
 
 [deps]
 
-source_file="res://3dassets/envi/wall.glb"
-dest_files=["res://.godot/imported/wall.glb-add2cbdad0c6df03d3e6c47c3c28cfc3.scn"]
+source_file="res://3dassets/envi/props/gates/door high.glb"
+dest_files=["res://.godot/imported/door high.glb-9207d07ebe1e915eeabce31198c08ccb.scn"]
 
 [params]
 

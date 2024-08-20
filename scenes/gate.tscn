@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b58xcu5tyxnqa"]
+
+[ext_resource type="Script" path="res://scripts/gates.gd" id="1_kht5m"]
+[ext_resource type="PackedScene" uid="uid://dwagui8hwwald" path="res://scenes/door_high.tscn" id="2_mmiy8"]
+
+[node name="gate" type="Node3D"]
+script = ExtResource("1_kht5m")
+
+[node name="door high" parent="." instance=ExtResource("2_mmiy8")]

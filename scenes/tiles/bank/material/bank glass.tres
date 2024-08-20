@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dvyv0sbgs0xns"]
+
+[resource]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(0.458824, 0.309804, 0.223529, 0.823529)
+refraction_enabled = true
+proximity_fade_distance = 0.5

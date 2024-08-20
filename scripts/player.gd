@@ -35,7 +35,7 @@ func _physics_process(delta):
 
 func look_towards(dir:Vector3):
 	var rad = atan2(-dir.z,dir.x) + (PI/2)
-	print(rad_to_deg(rad))
+	#print(rad_to_deg(rad))
 	#mesh_node.rotation = Vector3(0,rad_to_deg((rad)),0)
 	var q = Quaternion(Vector3.UP, rad)
 	var tween = create_tween()
