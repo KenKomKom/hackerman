@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c1divhi8mbgn2"
-path="res://.godot/imported/wall.glb-add2cbdad0c6df03d3e6c47c3c28cfc3.scn"
+uid="uid://msmmt2dlb82l"
+path="res://.godot/imported/floor.fbx-20d179ec8e2031cd16e50402124049a9.scn"
 
 [deps]
 
-source_file="res://3dassets/envi/wall.glb"
-dest_files=["res://.godot/imported/wall.glb-add2cbdad0c6df03d3e6c47c3c28cfc3.scn"]
+source_file="res://floor.fbx"
+dest_files=["res://.godot/imported/floor.fbx-20d179ec8e2031cd16e50402124049a9.scn"]
 
 [params]
 
@@ -27,10 +27,11 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
