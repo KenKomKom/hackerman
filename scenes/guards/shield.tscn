@@ -57,7 +57,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("2_lnqvb")
 
 [node name="shield body" parent="." index="0"]
-layers = 4
+layers = 5
 surface_material_override/0 = SubResource("StandardMaterial3D_xgc70")
 surface_material_override/1 = SubResource("StandardMaterial3D_jdox4")
 

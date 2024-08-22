@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b53eojuvl0058"]
+[gd_scene load_steps=25 format=3 uid="uid://b53eojuvl0058"]
 
 [ext_resource type="Script" path="res://scripts/abstract_level.gd" id="1_ljq10"]
 [ext_resource type="PackedScene" uid="uid://phh0wi1xv21q" path="res://scenes/player.tscn" id="1_uy4xc"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://c6ce1pduy55fj" path="res://scenes/firewall.tscn" id="8_hfeuh"]
 [ext_resource type="PackedScene" uid="uid://bby81bhqf480q" path="res://scenes/startui.tscn" id="12_crgon"]
 [ext_resource type="PackedScene" uid="uid://q4fn0h3q2til" path="res://scenes/death_screen.tscn" id="13_mrafn"]
-[ext_resource type="PackedScene" uid="uid://b58xcu5tyxnqa" path="res://scenes/gate.tscn" id="14_fvxtt"]
+[ext_resource type="PackedScene" uid="uid://dwagui8hwwald" path="res://scenes/door_high.tscn" id="14_xnq5j"]
+[ext_resource type="PackedScene" uid="uid://bll3456o0qb1r" path="res://scenes/door_medium.tscn" id="15_m0y2e"]
+[ext_resource type="PackedScene" uid="uid://briq8hmllh7e0" path="res://scenes/door_low.tscn" id="16_c8lpe"]
 
 [sub_resource type="Environment" id="Environment_eaoja"]
 background_mode = 1
@@ -168,5 +170,13 @@ movement_target = NodePath("../../player")
 [node name="DeathScreen" parent="." instance=ExtResource("13_mrafn")]
 visible = false
 
-[node name="gate" parent="." instance=ExtResource("14_fvxtt")]
+[node name="door high" parent="." instance=ExtResource("14_xnq5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, 1.5)
+visible = false
+
+[node name="door medium" parent="." instance=ExtResource("15_m0y2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, 1.5)
+visible = false
+
+[node name="door low" parent="." instance=ExtResource("16_c8lpe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, 1.5)

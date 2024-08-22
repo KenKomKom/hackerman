@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgs8xoxmee1by"
+uid="uid://bib54f7fmj1m"
 path.s3tc="res://.godot/imported/door medium_door med_door med_Emissive.jpg-86ce356062d5feea649f7b12651be398.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "1f9b0ff44cb0c4b03ced3206056a7b8c"
+"md5": "73c38d3c6304b135110e45d1811b2259"
 }
 
 [deps]

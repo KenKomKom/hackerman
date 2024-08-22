@@ -55,9 +55,9 @@ func look_towards(dir:Vector3):
 	)
 
 # Matiin mesh kalo zoom out sama nyalain legenda buat peta zoomout
-func set_visible_by_cam(status):
-	instance_on_cam.set_layer_mask_value(1,status)
-	mesh_node.get_parent().make_visible_on_zoom_out(status)
+#func set_visible_by_cam(status):
+	#instance_on_cam.set_layer_mask_value(1,status)
+	#mesh_node.get_parent().make_visible_on_zoom_out(status)
 
 # Di call pas central run buat Konekin robot
 func subscribe_to_central(ctrl : Central):

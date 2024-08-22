@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmwsm1p7nrhjt"
+uid="uid://cmg8h0jbpn1ca"
 path.s3tc="res://.godot/imported/door low_door low_door low_BaseColor.jpg-a66951f59efac59615a7320ebfffe9ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a0a1d345967bc18121111c7bbb38f78d"
+"md5": "58292ff173d2bfb45e1abbcb48fdada9"
 }
 
 [deps]

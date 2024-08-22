@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cun28y4re4n12"
+uid="uid://1d4tph5pk4kv"
 path.s3tc="res://.godot/imported/door medium_door med_door med_BaseColor.jpg-f537b11bffa50287f5a640c911245b71.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ce085069ce2f0f9324c3eb93f7188cd8"
+"md5": "115311abfa221c42122ee5dc6f783cee"
 }
 
 [deps]

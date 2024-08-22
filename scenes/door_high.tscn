@@ -48,6 +48,3 @@ layers = 4
 
 [node name="door frame_015" parent="door frame_005" index="1"]
 layers = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-root_node = NodePath("../door frame_005/door frame_004")
