@@ -114,8 +114,8 @@ func animate_movement(_dir, _is_moving):
 			#animated_sprite.play("idle")
 
 # Fog of war abal abal
-func _on_area_3d_body_entered(body):
-	body.set_visible_by_cam(true)
-
-func _on_area_3d_body_exited(body):
-	body.set_visible_by_cam(false)
+#func _on_area_3d_body_entered(body):
+	#body.set_visible_by_cam(true)
+#
+#func _on_area_3d_body_exited(body):
+	#body.set_visible_by_cam(false)

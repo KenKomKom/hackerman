@@ -19,7 +19,7 @@ material = SubResource("StandardMaterial3D_3kx73")
 size = Vector2(1, 1)
 
 [node name="enemy_shield" type="CharacterBody3D" node_paths=PackedStringArray("current_state") groups=["Guard"]]
-collision_layer = 4
+collision_layer = 5
 script = ExtResource("1_fulge")
 current_state = NodePath("states/idle")
 
