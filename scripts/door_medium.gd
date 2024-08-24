@@ -27,24 +27,26 @@ func _ready():
 	$Area3D.body_exited.connect(_on_body_exited)
 	
 	#setup material
+	var level: int = get_parent().get_parent().id
+	
 	var hospital_path:= "res://3dassets/envi/props/gates/medium/door_medium_hospital.tres"
 	var bank_path:= "res://3dassets/envi/props/gates/medium/door_medium_bank.tres"
 	var ministry_path:= "res://3dassets/envi/props/gates/medium/door_medium_ministry.tres"
 	var shadow_path:= "res://3dassets/envi/props/gates/medium/door_medium_shadow.tres"
 	
-	if(get_parent().get_parent().id == 1):
+	if(level == 1):
 		$"door frame".material_override = load(hospital_path)
 		$"door frame/door left_003".material_override = load(hospital_path)
 		$"door frame/door right_003".material_override = load(hospital_path)
-	elif(get_parent().get_parent().id == 2):
+	elif(level == 2):
 		$"door frame".material_override = load(bank_path)
 		$"door frame/door left_003".material_override = load(bank_path)
 		$"door frame/door right_003".material_override = load(bank_path)
-	elif(get_parent().get_parent().id == 3):
+	elif(level == 3):
 		$"door frame".material_override = load(ministry_path)
 		$"door frame/door left_003".material_override = load(ministry_path)
 		$"door frame/door right_003".material_override = load(ministry_path)
-	elif(get_parent().get_parent().id == 4):
+	elif(level == 4):
 		$"door frame".material_override = load(shadow_path)
 		$"door frame/door left_003".material_override = load(shadow_path)
 		$"door frame/door right_003".material_override = load(shadow_path)
@@ -68,6 +70,11 @@ func close_gate():
 	if !unlocked and is_open:
 		is_open = false
 		$StaticBody3D/CollisionShape3D.set_deferred("disabled", false)
+
+func interact():
+	unlocked = true
+	open_gate()
+	pass
 
 func is_any_guard_nearby() -> bool:
 	for body in $Area3D.get_overlapping_bodies():

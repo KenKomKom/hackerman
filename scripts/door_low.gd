@@ -27,24 +27,26 @@ func _ready():
 	$Area3D.body_exited.connect(_on_body_exited)
 	
 	#setup material
+	var level: int = get_parent().get_parent().id
+	
 	var hospital_path:= "res://3dassets/envi/props/gates/low/door_low_hospital.tres"
 	var bank_path:= "res://3dassets/envi/props/gates/low/door_low_bank.tres"
 	var ministry_path:= "res://3dassets/envi/props/gates/low/door_low_ministry.tres"
 	var shadow_path:= "res://3dassets/envi/props/gates/low/door_low_shadow.tres"
 	
-	if(get_parent().get_parent().id == 1):
+	if(level == 1):
 		$"door frame_007".material_override = load(hospital_path)
 		$"door frame_007/door left_002".material_override = load(hospital_path)
 		$"door frame_007/door right_002".material_override = load(hospital_path)
-	elif(get_parent().get_parent().id == 2):
+	elif(level == 2):
 		$"door frame_007".material_override = load(bank_path)
 		$"door frame_007/door left_002".material_override = load(bank_path)
 		$"door frame_007/door right_002".material_override = load(bank_path)
-	elif(get_parent().get_parent().id == 3):
+	elif(level == 3):
 		$"door frame_007".material_override = load(ministry_path)
 		$"door frame_007/door left_002".material_override = load(ministry_path)
 		$"door frame_007/door right_002".material_override = load(ministry_path)
-	elif(get_parent().get_parent().id == 4):
+	elif(level == 4):
 		$"door frame_007".material_override = load(shadow_path)
 		$"door frame_007/door left_002".material_override = load(shadow_path)
 		$"door frame_007/door right_002".material_override = load(shadow_path)

@@ -1,18 +1,21 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctjkqpoeilysg"]
+[gd_scene load_steps=18 format=3 uid="uid://phh0wi1xv21q"]
 
-[ext_resource type="Texture2D" uid="uid://d05e2ajehm0ft" path="res://3dassets/char/hacker/hacker animated_hacker_hacker_BaseColor.jpg" id="1_5jcut"]
-[ext_resource type="Script" path="res://scripts/hacker.gd" id="1_x0il5"]
-[ext_resource type="Texture2D" uid="uid://dxj4bcook351g" path="res://3dassets/char/hacker/hacker animated_hacker_hacker_Emissive.jpg" id="2_furat"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_6ywd8"]
+[ext_resource type="Texture2D" uid="uid://d05e2ajehm0ft" path="res://3dassets/char/hacker/hacker animated_hacker_hacker_BaseColor.jpg" id="3_k6mc0"]
+[ext_resource type="Texture2D" uid="uid://dxj4bcook351g" path="res://3dassets/char/hacker/hacker animated_hacker_hacker_Emissive.jpg" id="4_2ec4m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10vy8"]
+size = Vector3(0.7, 0.618604, 0.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tkb8"]
 resource_name = "hacker.002"
 cull_mode = 2
-albedo_texture = ExtResource("1_5jcut")
+albedo_texture = ExtResource("3_k6mc0")
 roughness = 0.5
 emission_enabled = true
-emission_texture = ExtResource("2_furat")
+emission_texture = ExtResource("4_2ec4m")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_d1pka"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_f2p5t"]
 resource_name = "hacker animated_Circle_020"
 _surfaces = [{
 "aabb": AABB(-0.478044, 0.270177, -0.0332563, 0.956088, 0.059125, 0.0785292),
@@ -32,7 +35,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_fmmb6"]
+[sub_resource type="Skin" id="Skin_h1sxo"]
 resource_name = "Skin"
 bind_count = 31
 bind/0/name = &"mixamorig_Hips"
@@ -129,7 +132,7 @@ bind/30/name = &"mixamorig_LeftUpLeg.R.001"
 bind/30/bone = -1
 bind/30/pose = Transform3D(-0.986059, 0.166417, -3.11034e-10, -2.74895e-07, -3.10545e-08, 1, 0.166417, 0.986056, -8.92e-10, -0.0855888, 0.00622047, -0.00386917)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ehfr3"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_vmjuq"]
 resource_name = "hacker animated_Roundcube_003"
 _surfaces = [{
 "aabb": AABB(-0.132567, 0.479254, -0.090655, 0.265135, 0.308353, 0.245715),
@@ -149,7 +152,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_6qx0f"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_rwwf2"]
 resource_name = "hacker animated_Plane_006"
 _surfaces = [{
 "aabb": AABB(-0.212529, 0.473131, -0.152423, 0.425058, 0.420244, 0.331029),
@@ -169,7 +172,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_tskw1"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_5k0ek"]
 resource_name = "hacker animated_Circle_018"
 _surfaces = [{
 "aabb": AABB(-0.397386, -0.000192459, -0.159045, 0.794772, 0.491674, 0.307104),
@@ -189,7 +192,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_voif8"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_f73p6"]
 resource_name = "hacker animated_Circle_017"
 _surfaces = [{
 "aabb": AABB(-0.1813, 0.39202, -0.125242, 0.362601, 0.144826, 0.26219),
@@ -209,7 +212,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_8sw44"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_dd0lc"]
 resource_name = "hacker animated_Circle_019"
 _surfaces = [{
 "aabb": AABB(-0.0113053, 0.371172, 0.115379, 0.0226107, 0.0274485, 0.0157143),
@@ -1236,12 +1239,32 @@ _data = {
 "Walk": SubResource("Animation_djvgp")
 }
 
-[node name="hacker animated" type="Node3D"]
-script = ExtResource("1_x0il5")
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+motion_mode = 1
+script = ExtResource("1_6ywd8")
 
-[node name="Armature_001" type="Node3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7991, 0)
+light_color = Color(1, 0.627451, 1, 1)
+light_energy = 4.0
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Armature_001"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0, 0.784314, 0.788235, 1)
+light_bake_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0109619, 0)
+shape = SubResource("BoxShape3D_10vy8")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(1, 0, 0)
+collision_mask = 6
+
+[node name="hacker animated" type="Node3D" parent="."]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="hacker animated"]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0.999953, -0.00969276, 0, 0.00969276, 0.999953, 5.96047e-09, 0.162443, -0.0023613)
@@ -1460,29 +1483,29 @@ bones/30/position = Vector3(9.06766e-10, 0.103829, -7.09178e-10)
 bones/30/rotation = Quaternion(0.712256, 7.00521e-07, -0.00172009, 0.701918)
 bones/30/scale = Vector3(1, 1, 1)
 
-[node name="hand_003" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]
-mesh = SubResource("ArrayMesh_d1pka")
-skin = SubResource("Skin_fmmb6")
+[node name="hand_003" type="MeshInstance3D" parent="hacker animated/Skeleton3D"]
+mesh = SubResource("ArrayMesh_f2p5t")
+skin = SubResource("Skin_h1sxo")
 
-[node name="head_003" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]
-mesh = SubResource("ArrayMesh_ehfr3")
-skin = SubResource("Skin_fmmb6")
+[node name="head_003" type="MeshInstance3D" parent="hacker animated/Skeleton3D"]
+mesh = SubResource("ArrayMesh_vmjuq")
+skin = SubResource("Skin_h1sxo")
 
-[node name="hood_005" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]
-mesh = SubResource("ArrayMesh_6qx0f")
-skin = SubResource("Skin_fmmb6")
+[node name="hood_005" type="MeshInstance3D" parent="hacker animated/Skeleton3D"]
+mesh = SubResource("ArrayMesh_rwwf2")
+skin = SubResource("Skin_h1sxo")
 
-[node name="jacket (pocket)_004" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]
-mesh = SubResource("ArrayMesh_tskw1")
-skin = SubResource("Skin_fmmb6")
+[node name="jacket (pocket)_004" type="MeshInstance3D" parent="hacker animated/Skeleton3D"]
+mesh = SubResource("ArrayMesh_5k0ek")
+skin = SubResource("Skin_h1sxo")
 
-[node name="scarf_005" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]
-mesh = SubResource("ArrayMesh_voif8")
-skin = SubResource("Skin_fmmb6")
+[node name="scarf_005" type="MeshInstance3D" parent="hacker animated/Skeleton3D"]
+mesh = SubResource("ArrayMesh_f73p6")
+skin = SubResource("Skin_h1sxo")
 
-[node name="zipper_003" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]
-mesh = SubResource("ArrayMesh_8sw44")
-skin = SubResource("Skin_fmmb6")
+[node name="zipper_003" type="MeshInstance3D" parent="hacker animated/Skeleton3D"]
+mesh = SubResource("ArrayMesh_dd0lc")
+skin = SubResource("Skin_h1sxo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -42,6 +42,9 @@ visible = false
 [node name="low tier" parent="." instance=ExtResource("3_r664h")]
 transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-08, 0, 0, 0)
 
+[node name="Skeleton3D" parent="low tier/antivirus low" index="0"]
+bones/0/position = Vector3(2.41471e-08, 0.0384611, -4.58492e-09)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("BoxMesh_44wgg")
@@ -66,3 +69,5 @@ layers = 4
 mesh = SubResource("PlaneMesh_ll4v8")
 
 [connection signal="timeout" from="re_target_timer" to="states/chasing" method="_on_re_target_timer_timeout"]
+
+[editable path="low tier"]

@@ -27,16 +27,17 @@ func _ready():
 	$Area3D.body_exited.connect(_on_body_exited)
 	
 	#setup material
+	var level: int = get_parent().get_parent().id
 	var ministry_path:= "res://3dassets/envi/props/gates/high/door_high_ministry.tres"
 	var shadow_path:= "res://3dassets/envi/props/gates/high/door_high_shadow.tres"
 	
-	if(get_parent().get_parent().id == 3):
+	if(level == 3):
 		$"door frame_005".material_override = load(ministry_path)
 		$"door frame_005/door frame_004".material_override = load(ministry_path)
 		$"door frame_005/door frame_004/door left".material_override = load(ministry_path)
 		$"door frame_005/door frame_004/door right".material_override = load(ministry_path)
 		$"door frame_005/door frame_015".material_override = load(ministry_path)
-	elif(get_parent().get_parent().id == 4):
+	elif(level == 4):
 		$"door frame_005".material_override = load(shadow_path)
 		$"door frame_005/door frame_004".material_override = load(shadow_path)
 		$"door frame_005/door frame_004/door left".material_override = load(shadow_path)

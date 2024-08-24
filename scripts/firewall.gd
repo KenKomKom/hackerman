@@ -7,8 +7,8 @@ extends MeshInstance3D
 @export var warmup_speed: float = 1 #kecepatan lantai warmup muncul
 @export var fire_speed: float = 1 #kecepatan api nya muncul
 @export var offset: float = 0.001 #offset time untuk api nya muncul
+@export var wait_time: float = 1 #default wait time
 
-var wait_time: float = 1 #default wait time
 var onfire := false
 
 func _ready():

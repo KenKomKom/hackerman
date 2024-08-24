@@ -3,29 +3,41 @@ extends Node3D
 @export var door: Node3D
 @export_enum("medium", "high") var type: String
 
-var _can_interact = false
+@onready var mesh:= $buttonMesh
+var unlocked = false
+var level: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	level = get_parent().get_parent().id
 	
 	# ganti texture
-	if(get_parent().get_parent().id == 1):
-		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_hospital.tres")
-	elif(get_parent().get_parent().id == 2):
-		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_bank.tres")
-	elif(get_parent().get_parent().id == 3 and type == "medium"):
-		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_ministry.tres")
-	elif(get_parent().get_parent().id == 3 and type == "high"):
-		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_ministry.tres")
-	elif(get_parent().get_parent().id == 4 and type == "medium"):
-		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_shadow.tres")
-	elif(get_parent().get_parent().id == 4 and type == "high"):
-		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_shadow.tres")
+	if(level == 1):
+		mesh.material_override = load("res://3dassets/envi/props/button/button_hospital_on.tres")
+	elif(level == 2):
+		mesh.material_override = load("res://3dassets/envi/props/button/button_bank_on.tres")
+	elif(level == 3 and type == "medium"):
+		mesh.material_override = load("res://3dassets/envi/props/button/button_ministry_on.tres")
+	elif(level == 3 and type == "high"):
+		mesh.material_override = load("res://3dassets/envi/props/button/button_high_ministry_on.tres")
+	elif(level == 4 and type == "medium"):
+		mesh.material_override = load("res://3dassets/envi/props/button/button_shadow_on.tres")
+	elif(level == 4 and type == "high"):
+		mesh.material_override = load("res://3dassets/envi/props/button/button_high_shadow_on.tres")
 
-func _on_area_3d_body_entered(body):
-	_can_interact = true
-
-func _physics_process(delta):
-	if _can_interact:
-		if Input.is_action_just_pressed("ui_accept"):
-			door.open_gate()
+func interact():
+	if !unlocked:
+		door.interact()
+		unlocked = true
+		if(level == 1):
+			mesh.material_override = load("res://3dassets/envi/props/button/button_hospital_off.tres")
+		elif(level == 2):
+			mesh.material_override = load("res://3dassets/envi/props/button/button_bank_off.tres")
+		elif(level == 3 and type == "medium"):
+			mesh.material_override = load("res://3dassets/envi/props/button/button_ministry_off.tres")
+		elif(level == 3 and type == "high"):
+			mesh.material_override = load("res://3dassets/envi/props/button/button_high_ministry_off.tres")
+		elif(level == 4 and type == "medium"):
+			mesh.material_override = load("res://3dassets/envi/props/button/button_shadow_off.tres")
+		elif(level == 4 and type == "high"):
+			mesh.material_override = load("res://3dassets/envi/props/button/button_high_shadow_off.tres")

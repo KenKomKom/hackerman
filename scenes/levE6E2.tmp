@@ -50,7 +50,7 @@ orientation = 1
 
 [node name="level" type="Node3D"]
 script = ExtResource("1_ljq10")
-id = 3
+id = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_eaoja")
@@ -78,7 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23748, -0.95, -3.32484)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57313, -0.610539, -2.4043)
 
 [node name="player" parent="." instance=ExtResource("1_uy4xc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06, -0.517844, -2.404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06002, -0.610539, -2.4043)
 motion_mode = 0
 animation_speed = 1.0
 tile_size = 1.0
@@ -141,17 +141,14 @@ movement_target = NodePath("../../player")
 
 [node name="doors" type="Node3D" parent="."]
 
-[node name="button medium" parent="doors" node_paths=PackedStringArray("door") instance=ExtResource("12_pl68u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -1, 3.5)
-door = NodePath("../door medium")
+[node name="button medium" parent="doors" instance=ExtResource("12_pl68u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -1, 0.5)
 
 [node name="door medium" parent="doors" instance=ExtResource("15_m0y2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -1, 4.5)
 
-[node name="button high" parent="doors" node_paths=PackedStringArray("door") instance=ExtResource("12_pl68u")]
+[node name="button high" parent="doors" instance=ExtResource("12_pl68u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -1, 0.5)
-door = NodePath("../door high")
-type = "high"
 
 [node name="door high" parent="doors" instance=ExtResource("14_xnq5j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.55, -1, 1.5)

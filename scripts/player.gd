@@ -3,8 +3,8 @@ extends CharacterBody3D
 class_name Player
 
 @onready var ray = $RayCast3D
-@onready var animated_sprite = $MeshInstance3D/AnimatedSprite3D
 @onready var mesh_node = $"hacker animated"
+@onready var anim_player = $AnimationPlayer
 
 @export var animation_speed := 7.0
 @export var tile_size = 8.0
@@ -64,14 +64,6 @@ func move(delta):
 			if dir!="stand" and Input.is_action_pressed(dir):
 				last_dir=dir
 				step(dir)
-
-# animation states, perlu coba implement animation tree keknya
-func animate(animated_sprite,moving):
-	#if moving:
-		#animated_sprite.play("Run",1,true)
-	#else:
-		#animated_sprite.play("Idle",1,true)
-	pass
 		
 func step(dir):
 	if moving:
@@ -103,9 +95,9 @@ func step(dir):
 			target_position_after_move = global_position + inputs[dir] * tile_size
 
 func animate_movement(_dir, _is_moving):
-	#if is_moving:
-		#if not anim_player.is_playing() or anim_player.current_animation != "walk":
-			#anim_player.play("walk")
+	if moving:
+		if not anim_player.is_playing() or anim_player.current_animation != "walk":
+			anim_player.play("walk")
 	pass
 
 # Fog of war abal abal
