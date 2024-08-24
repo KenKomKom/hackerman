@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://iobg2ntuilbv"]
+
+[ext_resource type="PackedScene" uid="uid://7h8eea8o8jek" path="res://3dassets/char/robot/high/high tier.glb" id="1_bvw1u"]
+
+[node name="high tier" instance=ExtResource("1_bvw1u")]

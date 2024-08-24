@@ -60,4 +60,3 @@ target_position = Vector3(1, 0, 0)
 collision_mask = 6
 
 [node name="hacker animated" parent="." instance=ExtResource("4_psk2p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)

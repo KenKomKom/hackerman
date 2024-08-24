@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://do33dgnm743c3"]
-
-[ext_resource type="PackedScene" uid="uid://d2bkecd7apleg" path="res://scenes/tiles/hospital/hospital wall.tscn" id="1_7rwxj"]
-[ext_resource type="Material" uid="uid://cers5aibr5fde" path="res://scenes/tiles/bank/material/bank floor & wall.tres" id="2_7nc21"]
-
-[node name="HospitalWall" instance=ExtResource("1_7rwxj")]
-
-[node name="wall (solid)" parent="." index="0"]
-surface_material_override/0 = ExtResource("2_7nc21")

@@ -17,7 +17,7 @@ func _physics_process(delta):
 	if player_idle:
 		relative= lerp(relative,0.0,0.1)
 		var tween = create_tween()
-		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,88,rotation_degrees.z), 0.5)
+		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,89,rotation_degrees.z), 0.5)
 	if target!=null:
 		var target_dir = (target.global_position - self.global_position).normalized()
 		global_position.x = (lerp(global_position.x, target.global_position.x+5, delta*speed))

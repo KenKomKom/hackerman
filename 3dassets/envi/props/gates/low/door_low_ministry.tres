@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://r5frse4a8wwk"]
+
+[ext_resource type="Texture2D" uid="uid://j31muktnfwhm" path="res://3dassets/envi/props/gates/low/ministry/door low_door low_BaseColor.jpg" id="1_4epgv"]
+[ext_resource type="Texture2D" uid="uid://kjgtvlk7bnc5" path="res://3dassets/envi/props/gates/low/ministry/door low_door low_Emissive.jpg" id="2_p5sro"]
+
+[resource]
+albedo_texture = ExtResource("1_4epgv")
+roughness = 0.5
+emission_enabled = true
+emission_energy_multiplier = 1.5
+emission_texture = ExtResource("2_p5sro")

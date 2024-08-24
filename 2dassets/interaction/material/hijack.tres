@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8ljyg0rfveko"]
+
+[ext_resource type="Texture2D" uid="uid://7ey3gyd5irwn" path="res://2dassets/interaction/hijack.png" id="1_p1mmw"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_p1mmw")
+emission_enabled = true
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("1_p1mmw")
+billboard_mode = 1

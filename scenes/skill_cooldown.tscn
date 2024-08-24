@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpi5syyc38erf"]
 
 [ext_resource type="Texture2D" uid="uid://c0fx5a4oy3xp8" path="res://2dassets/skills_ui/Frame 7.png" id="1_55t15"]
-[ext_resource type="Script" path="res://scenes/skill_cooldown.gd" id="2_knimv"]
+[ext_resource type="Script" path="res://scripts/skill_cooldown.gd" id="2_knimv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3uglm"]
 bg_color = Color(0.168627, 0.0941176, 0.286275, 1)

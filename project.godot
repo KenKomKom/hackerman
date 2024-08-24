@@ -31,6 +31,57 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://3dassets/char/robot/high/ministry/": "teal",
+"res://3dassets/char/robot/high/shadow/": "purple",
+"res://3dassets/char/robot/low/bank/": "yellow",
+"res://3dassets/char/robot/low/hospital/": "pink",
+"res://3dassets/char/robot/low/ministry/": "teal",
+"res://3dassets/char/robot/low/shadow/": "purple",
+"res://3dassets/envi/props/@template/bank/": "yellow",
+"res://3dassets/envi/props/@template/hospital/": "pink",
+"res://3dassets/envi/props/@template/ministry/": "teal",
+"res://3dassets/envi/props/@template/shadow/": "purple",
+"res://3dassets/envi/props/button/bank/": "yellow",
+"res://3dassets/envi/props/button/high_ministry/": "teal",
+"res://3dassets/envi/props/button/high_shadow/": "purple",
+"res://3dassets/envi/props/button/hospital/": "pink",
+"res://3dassets/envi/props/button/ministry/": "teal",
+"res://3dassets/envi/props/button/shadow/": "purple",
+"res://3dassets/envi/props/checkpoint/bank/": "yellow",
+"res://3dassets/envi/props/checkpoint/hospital/": "pink",
+"res://3dassets/envi/props/checkpoint/ministry/": "teal",
+"res://3dassets/envi/props/checkpoint/shadow/": "purple",
+"res://3dassets/envi/props/database/bank/": "yellow",
+"res://3dassets/envi/props/database/hospital/": "pink",
+"res://3dassets/envi/props/database/ministry/": "teal",
+"res://3dassets/envi/props/database/shadow/": "purple",
+"res://3dassets/envi/props/firewall/material/bank/": "yellow",
+"res://3dassets/envi/props/firewall/material/hospital/": "pink",
+"res://3dassets/envi/props/firewall/material/ministry/": "teal",
+"res://3dassets/envi/props/firewall/material/shadow/": "purple",
+"res://3dassets/envi/props/gates/high/ministry/": "teal",
+"res://3dassets/envi/props/gates/high/shadow/": "purple",
+"res://3dassets/envi/props/gates/low/bank/": "yellow",
+"res://3dassets/envi/props/gates/low/hospital/": "pink",
+"res://3dassets/envi/props/gates/low/ministry/": "teal",
+"res://3dassets/envi/props/gates/low/shadow/": "purple",
+"res://3dassets/envi/props/gates/medium/bank/": "yellow",
+"res://3dassets/envi/props/gates/medium/hospital/": "pink",
+"res://3dassets/envi/props/gates/medium/ministry/": "teal",
+"res://3dassets/envi/props/gates/medium/shadow/": "purple",
+"res://3dassets/envi/props/security cam/bank/": "yellow",
+"res://3dassets/envi/props/security cam/hospital/": "pink",
+"res://3dassets/envi/props/security cam/ministry/": "teal",
+"res://3dassets/envi/props/security cam/shadow/": "purple",
+"res://scenes/tiles/bank/": "yellow",
+"res://scenes/tiles/hospital/": "pink",
+"res://scenes/tiles/ministry/": "teal",
+"res://scenes/tiles/shadow/": "purple"
+}
+
 [filesystem]
 
 import/fbx/enabled=false
@@ -74,6 +125,26 @@ esc={
 enter={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+interact={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
+]
+}
+hijack={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":49,"echo":false,"script":null)
+]
+}
+"sql inject"={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"echo":false,"script":null)
+]
+}
+clickjack={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"key_label":0,"unicode":51,"echo":false,"script":null)
 ]
 }
 

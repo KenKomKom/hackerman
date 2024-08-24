@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://t7d1oqgj41mu"]
+
+[ext_resource type="Texture2D" uid="uid://hm4ksp2evh6r" path="res://3dassets/envi/props/gates/medium/shadow/door med_door med_BaseColor.jpg" id="1_egh0r"]
+[ext_resource type="Texture2D" uid="uid://dxqaiih85kdye" path="res://3dassets/envi/props/gates/medium/shadow/door med_door med_Emissive.jpg" id="2_64d3f"]
+
+[resource]
+albedo_texture = ExtResource("1_egh0r")
+roughness = 0.5
+emission_enabled = true
+emission_texture = ExtResource("2_64d3f")

@@ -19,6 +19,8 @@ var forced_dir = "stand" # input yg masuk tengah gerak
 var last_dir = "stand" # arah terakhir gerak
 var target_position_after_move :Vector3
 
+#var anim_player := $player/AnimationPlayer
+
 var inputs = {"right": Vector3(0,0,-1),
 			"left": Vector3(0,0,1),
 			"up": Vector3(-1,0,0),
@@ -65,10 +67,11 @@ func move(delta):
 
 # animation states, perlu coba implement animation tree keknya
 func animate(animated_sprite,moving):
-	if moving:
-		animated_sprite.play("Run",1,true)
-	else:
-		animated_sprite.play("Idle",1,true)
+	#if moving:
+		#animated_sprite.play("Run",1,true)
+	#else:
+		#animated_sprite.play("Idle",1,true)
+	pass
 		
 func step(dir):
 	if moving:
@@ -100,18 +103,10 @@ func step(dir):
 			target_position_after_move = global_position + inputs[dir] * tile_size
 
 func animate_movement(_dir, _is_moving):
-	pass
 	#if is_moving:
-		#if dir=="left":
-			#animated_sprite.play("idle")
-			#animated_sprite.flip_h=true
-		#elif dir =="right":
-			#animated_sprite.play("idle")
-			#animated_sprite.flip_h=false
-		#elif dir =="down":
-			#animated_sprite.play("idle")
-		#elif dir == "up":
-			#animated_sprite.play("idle")
+		#if not anim_player.is_playing() or anim_player.current_animation != "walk":
+			#anim_player.play("walk")
+	pass
 
 # Fog of war abal abal
 #func _on_area_3d_body_entered(body):

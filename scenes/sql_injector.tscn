@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://l6aff30kua4h"]
+
+[ext_resource type="PackedScene" uid="uid://dbsttawjw52rl" path="res://3dassets/tools/sql injector/sql injector.glb" id="1_qolfc"]
+
+[node name="Node3D" instance=ExtResource("1_qolfc")]

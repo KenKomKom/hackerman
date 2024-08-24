@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dagx8lplgcbdw"]
+
+[ext_resource type="Texture2D" uid="uid://x4t254ira8an" path="res://3dassets/envi/props/firewall/material/hospital/firewall_2k_BaseColor.png" id="1_l8axg"]
+[ext_resource type="Texture2D" uid="uid://ba0yn13go2ado" path="res://3dassets/envi/props/firewall/material/hospital/firewall_2k_Emissive.png" id="2_a7anf"]
+
+[resource]
+albedo_texture = ExtResource("1_l8axg")
+roughness = 0.7
+emission_enabled = true
+emission_energy_multiplier = 1.5
+emission_texture = ExtResource("2_a7anf")
