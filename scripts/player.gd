@@ -4,9 +4,10 @@ class_name Player
 
 @onready var ray = $RayCast3D
 @onready var mesh_node = $"hacker animated"
-@onready var anim_player = $AnimationPlayer
+@onready var anim_player = $"hacker animated/AnimationPlayer"
+@onready var anim_tree = $"hacker animated/AnimationTree"
 
-@export var animation_speed := 7.0
+@export var animation_speed := 5.0
 @export var tile_size = 8.0
 
 # untuk mengontrol player bisa berjalan atau tidak. (ex: buka kotak sampah player tidak bisa gerak)
@@ -14,12 +15,10 @@ var is_active = true
 
 var moving = false #state sedang gerak
 
-var ease_move=0 #timer buat forced dir gerak
+var ease_move = 0 #timer buat forced dir gerak
 var forced_dir = "stand" # input yg masuk tengah gerak
 var last_dir = "stand" # arah terakhir gerak
 var target_position_after_move :Vector3
-
-#var anim_player := $player/AnimationPlayer
 
 var inputs = {"right": Vector3(0,0,-1),
 			"left": Vector3(0,0,1),
@@ -31,8 +30,12 @@ func _ready():
 	position.x = position.snapped(Vector3.ONE * tile_size).x
 	position.z = position.snapped(Vector3.ONE * tile_size).z
 	position += Vector3(1,0,1) * tile_size / 2
+	
+	anim_player.play("Idle")
+	print(anim_player.current_animation)
 
 func _physics_process(delta):
+	animate_movement(moving)
 	move(delta)
 
 func look_towards(dir:Vector3):
@@ -55,20 +58,26 @@ func move(delta):
 		ease_move-=delta
 		look_towards(target_position_after_move - global_position)
 		global_position = lerp(global_position,target_position_after_move,0.2)
+		#animate_movement(moving)
 		if (global_position-target_position_after_move).length()<0.08:
 			global_position=target_position_after_move
-			moving=false
+			moving = false
 	elif is_active:
 		# Terima input dari user buat arah gerak
 		for dir in inputs.keys():
 			if dir!="stand" and Input.is_action_pressed(dir):
-				last_dir=dir
+				last_dir = dir
 				step(dir)
-		
+	#animate_movement(moving)
+
+#mo jalan ke arah mana
 func step(dir):
 	if moving:
 		# Set up coyote move -> cari di google coyote jump
-		ease_move = 0.02
+		#animate_movement(moving)
+
+		#ease_move = 0.02
+		ease_move = 0.05
 		forced_dir = dir
 		return
 	
@@ -82,27 +91,24 @@ func step(dir):
 	if not moving and ease_move > 0:
 		# Gerak kalo raycat gk ketemu apapun
 		if !ray.is_colliding():
-			moving=true
+			moving = true
 			ease_move=0
-			animate_movement(forced_dir, true)
 			target_position_after_move = global_position + inputs[forced_dir] * tile_size
-	print(ray.get_collider())
+	#print(ray.get_collider())
+	
 	# gak gerak
 	if not moving:
 		if !ray.is_colliding():
 			moving = true
-			animate_movement(dir, true)
 			target_position_after_move = global_position + inputs[dir] * tile_size
+	
+	#animate_movement(moving)
 
-func animate_movement(_dir, _is_moving):
-	if moving:
-		if not anim_player.is_playing() or anim_player.current_animation != "walk":
-			anim_player.play("walk")
-	pass
-
-# Fog of war abal abal
-#func _on_area_3d_body_entered(body):
-	#body.set_visible_by_cam(true)
-#
-#func _on_area_3d_body_exited(body):
-	#body.set_visible_by_cam(false)
+func animate_movement(moving):
+	if moving and anim_player.current_animation != "Run":
+			anim_player.play("Run")
+			await anim_player.animation_finished
+	if !moving and anim_player.current_animation != "Idle":
+		if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down"):
+			return
+		anim_player.play("Idle")

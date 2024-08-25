@@ -15,7 +15,7 @@ func _on_body_entered(body):
 	if !interacted and body is Player:
 		can_interact = true
 		text.visible = true
-		print("player masuk")
+		#print("player masuk")
 	#if body is Enemy:
 
 func _on_body_exited(body):

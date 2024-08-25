@@ -68,9 +68,6 @@ motion_mode = 0
 animation_speed = 1.0
 tile_size = 1.0
 
-[node name="hacker animated" parent="player" index="3"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-
 [node name="playerskill_ui" parent="player" instance=ExtResource("7_6q66y")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

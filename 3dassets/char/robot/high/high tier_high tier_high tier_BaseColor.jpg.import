@@ -2,13 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyyp53v6a33dp"
+uid="uid://dbrnk1epyu6pg"
 path.s3tc="res://.godot/imported/high tier_high tier_high tier_BaseColor.jpg-3afc8b36d8c623a06c30b07f8a0e7fd8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
+generator_parameters={
+"md5": "1afaf8535a6d2119aa8c0e114523c9a1"
+}
 
 [deps]
 
