@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cxivmmlwh7lae"]
+
+[ext_resource type="Texture2D" uid="uid://ceqhkbdmak3fd" path="res://3dassets/char/robot/low/shadow/BaseColor.jpg" id="1_qnerq"]
+[ext_resource type="Texture2D" uid="uid://cs3uglwhdt4kd" path="res://3dassets/char/robot/low/shadow/Emissive.jpg" id="2_t5rxg"]
+
+[resource]
+albedo_texture = ExtResource("1_qnerq")
+metallic = 0.3
+roughness = 0.3
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("2_t5rxg")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnjjder0hdo8s"]
+
+[ext_resource type="PackedScene" uid="uid://muxjhwlyqwuu" path="res://scenes/tiles/hospital/hospital glass.tscn" id="1_ft0ck"]
+[ext_resource type="Material" uid="uid://dcyiert2sxjty" path="res://scenes/tiles/shadow/material/shadow glass frame.tres" id="2_l253x"]
+[ext_resource type="Material" uid="uid://deqgw8fnulerd" path="res://scenes/tiles/shadow/material/shadow glass.tres" id="2_sd8ct"]
+
+[node name="wall" instance=ExtResource("1_ft0ck")]
+
+[node name="Wall" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_sd8ct")
+surface_material_override/1 = ExtResource("2_l253x")

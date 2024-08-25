@@ -1,0 +1,32 @@
+[
+	{
+		"nama":"h",
+		"dialogue":"It is done. Now to contact [color=shadow]Shadow[/color].",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Done already? Here let me give you a hand.",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"I have to say, [color=hackerman]{name}[/color], you’re pretty good.",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"[color=whisper]Maybe a little too good...[/color]",
+		"emosi":"serious"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"I’ll let you know if we have more work. In the meantime, stay in the shadows~",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"He really likes to use the word 'shadow', doesn't he?",
+		"emosi":"eyeroll"
+	}
+]

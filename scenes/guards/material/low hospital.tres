@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ocosk5ido6uf"]
+
+[ext_resource type="Texture2D" uid="uid://fuya2nb6aolc" path="res://3dassets/char/robot/low/hospital/BaseColor.jpg" id="1_ralh7"]
+[ext_resource type="Texture2D" uid="uid://civdmsb5kjjft" path="res://3dassets/char/robot/low/hospital/Emissive.jpg" id="2_sxrxv"]
+
+[resource]
+albedo_texture = ExtResource("1_ralh7")
+metallic = 0.3
+roughness = 0.3
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("2_sxrxv")

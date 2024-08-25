@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://der7mnuhoefpo"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fulge"]
+[ext_resource type="Script" path="res://scripts/shield_idle_state.gd" id="2_mrj8m"]
+[ext_resource type="PackedScene" uid="uid://d26w7aroh5ag8" path="res://scenes/low_tier guard.tscn" id="3_735n6"]
+[ext_resource type="Script" path="res://scripts/shield_chasing_state.gd" id="3_l57jc"]
+[ext_resource type="PackedScene" uid="uid://pam3eg35uuji" path="res://scenes/shield.tscn" id="4_3w22y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1mutl"]
+radius = 0.267066
+height = 0.688841
+
+[sub_resource type="BoxMesh" id="BoxMesh_44wgg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kx73"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0.223529, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ll4v8"]
+material = SubResource("StandardMaterial3D_3kx73")
+size = Vector2(1, 1)
+
+[node name="enemy_shield" type="CharacterBody3D" node_paths=PackedStringArray("current_state")]
+collision_layer = 4
+script = ExtResource("1_fulge")
+current_state = NodePath("states/idle")
+
+[node name="re_target_timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00923461, 0.225653, 0.0369263)
+shape = SubResource("CapsuleShape3D_1mutl")
+
+[node name="shield" parent="." instance=ExtResource("4_3w22y")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+rotation_edit_mode = 1
+visible = false
+
+[node name="low tier" parent="." instance=ExtResource("3_735n6")]
+transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_44wgg")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249265, 0)
+collision_mask = 15
+
+[node name="states" type="Node" parent="."]
+
+[node name="idle" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
+script = ExtResource("2_mrj8m")
+next_target = [NodePath("../chasing")]
+
+[node name="chasing" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
+script = ExtResource("3_l57jc")
+next_target = [NodePath("../idle")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.72482, 0)
+layers = 4
+mesh = SubResource("PlaneMesh_ll4v8")
+
+[connection signal="timeout" from="re_target_timer" to="states/chasing" method="_on_re_target_timer_timeout"]

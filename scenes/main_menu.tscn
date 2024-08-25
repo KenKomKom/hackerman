@@ -168,8 +168,6 @@ size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../TextureButton")
 focus_neighbor_right = NodePath("../TextureButton4")
 id = 2
-level_name = "DEBITUS BANK"
-hex_color = "FFA360"
 left = NodePath("../TextureButton")
 right = NodePath("../TextureButton4")
 
@@ -179,8 +177,6 @@ size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../TextureButton3")
 focus_neighbor_right = NodePath("../TextureButton5")
 id = 3
-level_name = "MINISTRY OF DEFENSE"
-hex_color = "3FCAA0"
 left = NodePath("../TextureButton3")
 right = NodePath("../TextureButton")
 
@@ -190,8 +186,6 @@ size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../TextureButton4")
 focus_neighbor_right = NodePath("../TextureButton")
 id = 4
-level_name = "SHADOW CORP"
-hex_color = "9250FF"
 left = NodePath("../TextureButton4")
 right = NodePath("../TextureButton")
 

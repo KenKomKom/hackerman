@@ -1,0 +1,12 @@
+[
+    {
+        "nama":"h",
+        "dialogue":"Ok, I’ve never hacked a hospital’s database before but it shouldn’t be too different to the other jobs I’ve taken.",
+        "emosi":"default"
+    },
+    {
+        "nama":"h",
+        "dialogue":"I can use my [color=hint]W,A,S,D keys to move around[/color].",
+        "emosi":"default"
+    }
+]

@@ -40,6 +40,7 @@ _data = {
 }
 
 [node name="TransitionLayer" type="CanvasLayer"]
+process_mode = 3
 layer = 5
 visible = false
 script = ExtResource("1_qc7mw")

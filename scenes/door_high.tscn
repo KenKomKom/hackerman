@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://oy2rsobabhuq"]
+
+[ext_resource type="PackedScene" uid="uid://c8tmfr8rkjesq" path="res://3dassets/envi/props/gates/door high.glb" id="1_htibi"]
+[ext_resource type="Script" path="res://scenes/door_high.gd" id="2_1jjaf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j422m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_477h4"]
+
+[node name="door high" instance=ExtResource("1_htibi")]
+script = ExtResource("2_1jjaf")
+
+[node name="Area3D" type="Area3D" parent="." index="0"]
+collision_layer = 0
+collision_mask = 15
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
+shape = SubResource("BoxShape3D_j422m")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_j422m")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Area3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+shape = SubResource("BoxShape3D_j422m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_477h4")
+
+[node name="door frame_005" parent="." index="2"]
+layers = 4
+
+[node name="door frame_004" parent="door frame_005" index="0"]
+layers = 4
+
+[node name="door left" parent="door frame_005/door frame_004" index="0"]
+layers = 4
+
+[node name="door right" parent="door frame_005/door frame_004" index="1"]
+layers = 4
+
+[node name="door frame_015" parent="door frame_005" index="1"]
+layers = 4

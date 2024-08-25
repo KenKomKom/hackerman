@@ -4,14 +4,15 @@ class_name enemy_state
 @export var next_target:Array[enemy_state]
 @onready var parent_enemy = get_parent().get_parent()
 
-# Called when the node enters the scene tree for the first time.
+# Run saat pertama kali set up node
 func _ready():
 	pass # Replace with function body.
 
-# TO BE OVERRIDED
+# Function dilakuin saat pertama kali
+# masuk ke state dari state lain
 func ready_state():
 	pass
 
-# TO BE OVERRIDED
+# Function di run di _process
 func do_something(delta):
 	pass

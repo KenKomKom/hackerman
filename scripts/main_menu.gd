@@ -11,8 +11,10 @@ var _save_select_displayed = false
 
 @onready var _current_selected = $TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer/savebutton
 
+# Set level 4 gk muncul
 func _ready():
 	level_4.visible=false
+
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") and not _started:
@@ -28,6 +30,7 @@ func _process(_delta):
 		level_grid.set("theme_override_constants/separation", 0)
 		_current_selected.set_selected(true)
 	
+	# Handle pas di save select
 	elif _save_select_displayed:
 		_handle_change_selected()
 		_handle_select()
@@ -40,6 +43,7 @@ func _process(_delta):
 		_handle_change_selected()
 		_handle_select()
 
+# Ganti save yang di select
 func _handle_change_selected():
 	if Input.is_action_just_pressed("left") and _current_selected.left!=null :
 		_current_selected.set_selected(false)
@@ -50,10 +54,12 @@ func _handle_change_selected():
 		_current_selected = _current_selected.right
 		_current_selected.set_selected(true)
 
+# Handle kalo player pencet yang di select di save/level selection
 func _handle_select():
 	if Input.is_action_just_pressed("enter"):
 		_current_selected.on_button_up()
 
+# animsai save select
 func _on_start():
 	for i in range(0,3):
 		start_button.modulate=Color(1, 1, 1, 0)
@@ -67,11 +73,14 @@ func _on_start():
 	start_button.modulate=Color(1, 1, 1, 1)
 
 func _set_up_saveselect():
+	# set yang dipilih by default
 	_save_select_displayed = true
 	_current_selected = $TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer/savebutton
 	_current_selected.set_selected(true)
 	var save_select = $TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer
 	var saves = save_select.get_children()
+	
+	# Masukin informasi ke tiap save slot
 	for i in range(len(saves)):
 		var save = saves[i]
 		var save_info = GameManager.load_file_info(i)
@@ -87,23 +96,33 @@ func _set_up_saveselect():
 		save_select.modulate=Color(1, 1, 1, 1)
 	await get_tree().create_timer(1).timeout
 
-func _set_up_levelselect():
+# set up informasi tiap level sama animasi 
+func set_up_levelselect():
+	# Set default selected
+	_started=true
 	_save_select_displayed = false
 	_select_level_displayed = true
 	_current_selected = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton
 	_current_selected.set_selected(true)
+	
+	# Set up status tiap level
 	var levels = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer.get_children()
 	var level_select = $TabContainer/LevelSelect/MarginContainer
 	
 	for i in range(len(levels)):
 		levels[i].set_status(GameManager.anon_status[i], GameManager.best_time[i],GameManager.level_unlocked[i])
 	
+	$TabContainer.current_tab=2
+	
+	# Animasi
 	for i in range(0,2):
 		await get_tree().create_timer(0.1).timeout
 		level_select.modulate=Color(1, 1, 1, 0)
 		await get_tree().create_timer(0.1).timeout
 		level_select.modulate=Color(1, 1, 1, 1)
 	await get_tree().create_timer(1).timeout
+	
+	# Ganti kiri kanan kalo si level 4 muncul
 	if GameManager.level_unlocked[3]:
 		$TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton.left = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton5
 		$TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton4.right = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton5
@@ -117,5 +136,4 @@ func _on_savebutton_button_up(id):
 	var success = GameManager.load_file(id)
 	if not success:
 		GameManager.create_new_save_file(id)
-	_set_up_levelselect()
-	$TabContainer.current_tab=2
+	set_up_levelselect()
