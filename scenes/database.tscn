@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://wft5rjwli8g6"]
+
+[ext_resource type="PackedScene" uid="uid://bstb0ybwovx0h" path="res://3dassets/envi/props/database/database.glb" id="1_fgtup"]
+[ext_resource type="Script" path="res://scripts/database.gd" id="2_jn16h"]
+
+[node name="database" instance=ExtResource("1_fgtup")]
+script = ExtResource("2_jn16h")

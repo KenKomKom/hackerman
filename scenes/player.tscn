@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://phh0wi1xv21q"]
+[gd_scene load_steps=28 format=3 uid="uid://phh0wi1xv21q"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6ywd8"]
 [ext_resource type="PackedScene" uid="uid://dc2732n2vrq4p" path="res://3dassets/char/hacker/hacker animated.glb" id="2_cn4mn"]
@@ -31,66 +31,98 @@ animation = &"hacker - run"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qgpcm"]
-switch_mode = 1
+xfade_time = 0.2
 advance_mode = 2
+advance_condition = &"hack"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nh514"]
-switch_mode = 1
+xfade_time = 0.2
 advance_mode = 2
+advance_condition = &"download"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_feyeu"]
-switch_mode = 1
+xfade_time = 0.2
 advance_mode = 2
+advance_condition = &"interact"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dbtx5"]
-switch_mode = 1
+xfade_time = 0.25
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x8fxk"]
-switch_mode = 1
-advance_mode = 2
+advance_condition = &"run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2gmqc"]
+xfade_time = 0.25
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1t662"]
-advance_mode = 2
+advance_condition = &"low_kill"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s1c26"]
+xfade_time = 0.25
 advance_mode = 2
+advance_condition = &"high_kill"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xw1nf"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ymhwp"]
+xfade_time = 0.5
 advance_mode = 2
+advance_condition = &"idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p3c3l"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nd4o"]
+xfade_time = 0.5
 switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fclf0"]
+xfade_time = 0.5
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nd4o"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p3c3l"]
+xfade_time = 0.2
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jpu8y"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"hack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4iv6v"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"download"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0er4u"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"interact"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rjghq"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"low_kill"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wm3sk"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"high_kill"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ed18d"]
-"states/hacker - download/node" = SubResource("AnimationNodeAnimation_3nmqv")
-"states/hacker - download/position" = Vector2(555, -37)
-"states/hacker - hack/node" = SubResource("AnimationNodeAnimation_dtl15")
-"states/hacker - hack/position" = Vector2(371, -37)
-"states/hacker - high kill/node" = SubResource("AnimationNodeAnimation_awjec")
-"states/hacker - high kill/position" = Vector2(683, 223)
-"states/hacker - idle/node" = SubResource("AnimationNodeAnimation_a2rbv")
-"states/hacker - idle/position" = Vector2(451, 100)
-"states/hacker - interact/node" = SubResource("AnimationNodeAnimation_5g1jq")
-"states/hacker - interact/position" = Vector2(747, -37)
-"states/hacker - low kill/node" = SubResource("AnimationNodeAnimation_c0ph7")
-"states/hacker - low kill/position" = Vector2(451, 223)
-"states/hacker - run/node" = SubResource("AnimationNodeAnimation_jootd")
-"states/hacker - run/position" = Vector2(683, 100)
-transitions = ["Start", "hacker - idle", SubResource("AnimationNodeStateMachineTransition_handf"), "hacker - idle", "hacker - hack", SubResource("AnimationNodeStateMachineTransition_qgpcm"), "hacker - idle", "hacker - download", SubResource("AnimationNodeStateMachineTransition_nh514"), "hacker - idle", "hacker - interact", SubResource("AnimationNodeStateMachineTransition_feyeu"), "hacker - idle", "hacker - run", SubResource("AnimationNodeStateMachineTransition_dbtx5"), "hacker - run", "hacker - idle", SubResource("AnimationNodeStateMachineTransition_x8fxk"), "hacker - idle", "hacker - low kill", SubResource("AnimationNodeStateMachineTransition_2gmqc"), "hacker - run", "hacker - high kill", SubResource("AnimationNodeStateMachineTransition_1t662"), "hacker - idle", "hacker - high kill", SubResource("AnimationNodeStateMachineTransition_s1c26"), "hacker - run", "hacker - low kill", SubResource("AnimationNodeStateMachineTransition_xw1nf"), "hacker - interact", "hacker - idle", SubResource("AnimationNodeStateMachineTransition_p3c3l"), "hacker - download", "hacker - idle", SubResource("AnimationNodeStateMachineTransition_fclf0"), "hacker - hack", "hacker - idle", SubResource("AnimationNodeStateMachineTransition_2nd4o")]
-graph_offset = Vector2(0, -99.5861)
+states/Start/position = Vector2(220, 100)
+states/download/node = SubResource("AnimationNodeAnimation_3nmqv")
+states/download/position = Vector2(555, -37)
+states/hack/node = SubResource("AnimationNodeAnimation_dtl15")
+states/hack/position = Vector2(370, -37)
+"states/high kill/node" = SubResource("AnimationNodeAnimation_awjec")
+"states/high kill/position" = Vector2(683, 223)
+states/idle/node = SubResource("AnimationNodeAnimation_a2rbv")
+states/idle/position = Vector2(451, 100)
+states/interact/node = SubResource("AnimationNodeAnimation_5g1jq")
+states/interact/position = Vector2(747, -37)
+"states/low kill/node" = SubResource("AnimationNodeAnimation_c0ph7")
+"states/low kill/position" = Vector2(451, 223)
+states/run/node = SubResource("AnimationNodeAnimation_jootd")
+states/run/position = Vector2(683, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_handf"), "idle", "hack", SubResource("AnimationNodeStateMachineTransition_qgpcm"), "idle", "download", SubResource("AnimationNodeStateMachineTransition_nh514"), "idle", "interact", SubResource("AnimationNodeStateMachineTransition_feyeu"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_dbtx5"), "idle", "low kill", SubResource("AnimationNodeStateMachineTransition_2gmqc"), "idle", "high kill", SubResource("AnimationNodeStateMachineTransition_s1c26"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ymhwp"), "hack", "idle", SubResource("AnimationNodeStateMachineTransition_2nd4o"), "download", "idle", SubResource("AnimationNodeStateMachineTransition_fclf0"), "interact", "idle", SubResource("AnimationNodeStateMachineTransition_p3c3l"), "run", "hack", SubResource("AnimationNodeStateMachineTransition_jpu8y"), "run", "download", SubResource("AnimationNodeStateMachineTransition_4iv6v"), "run", "interact", SubResource("AnimationNodeStateMachineTransition_0er4u"), "run", "low kill", SubResource("AnimationNodeStateMachineTransition_rjghq"), "run", "high kill", SubResource("AnimationNodeStateMachineTransition_wm3sk")]
+graph_offset = Vector2(-11, -89.8812)
 
 [node name="player" type="CharacterBody3D"]
 motion_mode = 1
@@ -117,58 +149,69 @@ collision_mask = 6
 [node name="hacker animated" parent="." instance=ExtResource("2_cn4mn")]
 
 [node name="Skeleton3D" parent="hacker animated/Armature_001" index="0"]
-bones/0/position = Vector3(5.96046e-09, 0.162443, -0.0404869)
-bones/0/rotation = Quaternion(-0.198197, 0.0200578, -0.0414816, 0.979079)
-bones/1/rotation = Quaternion(-0.122258, -0.042362, -0.00247282, 0.991591)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.00209174, 0.0154827, 0.0192838, 0.999692)
-bones/3/rotation = Quaternion(-0.120989, -0.00263057, -0.00166757, 0.992649)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.171585, 0.0798322, 0.000355243, 0.981929)
-bones/5/rotation = Quaternion(0.418715, -0.569513, 0.532052, 0.466104)
+bones/0/position = Vector3(5.96046e-09, 0.150366, -0.00267912)
+bones/1/rotation = Quaternion(0.046511, 3.995e-18, 1.81075e-17, 0.998918)
+bones/1/scale = Vector3(1, 0.986543, 0.999865)
+bones/2/rotation = Quaternion(0.0248676, 5.41668e-17, 2.0515e-15, 0.999691)
+bones/3/rotation = Quaternion(0.00468131, -3.10686e-10, 7.79648e-12, 0.999989)
+bones/4/rotation = Quaternion(0.0102627, -5.45117e-10, 5.59457e-12, 0.999947)
+bones/5/rotation = Quaternion(0.513663, -0.480346, 0.515999, 0.489044)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(0.208122, 0.00931721, -0.0156261, 0.977934)
+bones/6/rotation = Quaternion(0.220308, 0.00840829, -0.0146447, 0.975284)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.365229, -0.113678, 0.182059, 0.905836)
+bones/7/rotation = Quaternion(0.377086, 0.0244858, 0.00659241, 0.925831)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.00409087, 0.634223, 0.0411728, 0.772042)
+bones/8/rotation = Quaternion(-0.00263631, 0.694148, -0.040912, 0.718664)
 bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(-0.00798608, -0.156115, 0.0676338, 0.985388)
-bones/10/rotation = Quaternion(0.0117918, -0.961509, -0.0380368, 0.271873)
-bones/11/rotation = Quaternion(-0.0160104, -0.0153917, -0.325701, 0.945212)
-bones/12/rotation = Quaternion(-0.00309503, 0.118647, 0.197851, 0.97302)
-bones/13/rotation = Quaternion(0.0644056, 0.094445, 0.118957, 0.986297)
+bones/9/rotation = Quaternion(0.0810999, 0.0563153, 0.0768668, 0.992141)
+bones/10/rotation = Quaternion(0.0433113, -0.69272, 0.0377949, 0.718912)
+bones/11/rotation = Quaternion(0.0614582, -0.0194411, -0.305629, 0.949966)
+bones/12/rotation = Quaternion(0.0792701, 0.13562, 0.171076, 0.972654)
+bones/13/rotation = Quaternion(0.141737, 0.0969821, 0.102814, 0.979762)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.0777343, 0.0763504, -0.0121093, 0.993972)
-bones/15/rotation = Quaternion(0.103518, 0.751795, 0.142979, 0.635331)
-bones/16/rotation = Quaternion(-0.457245, -0.537706, 0.502281, -0.499512)
-bones/17/rotation = Quaternion(0.203764, -0.0139796, 0.0127311, 0.978837)
+bones/14/rotation = Quaternion(0.198174, 0.0516992, -0.025012, 0.978483)
+bones/15/rotation = Quaternion(0.167868, 0.732576, 0.168659, 0.637735)
+bones/16/rotation = Quaternion(-0.513969, -0.480103, 0.515356, -0.489637)
+bones/17/rotation = Quaternion(0.220308, -0.00840828, 0.0146447, 0.975284)
 bones/17/scale = Vector3(1, 1, 1)
-bones/18/rotation = Quaternion(0.362568, 0.136449, -0.206133, 0.898574)
+bones/18/rotation = Quaternion(0.374553, -0.00442772, 0.00957604, 0.927146)
 bones/18/scale = Vector3(1, 1, 1)
-bones/19/rotation = Quaternion(0.00409072, -0.634223, -0.0411728, 0.772042)
-bones/20/rotation = Quaternion(-0.0278541, 0.161111, -0.0680232, 0.984195)
+bones/19/rotation = Quaternion(-0.00263646, -0.694148, 0.040912, 0.718664)
+bones/20/rotation = Quaternion(0.0810999, -0.0563153, -0.0768669, 0.992141)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(0.0117918, 0.961509, 0.0380368, 0.271873)
+bones/21/rotation = Quaternion(0.0433114, 0.69272, -0.0377949, 0.718912)
 bones/21/scale = Vector3(1, 1, 1)
-bones/22/rotation = Quaternion(-0.0160105, 0.0153918, 0.325701, 0.945212)
+bones/22/rotation = Quaternion(0.0614581, 0.0194412, 0.305629, 0.949966)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/rotation = Quaternion(-0.00309507, -0.118647, -0.197851, 0.97302)
 bones/24/rotation = Quaternion(0.0644056, -0.0944451, -0.118957, 0.986297)
 bones/24/scale = Vector3(1, 1, 1)
-bones/25/rotation = Quaternion(0.0777343, -0.0763506, 0.0121094, 0.993973)
+bones/25/rotation = Quaternion(0.13827, -0.0536674, -0.0133969, 0.988849)
 bones/26/rotation = Quaternion(0.103518, -0.751795, -0.142979, 0.635331)
-bones/27/position = Vector3(0.0679389, -0.0459964, 0.0274347)
-bones/27/rotation = Quaternion(0.020297, -0.0604229, 0.995229, -0.0738689)
-bones/27/scale = Vector3(0.999508, 0.997137, 0.962189)
-bones/28/rotation = Quaternion(0.542805, 0.00476343, 0.0163911, 0.839685)
-bones/29/position = Vector3(-0.0687933, -0.0522385, -0.00386327)
-bones/29/rotation = Quaternion(-0.0208817, -0.0930128, 0.995349, 0.0139269)
-bones/29/scale = Vector3(0.99997, 0.998174, 0.960633)
-bones/30/rotation = Quaternion(0.564093, 0.0041097, -0.0165374, 0.825536)
+bones/27/position = Vector3(0.0667212, -0.0301284, -0.00204893)
+bones/27/rotation = Quaternion(-0.000203245, -0.00255652, 0.996605, -0.0822879)
+bones/28/rotation = Quaternion(0.712256, -7.73885e-07, 0.00172001, 0.701918)
+bones/29/position = Vector3(-0.0667212, -0.0301284, -0.00204893)
+bones/29/rotation = Quaternion(0.000203245, -0.00255652, 0.996605, 0.0822879)
+bones/30/rotation = Quaternion(0.712256, 7.00455e-07, -0.00172009, 0.701918)
+
+[node name="AnimationPlayer" parent="hacker animated" index="1"]
+autoplay = "hacker - idle"
+speed_scale = 2.0
 
 [node name="AnimationTree" type="AnimationTree" parent="hacker animated"]
 tree_root = SubResource("AnimationNodeStateMachine_ed18d")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/download = false
+parameters/conditions/hack = false
+parameters/conditions/high_kill = false
+parameters/conditions/idle = true
+parameters/conditions/interact = false
+parameters/conditions/low_kill = false
+parameters/conditions/run = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="hacker animated"]

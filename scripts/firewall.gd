@@ -20,22 +20,23 @@ func _ready():
 	#set default pos
 	$base.transparency = 1
 	$fire.position.y = -1.264
+	var level: int = get_parent().get_parent().id
 	
 	#set materials
-	if(get_parent().get_parent().id == 1):
+	if(level == 1):
 		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_hospital.tres")
 		$base.material_override = load("res://3dassets/envi/props/firewall/material/firewall_base_hospital.tres")
-	elif(get_parent().get_parent().id == 2):
+	elif(level == 2):
 		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_bank.tres")
 		$base.material_override = load("res://3dassets/envi/props/firewall/material/firewall_base_bank.tres")
-	elif(get_parent().get_parent().id == 3):
+	elif(level == 3):
 		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_ministry.tres")
 		$base.material_override = load("res://3dassets/envi/props/firewall/material/firewall_base_ministry.tres")
-	elif(get_parent().get_parent().id == 4):
+	elif(level == 4):
 		$fire.material_override = load("res://3dassets/envi/props/firewall/material/firewall_shadow.tres")
 		$base.material_override = load("res://3dassets/envi/props/firewall/material/firewall_base_shadow.tres")
 	
-	#setup timer
+	#setup timer & offset
 	timer.set_wait_time(offset)
 	timer.start()
 	timer.set_wait_time(wait_time)
@@ -64,12 +65,6 @@ func _on_timer_timeout():
 	
 	#start recount
 	timer.start()
-
-# saat player masuk ke firewall
-#func _on_firewall_aoe_body_entered(body):
-	#var player_is_dead = _check_for_kill()
-	#if(player_is_dead):
-		#GlobalEvent.emit_signal("player_is_dead")
 
 # cek mati apa gk si pemain
 func _check_for_kill():

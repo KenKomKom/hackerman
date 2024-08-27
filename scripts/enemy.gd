@@ -24,6 +24,39 @@ func _ready():
 	position.z = position.snapped(Vector3.ONE * tile_size).z
 	position += Vector3(1,0,1) * tile_size / 2
 	
+	#siapin texture
+	var level: int = get_parent().get_parent().id
+	
+	var hospital_path:= "res://scenes/guards/material/low hospital.tres"
+	var bank_path:= "res://scenes/guards/material/low bank.tres"
+	var ministry_path:= "res://scenes/guards/material/low ministry.tres"
+	var shadow_path:= "res://scenes/guards/material/low shadow.tres"
+	
+	if(level == 1):
+		$"low tier/antivirus low/Skeleton3D/claw".material_override = load(hospital_path)
+		$"low tier/antivirus low/Skeleton3D/claw hand".material_override = load(hospital_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_007".material_override = load(hospital_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_009".material_override = load(hospital_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_011".material_override = load(hospital_path)
+	elif(level == 2):
+		$"low tier/antivirus low/Skeleton3D/claw".material_override = load(bank_path)
+		$"low tier/antivirus low/Skeleton3D/claw hand".material_override = load(bank_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_007".material_override = load(bank_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_009".material_override = load(bank_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_011".material_override = load(bank_path)
+	elif(level == 3):
+		$"low tier/antivirus low/Skeleton3D/claw".material_override = load(ministry_path)
+		$"low tier/antivirus low/Skeleton3D/claw hand".material_override = load(ministry_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_007".material_override = load(ministry_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_009".material_override = load(ministry_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_011".material_override = load(ministry_path)
+	elif(level == 4):
+		$"low tier/antivirus low/Skeleton3D/claw".material_override = load(shadow_path)
+		$"low tier/antivirus low/Skeleton3D/claw hand".material_override = load(shadow_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_007".material_override = load(shadow_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_009".material_override = load(shadow_path)
+		$"low tier/antivirus low/Skeleton3D/shield body_011".material_override = load(shadow_path)
+	
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
 	navigation_agent.path_desired_distance = 0.5
