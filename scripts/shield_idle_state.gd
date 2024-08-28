@@ -3,13 +3,14 @@ extends enemy_state
 class_name enemy_idle_state
 
 func ready_state():
-	var tween = get_tree().create_tween()
-	tween.tween_property(
-		parent_enemy.mesh_node.get_surface_override_material(0),
-		"emission", 
-		Color("34240f"),
-		1
-	)
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(
+		#parent_enemy.mesh_node.get_surface_override_material(0),
+		#"emission", 
+		#Color("34240f"),
+		#1
+	#)
+	pass
 
 func do_something(delta):
 	if (parent_enemy.movement_target_position-parent_enemy.global_position).length()<3:

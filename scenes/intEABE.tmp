@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://byrurivrc57cm"]
+
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="1_vjnsh"]
+[ext_resource type="Texture2D" uid="uid://62f1nu0y36lh" path="res://2dassets/interaction/interact.png" id="2_17wvq"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_gt3or"]
+size = Vector2(1, 0.22)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyo7w"]
+transparency = 1
+albedo_texture = ExtResource("2_17wvq")
+emission_enabled = true
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("2_17wvq")
+billboard_mode = 1
+
+[node name="interactable" type="Area3D"]
+collision_layer = 0
+script = ExtResource("1_vjnsh")
+command = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_gt3or")
+surface_material_override/0 = SubResource("StandardMaterial3D_lyo7w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

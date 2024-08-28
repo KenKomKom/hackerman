@@ -2,13 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy3vwd6cgk1s1"
+uid="uid://bsc5f84tpxfl8"
 path.s3tc="res://.godot/imported/high tier_high tier_high tier_Emissive.jpg-2048e505a1997b4cb35a27b8e0d21daf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
+generator_parameters={
+"md5": "b961c8bfa2fa1ced565535cb08869140"
+}
 
 [deps]
 

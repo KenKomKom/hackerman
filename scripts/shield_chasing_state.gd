@@ -8,14 +8,14 @@ var time_for_timer:float
 
 func ready_state():
 	# Ganti warna robot
-	var tween = get_tree().create_tween()
-	tween.tween_property(
-		parent_enemy.mesh_node.get_surface_override_material(0),
-		"emission", 
-		Color("51000a"),
-		1
-	)
-	parent_enemy.mesh_node.get_surface_override_material(0).emission = Color("51000a")
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(
+		#parent_enemy.mesh_node.get_surface_override_material(0),
+		#"emission", 
+		#Color("51000a"),
+		#1
+	#)
+	#parent_enemy.mesh_node.get_surface_override_material(0).emission = Color("51000a")
 	
 	# Tiap robot dibedain waktu buat update posisi player biar gk bengkak komputasi
 	var rng = RandomNumberGenerator.new()

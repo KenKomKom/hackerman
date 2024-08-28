@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://4k8dimss48ks"]
+
+[ext_resource type="Texture2D" uid="uid://cekybii0mv6as" path="res://3dassets/envi/props/button/shadow/button_2k_BaseColor.jpg" id="1_adfeh"]
+[ext_resource type="Texture2D" uid="uid://usmutf34603q" path="res://3dassets/envi/props/button/low_button_2k_Emissive.jpg" id="2_p037n"]
+
+[resource]
+albedo_texture = ExtResource("1_adfeh")
+emission_energy_multiplier = 1.5
+emission_texture = ExtResource("2_p037n")

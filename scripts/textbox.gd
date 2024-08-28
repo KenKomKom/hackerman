@@ -8,6 +8,7 @@ var still_typing=false
 
 signal go_to_next_line()
 
+
 var rng:= RandomNumberGenerator.new()
 
 func _ready():

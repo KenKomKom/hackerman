@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://briq8hmllh7e0"]
+[gd_scene load_steps=8 format=3 uid="uid://briq8hmllh7e0"]
 
-[ext_resource type="PackedScene" uid="uid://sfu5kdkyxvqo" path="res://3dassets/envi/props/gates/door low.glb" id="1_je1cn"]
-[ext_resource type="Script" path="res://scenes/door_low.gd" id="2_lu2ob"]
+[ext_resource type="PackedScene" uid="uid://sfu5kdkyxvqo" path="res://3dassets/envi/props/gates/low/door low.glb" id="1_je1cn"]
+[ext_resource type="Script" path="res://scripts/door_low.gd" id="2_lu2ob"]
+[ext_resource type="Material" uid="uid://r5frse4a8wwk" path="res://3dassets/envi/props/gates/low/door_low_ministry.tres" id="4_0vaa5"]
+[ext_resource type="PackedScene" uid="uid://byrurivrc57cm" path="res://scenes/interactable.tscn" id="4_58p7o"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dmoqs"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_iy670"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_64dc4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_78d4v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ls5vo"]
 
 [node name="door low" instance=ExtResource("1_je1cn")]
 script = ExtResource("2_lu2ob")
@@ -14,17 +18,9 @@ script = ExtResource("2_lu2ob")
 collision_layer = 0
 collision_mask = 15
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
-shape = SubResource("BoxShape3D_dmoqs")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_dmoqs")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Area3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
-shape = SubResource("BoxShape3D_dmoqs")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_iy670")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -32,10 +28,21 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_64dc4")
+shape = SubResource("BoxShape3D_78d4v")
+
+[node name="door frame_007" parent="." index="2"]
+surface_material_override/0 = ExtResource("4_0vaa5")
 
 [node name="door left_002" parent="door frame_007" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442, 0, 0)
+surface_material_override/0 = ExtResource("4_0vaa5")
 
 [node name="door right_002" parent="door frame_007" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.442, 0, 0)
+surface_material_override/0 = ExtResource("4_0vaa5")
+
+[node name="interactable" parent="." index="3" instance=ExtResource("4_58p7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+command = "sql"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interactable" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0, -0.75, 0)
+shape = SubResource("BoxShape3D_ls5vo")

@@ -13,7 +13,8 @@ var movement_target_position: Vector3
 @onready var redo_target_location_timer = $re_target_timer
 @onready var ray = $RayCast3D
 @onready var states = $states
-@onready var mesh_node = $"shield/shield body"
+#@onready var mesh_node = $"shield/shield body"
+@onready var mesh_node = $"low tier/antivirus low/Skeleton3D"
 @onready var instance_on_cam = $MeshInstance3D2
 
 var central: Central

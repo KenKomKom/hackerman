@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fulge"]
 [ext_resource type="Script" path="res://scripts/shield_idle_state.gd" id="2_mrj8m"]
-[ext_resource type="PackedScene" uid="uid://d26w7aroh5ag8" path="res://scenes/guards/low_tier guard.tscn" id="3_flrw0"]
 [ext_resource type="Script" path="res://scripts/shield_chasing_state.gd" id="3_l57jc"]
+[ext_resource type="PackedScene" uid="uid://d26w7aroh5ag8" path="res://scenes/guards/low_tier_guard.tscn" id="3_r664h"]
 [ext_resource type="PackedScene" uid="uid://pam3eg35uuji" path="res://scenes/guards/shield.tscn" id="4_3w22y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3l87d"]
@@ -37,10 +37,13 @@ shape = SubResource("CapsuleShape3D_3l87d")
 [node name="shield" parent="." instance=ExtResource("4_3w22y")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
 rotation_edit_mode = 1
-
-[node name="low tier" parent="." instance=ExtResource("3_flrw0")]
-transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-08, 0, 0, 0)
 visible = false
+
+[node name="low tier" parent="." instance=ExtResource("3_r664h")]
+transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-08, 0, 0, 0)
+
+[node name="Skeleton3D" parent="low tier/antivirus low" index="0"]
+bones/0/position = Vector3(2.41471e-08, 0.0384611, -4.58492e-09)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -66,3 +69,5 @@ layers = 4
 mesh = SubResource("PlaneMesh_ll4v8")
 
 [connection signal="timeout" from="re_target_timer" to="states/chasing" method="_on_re_target_timer_timeout"]
+
+[editable path="low tier"]
