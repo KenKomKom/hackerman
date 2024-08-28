@@ -10,6 +10,7 @@ var left_open = Vector3(0.345, 0, 0)
 var right_closed = Vector3(0, 0, 0)
 var right_open = Vector3(-0.345, 0, 0)
 
+var unlocked = false
 var is_open = false
 var speed = 4.0  # Speed of the door movement
 
@@ -24,6 +25,24 @@ func _process(delta):
 func _ready():
 	$Area3D.body_entered.connect(_on_body_entered)
 	$Area3D.body_exited.connect(_on_body_exited)
+	
+	#setup material
+	var level: int = get_parent().get_parent().id
+	var ministry_path:= "res://3dassets/envi/props/gates/high/door_high_ministry.tres"
+	var shadow_path:= "res://3dassets/envi/props/gates/high/door_high_shadow.tres"
+	
+	if(level == 3):
+		$"door frame_005".material_override = load(ministry_path)
+		$"door frame_005/door frame_004".material_override = load(ministry_path)
+		$"door frame_005/door frame_004/door left".material_override = load(ministry_path)
+		$"door frame_005/door frame_004/door right".material_override = load(ministry_path)
+		$"door frame_005/door frame_015".material_override = load(ministry_path)
+	elif(level == 4):
+		$"door frame_005".material_override = load(shadow_path)
+		$"door frame_005/door frame_004".material_override = load(shadow_path)
+		$"door frame_005/door frame_004/door left".material_override = load(shadow_path)
+		$"door frame_005/door frame_004/door right".material_override = load(shadow_path)
+		$"door frame_005/door frame_015".material_override = load(shadow_path)
 
 func _on_body_entered(body):
 	#print("Body entered: ", body.name)
@@ -48,16 +67,17 @@ func open_gate():
 		$StaticBody3D/CollisionShape3D.set_deferred("disabled", true)
 
 func close_gate():
-	if is_open:
+	if !unlocked and is_open:
 		is_open = false
-		# tutup
-		#door_left.transform.origin = left_closed
-		#door_right.transform.origin = right_closed
 		$StaticBody3D/CollisionShape3D.set_deferred("disabled", false)
+
+func interact():
+	unlocked = true
+	open_gate()
+	pass
 
 func is_any_guard_nearby() -> bool:
 	for body in $Area3D.get_overlapping_bodies():
 		if body.is_in_group("Guard"):
 			return true
 	return false
-

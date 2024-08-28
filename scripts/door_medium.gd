@@ -81,4 +81,3 @@ func is_any_guard_nearby() -> bool:
 		if body.is_in_group("Guard"):
 			return true
 	return false
-

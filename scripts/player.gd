@@ -118,6 +118,7 @@ func update_animation(animation: String):
 	#cek jenis interaction
 	if animation == "interact":
 		can_move = false
+		print("hrsnya abisni animasi jalan lol")
 		anim_tree["parameters/conditions/interact"] = true
 		#anim_tree.get("parameters/playback").travel("interact")
 		print("ini harusnya interact tp kok enggak")
@@ -134,16 +135,20 @@ func update_animation(animation: String):
 		timer.start()
 	
 	elif animation == "download":
+		can_move = false
 		anim_tree["parameters/conditions/download"] = true
 		anim_tree["parameters/conditions/run"] = false
 		anim_tree["parameters/conditions/idle"] = false
+		
+		timer.wait_time = anim_player.get_animation("hacker - download").length - 0.15
+		timer.start()
 	
 	else:
 		anim_tree["parameters/conditions/interact"] = false
 		anim_tree["parameters/conditions/hack"] = false
 		anim_tree["parameters/conditions/download"] = false
 	
-	print(anim_tree["parameters/conditions/interact"])
+	#print(anim_tree["parameters/conditions/interact"])
 	
 	#run animasi sesuai cara mati nya
 	if animation == "low_kill":
@@ -153,6 +158,14 @@ func update_animation(animation: String):
 	else: 
 		anim_tree["parameters/conditions/high_kill"] = false
 		anim_tree["parameters/conditions/low_kill"] = false
+
+func stop_animation():
+	can_move = true
+	anim_tree["parameters/conditions/download"] = false
+	anim_tree["parameters/conditions/run"] = false
+	anim_tree["parameters/conditions/idle"] = true
+	timer.stop()
+
 
 func _on_timer_timeout():
 	can_move = true

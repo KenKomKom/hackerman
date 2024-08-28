@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfx1yvho6odqg"]
+
+[ext_resource type="PackedScene" uid="uid://0euj2ry1oys1" path="res://scenes/database_progress_bar.tscn" id="1_2qul4"]
+
+[node name="Downloading_Bar" type="CanvasLayer"]
+
+[node name="DownloadingBar" parent="." instance=ExtResource("1_2qul4")]
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -269.0
+offset_bottom = -214.0
+grow_vertical = 0

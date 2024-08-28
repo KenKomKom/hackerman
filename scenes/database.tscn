@@ -1,7 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://wft5rjwli8g6"]
+[gd_scene load_steps=8 format=3 uid="uid://cwrjooejx1605"]
 
-[ext_resource type="PackedScene" uid="uid://bstb0ybwovx0h" path="res://3dassets/envi/props/database/database.glb" id="1_fgtup"]
-[ext_resource type="Script" path="res://scripts/database.gd" id="2_jn16h"]
+[ext_resource type="PackedScene" uid="uid://bstb0ybwovx0h" path="res://3dassets/envi/props/database/database.glb" id="1_c7pwg"]
+[ext_resource type="Script" path="res://scripts/database.gd" id="2_x72uo"]
+[ext_resource type="PackedScene" uid="uid://byrurivrc57cm" path="res://scenes/interactable.tscn" id="3_5aa67"]
+[ext_resource type="PackedScene" uid="uid://0euj2ry1oys1" path="res://scenes/database_progress_bar.tscn" id="4_nb7mh"]
 
-[node name="database" instance=ExtResource("1_fgtup")]
-script = ExtResource("2_jn16h")
+[sub_resource type="BoxShape3D" id="BoxShape3D_lqsb6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3lgr8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ugpuc"]
+
+[node name="database" instance=ExtResource("1_c7pwg")]
+script = ExtResource("2_x72uo")
+
+[node name="interactable" parent="." index="1" instance=ExtResource("3_5aa67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57874, 0)
+command = "download"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interactable" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.07874, 0)
+shape = SubResource("BoxShape3D_lqsb6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="interactable" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07874, -1)
+shape = SubResource("BoxShape3D_lqsb6")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="interactable" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07874, 1)
+shape = SubResource("BoxShape3D_lqsb6")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="interactable" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.07874, 0)
+shape = SubResource("BoxShape3D_lqsb6")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="interactable" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.07874, 0)
+shape = SubResource("BoxShape3D_lqsb6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="interactable" index="6"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interactable/StaticBody3D" index="0"]
+transform = Transform3D(0.999962, 0, 0.00872654, 0, 1, 0, -0.00872654, 0, 0.999962, 0, -1.07429, 0)
+shape = SubResource("BoxShape3D_3lgr8")
+
+[node name="SubViewport" type="SubViewport" parent="interactable" index="7"]
+disable_3d = true
+transparent_bg = true
+
+[node name="Node2D" parent="interactable/SubViewport" index="0" instance=ExtResource("4_nb7mh")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3088, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_ugpuc")
+
+[node name="Timer" type="Timer" parent="." index="3"]

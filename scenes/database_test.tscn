@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://f1hkplv7iyoy"]
+
+[ext_resource type="PackedScene" uid="uid://bstb0ybwovx0h" path="res://3dassets/envi/props/database/database.glb" id="1_c4myv"]
+[ext_resource type="PackedScene" uid="uid://0euj2ry1oys1" path="res://scenes/database_progress_bar.tscn" id="2_05lmj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ivqqh"]
+viewport_path = NodePath("Circle_002/SubViewport")
+
+[node name="database" instance=ExtResource("1_c4myv")]
+
+[node name="SubViewport" type="SubViewport" parent="Circle_002" index="0"]
+disable_3d = true
+transparent_bg = true
+
+[node name="Node2D" parent="Circle_002/SubViewport" index="0" instance=ExtResource("2_05lmj")]
+
+[node name="Sprite3D" type="Sprite3D" parent="Circle_002" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48263, 0)
+texture = SubResource("ViewportTexture_ivqqh")
