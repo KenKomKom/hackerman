@@ -118,6 +118,7 @@ func update_animation(animation: String):
 	#cek jenis interaction
 	if animation == "interact":
 		can_move = false
+		print("hrsnya abisni animasi jalan lol")
 		anim_tree["parameters/conditions/interact"] = true
 		#anim_tree.get("parameters/playback").travel("interact")
 		print("ini harusnya interact tp kok enggak")
