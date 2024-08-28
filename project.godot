@@ -28,7 +28,6 @@ TransitionLayer="*res://scenes/transition_layer.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [file_customization]
@@ -44,24 +43,29 @@ folder_colors={
 "res://3dassets/envi/props/@template/hospital/": "pink",
 "res://3dassets/envi/props/@template/ministry/": "teal",
 "res://3dassets/envi/props/@template/shadow/": "purple",
+"res://3dassets/envi/props/button/": "blue",
 "res://3dassets/envi/props/button/bank/": "yellow",
 "res://3dassets/envi/props/button/high_ministry/": "teal",
 "res://3dassets/envi/props/button/high_shadow/": "purple",
 "res://3dassets/envi/props/button/hospital/": "pink",
 "res://3dassets/envi/props/button/ministry/": "teal",
 "res://3dassets/envi/props/button/shadow/": "purple",
+"res://3dassets/envi/props/checkpoint/": "red",
 "res://3dassets/envi/props/checkpoint/bank/": "yellow",
 "res://3dassets/envi/props/checkpoint/hospital/": "pink",
 "res://3dassets/envi/props/checkpoint/ministry/": "teal",
 "res://3dassets/envi/props/checkpoint/shadow/": "purple",
+"res://3dassets/envi/props/database/": "red",
 "res://3dassets/envi/props/database/bank/": "yellow",
 "res://3dassets/envi/props/database/hospital/": "pink",
 "res://3dassets/envi/props/database/ministry/": "teal",
 "res://3dassets/envi/props/database/shadow/": "purple",
+"res://3dassets/envi/props/firewall/": "blue",
 "res://3dassets/envi/props/firewall/material/bank/": "yellow",
 "res://3dassets/envi/props/firewall/material/hospital/": "pink",
 "res://3dassets/envi/props/firewall/material/ministry/": "teal",
 "res://3dassets/envi/props/firewall/material/shadow/": "purple",
+"res://3dassets/envi/props/gates/": "blue",
 "res://3dassets/envi/props/gates/high/ministry/": "teal",
 "res://3dassets/envi/props/gates/high/shadow/": "purple",
 "res://3dassets/envi/props/gates/low/bank/": "yellow",
@@ -72,6 +76,7 @@ folder_colors={
 "res://3dassets/envi/props/gates/medium/hospital/": "pink",
 "res://3dassets/envi/props/gates/medium/ministry/": "teal",
 "res://3dassets/envi/props/gates/medium/shadow/": "purple",
+"res://3dassets/envi/props/hivemind/": "gray",
 "res://3dassets/envi/props/security cam/bank/": "yellow",
 "res://3dassets/envi/props/security cam/hospital/": "pink",
 "res://3dassets/envi/props/security cam/ministry/": "teal",

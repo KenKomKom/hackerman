@@ -7,6 +7,7 @@ func _ready():
 
 # Run ketika dapet signal player_is_dead
 func _set_up():
+	#kasih waktu sesuai animasi
 	get_tree().paused=true
 	_is_dead = true
 	visible = true

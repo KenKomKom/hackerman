@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://der7mnuhoefpo"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fulge"]
-[ext_resource type="Script" path="res://scripts/shield_idle_state.gd" id="2_mrj8m"]
-[ext_resource type="Script" path="res://scripts/shield_chasing_state.gd" id="3_l57jc"]
 [ext_resource type="PackedScene" uid="uid://d26w7aroh5ag8" path="res://scenes/guards/low_tier_guard.tscn" id="3_r664h"]
 [ext_resource type="PackedScene" uid="uid://pam3eg35uuji" path="res://scenes/guards/shield.tscn" id="4_3w22y"]
+[ext_resource type="Script" path="res://scripts/idle_state.gd" id="4_75n3e"]
+[ext_resource type="Script" path="res://scripts/chasing_state.gd" id="5_s11to"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3l87d"]
 
@@ -56,11 +56,11 @@ collision_mask = 15
 [node name="states" type="Node" parent="."]
 
 [node name="idle" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
-script = ExtResource("2_mrj8m")
+script = ExtResource("4_75n3e")
 next_target = [NodePath("../chasing")]
 
 [node name="chasing" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
-script = ExtResource("3_l57jc")
+script = ExtResource("5_s11to")
 next_target = [NodePath("../idle")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]

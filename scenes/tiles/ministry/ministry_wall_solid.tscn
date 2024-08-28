@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://du0a0obvaquky"]
+
+[ext_resource type="PackedScene" uid="uid://d0435rpenn7ai" path="res://3dassets/envi/wall solid.glb" id="1_33ry1"]
+[ext_resource type="Material" uid="uid://pjinn011tigo" path="res://scenes/tiles/ministry/material/ministry floor & wall.tres" id="2_wv38n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2bhc"]
+
+[node name="wall solid" instance=ExtResource("1_33ry1")]
+
+[node name="wall (solid)_008" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_wv38n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall (solid)_008" index="0"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall (solid)_008/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_t2bhc")

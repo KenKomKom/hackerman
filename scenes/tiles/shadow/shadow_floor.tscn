@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxsxpyt3wqriq"]
+
+[ext_resource type="PackedScene" uid="uid://5u3grcl3e4eg" path="res://3dassets/envi/floor.glb" id="1_ttd1j"]
+[ext_resource type="Material" uid="uid://cd58tu1rn5cl4" path="res://scenes/tiles/shadow/material/shadow floor glow.tres" id="2_nbq8g"]
+[ext_resource type="Material" uid="uid://h25pip6lvu42" path="res://scenes/tiles/shadow/material/shadow floor & wall.tres" id="3_c7sne"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uavio"]
+
+[node name="floor" instance=ExtResource("1_ttd1j")]
+
+[node name="floor" parent="." index="0"]
+transform = Transform3D(0.999985, 0.00549776, 0, -0.00549776, 0.999985, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
+lod_bias = 0.1
+surface_material_override/0 = ExtResource("2_nbq8g")
+surface_material_override/1 = ExtResource("3_c7sne")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor" index="0"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_uavio")
