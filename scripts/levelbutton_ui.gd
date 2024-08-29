@@ -13,8 +13,8 @@ var hex_color = ""
 @onready var label_id = $VBoxContainer/TextureRect/id
 @onready var level_image = $VBoxContainer/TextureRect
 @onready var label_name = $VBoxContainer/TextureRect/name
-@onready var label_anon_status = $VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer/VBoxContainer/anonimity_status
-@onready var label_time_status = $VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer/VBoxContainer/time_status
+@onready var label_anon_status = $VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/anon/HBoxContainer/VBoxContainer/anonimity_status
+@onready var label_time_status = $VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/time/HBoxContainer/VBoxContainer/time_status
 
 var _target_image_prefix = "res://2dassets/level_ui/map/"
 

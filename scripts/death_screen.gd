@@ -17,10 +17,10 @@ func _process(delta):
 	if _is_dead:
 		$TextureRect.modulate.a=lerp($TextureRect.modulate.a,1.0,0.2)
 		if abs($TextureRect.modulate.a-1.0)>0.1:
-			$VBoxContainer.visible=true
+			$VBoxContainer.visible = true
 		if Input.is_action_just_released("esc"):
-			get_tree().paused=false
+			get_tree().paused = false
 			TransitionLayer.go_back_to_level_select()
 		elif Input.is_action_just_released("ui_accept"):
-			get_tree().paused=false
+			get_tree().paused = false
 			get_tree().reload_current_scene()

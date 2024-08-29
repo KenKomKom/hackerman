@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://knsayvjktgwc"]
+
+[ext_resource type="Texture2D" uid="uid://kc6ey7glggul" path="res://3dassets/envi/props/checkpoint/ministry/checkpoint_2k_BaseColor.png" id="1_wtqpj"]
+[ext_resource type="Texture2D" uid="uid://dgyv0hd8mj7fh" path="res://3dassets/envi/props/checkpoint/ministry/checkpoint_2k_Emissive.png" id="2_dqdeb"]
+
+[resource]
+albedo_texture = ExtResource("1_wtqpj")
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("2_dqdeb")

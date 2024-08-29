@@ -15,7 +15,6 @@ var _save_select_displayed = false
 func _ready():
 	level_4.visible=false
 
-
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") and not _started:
 		_on_start()
@@ -99,7 +98,7 @@ func _set_up_saveselect():
 # set up informasi tiap level sama animasi 
 func set_up_levelselect():
 	# Set default selected
-	_started=true
+	_started = true
 	_save_select_displayed = false
 	_select_level_displayed = true
 	_current_selected = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton

@@ -10,6 +10,9 @@ func change_scene(file_path: String, title="", id="", color=""):
 		
 		await $AnimationPlayer.animation_finished
 		
+		#reset checkpoint jadi ke awal lg
+		GlobalEvent.checkpoint_reached = false
+		
 		get_tree().change_scene_to_file(file_path)
 			
 		await get_tree().create_timer(0.5).timeout

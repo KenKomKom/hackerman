@@ -14,10 +14,11 @@ func _ready():
 
 # Animasi dan masukin informasi level
 func set_up(level_name, level_id, color):
+	print("ini kenapa print tp yg tadi nggak")
 	get_tree().paused=true
 	self.visible=true
 	label_title.text = level_name.to_upper()
-	label_title.set("theme_override_colors/font_color",  Color(color))
+	label_title.set("theme_override_colors/font_color", Color(color))
 	label_mission.text = "MISSION "+ str(level_id)
 	label_title.visible=true
 	label_mission.visible=true

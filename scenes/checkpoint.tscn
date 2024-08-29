@@ -1,7 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://3uksaxpktt17"]
+[gd_scene load_steps=7 format=3 uid="uid://3uksaxpktt17"]
 
 [ext_resource type="PackedScene" uid="uid://qy45g4btdf2y" path="res://3dassets/envi/props/checkpoint/checkpoint.glb" id="1_rnajc"]
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="2_xt11x"]
+[ext_resource type="PackedScene" uid="uid://byrurivrc57cm" path="res://scenes/interactable.tscn" id="3_l87h2"]
+[ext_resource type="Material" uid="uid://7nhr1lveru8o" path="res://3dassets/envi/props/checkpoint/checkpoint_hospital_off.tres" id="4_gt3em"]
 
-[node name="checkpoint2" instance=ExtResource("1_rnajc")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_v41ir"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_khh63"]
+
+[node name="checkpoint" instance=ExtResource("1_rnajc")]
 script = ExtResource("2_xt11x")
+
+[node name="checkpoint" parent="." index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+surface_material_override/0 = ExtResource("4_gt3em")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="checkpoint" index="0"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="checkpoint/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_v41ir")
+
+[node name="interactable" parent="." index="1" instance=ExtResource("3_l87h2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3594, 0)
+command = "checkpoint"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interactable" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859398, -1)
+shape = SubResource("BoxShape3D_khh63")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="interactable" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859398, 1)
+shape = SubResource("BoxShape3D_khh63")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="interactable" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.859398, 0)
+shape = SubResource("BoxShape3D_khh63")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="interactable" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.859398, 0)
+shape = SubResource("BoxShape3D_khh63")

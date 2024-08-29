@@ -1,6 +1,6 @@
 extends Area3D
 
-@export_enum("sql", "download", "wipe", "deactivate", "hijack", "pickup", "interact") var command: String
+@export_enum("sql", "download", "wipe", "deactivate", "hijack", "pickup", "interact", "checkpoint") var command: String
 @onready var text := $MeshInstance3D
 
 var interacted := false
@@ -13,6 +13,8 @@ func _ready():
 	text.visible = false
 
 func _on_body_entered(body):
+	if command == "checkpoint" and GlobalEvent.checkpoint_reached:
+		return
 	if !interacted and body is Player:
 		player = body
 		can_interact = true
@@ -34,7 +36,7 @@ func _process(delta):
 	elif(command == "sql") and Input.is_action_just_pressed("sql inject"):
 		interact("interact")
 	elif Input.is_action_just_pressed("interact"):
-		if command == "pickup" or command == "interact":
+		if command == "pickup" or command == "checkpoint" or command == "interact":
 			interact("interact")
 		elif command == "deactivate":
 			interact("hack")

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxj4xrm58texf"
-path.s3tc="res://.godot/imported/checkpoint_2k_BaseColor.png-46455715a4180b812f4c01637827d45e.s3tc.ctex"
+uid="uid://cnauhrp3nimkh"
+path.s3tc="res://.godot/imported/checkpoint_2k_BaseColor.png-a0672acd55f6d679f0604305edd10234.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://3dassets/envi/props/checkpoint/bank/checkpoint_2k_BaseColor.png"
-dest_files=["res://.godot/imported/checkpoint_2k_BaseColor.png-46455715a4180b812f4c01637827d45e.s3tc.ctex"]
+source_file="res://3dassets/envi/props/checkpoint/hospital/checkpoint_2k_BaseColor.png"
+dest_files=["res://.godot/imported/checkpoint_2k_BaseColor.png-a0672acd55f6d679f0604305edd10234.s3tc.ctex"]
 
 [params]
 
