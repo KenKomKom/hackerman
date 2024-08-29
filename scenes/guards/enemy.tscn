@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://der7mnuhoefpo"]
+[gd_scene load_steps=11 format=3 uid="uid://der7mnuhoefpo"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fulge"]
 [ext_resource type="PackedScene" uid="uid://d26w7aroh5ag8" path="res://scenes/guards/low_tier_guard.tscn" id="3_r664h"]
 [ext_resource type="PackedScene" uid="uid://pam3eg35uuji" path="res://scenes/guards/shield.tscn" id="4_3w22y"]
 [ext_resource type="Script" path="res://scripts/idle_state.gd" id="4_75n3e"]
 [ext_resource type="Script" path="res://scripts/chasing_state.gd" id="5_s11to"]
+[ext_resource type="Script" path="res://scenes/guards/ray_cast_3d_scanner.gd" id="6_nc4gv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3l87d"]
 
@@ -45,12 +46,20 @@ transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-0
 [node name="Skeleton3D" parent="low tier/antivirus low" index="0"]
 bones/0/position = Vector3(2.41471e-08, 0.0384611, -4.58492e-09)
 
+[node name="RayCast3D_Scanner" type="RayCast3D" parent="low tier/antivirus low/Skeleton3D" index="5"]
+transform = Transform3D(-0.00517998, -0.79997, 0.00464934, 0.799983, -0.00518007, 2.78374e-10, 3.01028e-05, 0.00464922, 0.799987, 1.95776e-10, 0.361329, -0.00447882)
+target_position = Vector3(0, 3, 0)
+debug_shape_custom_color = Color(0.966057, 0.776553, 0.136213, 1)
+debug_shape_thickness = 5
+script = ExtResource("6_nc4gv")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("BoxMesh_44wgg")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249265, 0)
+visible = false
 collision_mask = 15
 
 [node name="states" type="Node" parent="."]

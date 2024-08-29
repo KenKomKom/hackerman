@@ -16,6 +16,7 @@ func _ready():
 	database_script = get_parent()
 
 func _on_body_entered(body):
+	print("Check Parent : ",get_parent())
 	if !interacted and body is Player:
 		player = body
 		can_interact = true
@@ -42,7 +43,7 @@ func _process(delta):
 		elif command == "deactivate":
 			interact("hack")
 		elif command == "download" or command == "wipe":
-			if not is_downloading:
+			if not is_downloading && can_interact == true:
 				is_downloading = true
 				print("DOWNLOADING")
 				download("download")
@@ -51,8 +52,7 @@ func _process(delta):
 		print("DOWNLOADING INTERUPTED")
 		is_downloading = false
 		database_script.cancel_download()
-		player.stop_animation()
-		#player.stop_animation()  # Assuming you have a method to stop the animation
+		player.stop_animation()  # Assuming you have a method to stop the animation
 
 func interact(animation: String):
 	if !interacted and can_interact:
