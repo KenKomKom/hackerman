@@ -1,28 +1,18 @@
 extends enemy_state
 
-class_name 	enemy_chasing_state
+class_name enemy_chasing_state
 
-var moving=false
+var moving = false
 var target_position_after_move :Vector3
 var time_for_timer:float
 
 func ready_state():
-	# Ganti warna robot
-	#var tween = get_tree().create_tween()
-	#tween.tween_property(
-		#parent_enemy.mesh_node.get_surface_override_material(0),
-		#"emission", 
-		#Color("51000a"),
-		#1
-	#)
-	#parent_enemy.mesh_node.get_surface_override_material(0).emission = Color("51000a")
-	
-	# Tiap robot dibedain waktu buat update posisi player biar gk bengkak komputasi
+		# Tiap robot dibedain waktu buat update posisi player biar gk bengkak komputasi
 	var rng = RandomNumberGenerator.new()
 	time_for_timer=rng.randf_range(0.2,0.25)
 	parent_enemy.redo_target_location_timer.wait_time = time_for_timer
 
-func do_something(delta):
+func do_something(delta):	
 	# buat kamera
 	GameManager.player_chased=true
 	

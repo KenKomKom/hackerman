@@ -42,12 +42,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8y6p2")
 tab_alignment = 1
+current_tab = 0
 clip_tabs = false
 tabs_visible = false
 tab_focus_mode = 0
 
 [node name="Container" type="MarginContainer" parent="TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Container"]
 layout_mode = 2
@@ -76,6 +78,7 @@ flat = true
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/saveselect"]
 layout_mode = 2
@@ -132,6 +135,7 @@ stretch_mode = 2
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/LevelSelect"]
 layout_mode = 2

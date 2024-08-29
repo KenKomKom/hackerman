@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://der7mnuhoefpo" path="res://scenes/guards/enemy.tscn" id="9_s3go4"]
 [ext_resource type="PackedScene" uid="uid://briq8hmllh7e0" path="res://scenes/door_low.tscn" id="10_05478"]
 [ext_resource type="PackedScene" uid="uid://bby81bhqf480q" path="res://scenes/startui.tscn" id="11_p78e7"]
-[ext_resource type="PackedScene" uid="uid://q4fn0h3q2til" path="res://scenes/death_screen.tscn" id="12_nxont"]
+[ext_resource type="PackedScene" uid="uid://ces6af84cy7go" path="res://scenes/death_screen.tscn" id="12_nxont"]
 
 [sub_resource type="Environment" id="Environment_eaoja"]
 background_mode = 1
@@ -76,26 +76,26 @@ light_color = Color(0.624656, 0.523791, 0.538659, 1)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="player/hacker animated/Armature_001" index="0"]
-bones/0/rotation = Quaternion(0.145483, 1.06302e-17, 4.68609e-17, 0.989361)
-bones/2/rotation = Quaternion(0.0701146, -0.000118105, 0.00214279, 0.997537)
-bones/3/rotation = Quaternion(0.0288992, 0.133091, -0.0737472, 0.987934)
-bones/4/rotation = Quaternion(-0.154313, -0.0980662, 0.0893654, 0.979073)
-bones/5/rotation = Quaternion(0.566351, -0.42311, 0.421026, 0.568297)
-bones/6/rotation = Quaternion(0.195426, 0.148838, 0.0932706, 0.964861)
-bones/7/rotation = Quaternion(0.363948, 0.0696491, -0.0873223, 0.924698)
-bones/8/rotation = Quaternion(0.22184, 0.709164, -0.208862, 0.635807)
-bones/9/rotation = Quaternion(0.142587, 0.0554142, 0.047768, 0.987075)
-bones/16/rotation = Quaternion(-0.450282, -0.535151, 0.599276, -0.389522)
-bones/17/rotation = Quaternion(0.0700379, 0.136593, 0.0244195, 0.987846)
-bones/18/rotation = Quaternion(0.354588, 0.0825739, -0.134463, 0.921612)
-bones/19/rotation = Quaternion(0.186098, -0.722293, 0.127223, 0.653815)
-bones/20/rotation = Quaternion(0.0700019, -0.0506524, -0.057423, 0.994604)
-bones/27/position = Vector3(0.0667212, -0.0460285, 0.0286394)
-bones/27/rotation = Quaternion(0.0107593, 0.130215, 0.988065, -0.0815818)
-bones/28/rotation = Quaternion(0.72927, -0.00291006, 0.00462822, 0.684204)
-bones/29/position = Vector3(-0.0667213, -0.0715016, -0.0237691)
-bones/29/rotation = Quaternion(-0.00520978, 0.0630021, 0.994615, 0.0821231)
-bones/30/rotation = Quaternion(0.773122, 0.0107887, -0.0124986, 0.634043)
+bones/0/rotation = Quaternion(0.154652, 1.10644e-17, 4.67602e-17, 0.987969)
+bones/2/rotation = Quaternion(0.0702849, -0.000111506, 0.00203137, 0.997525)
+bones/3/rotation = Quaternion(0.0329161, 0.121088, -0.0680378, 0.98976)
+bones/4/rotation = Quaternion(-0.173998, -0.0912172, 0.0797528, 0.977263)
+bones/5/rotation = Quaternion(0.566162, -0.433177, 0.425398, 0.557544)
+bones/6/rotation = Quaternion(0.199384, 0.199277, 0.032555, 0.958893)
+bones/7/rotation = Quaternion(0.355061, 0.0571942, -0.0681693, 0.930598)
+bones/8/rotation = Quaternion(0.20469, 0.710025, -0.18657, 0.647424)
+bones/9/rotation = Quaternion(0.185028, 0.0582784, 0.0433503, 0.980045)
+bones/16/rotation = Quaternion(-0.457633, -0.531889, 0.591924, -0.396601)
+bones/17/rotation = Quaternion(0.0539395, 0.0809279, 0.102808, 0.989935)
+bones/18/rotation = Quaternion(0.340443, 0.0845499, -0.13214, 0.927086)
+bones/19/rotation = Quaternion(0.167517, -0.718801, 0.102657, 0.666876)
+bones/20/rotation = Quaternion(0.077744, -0.0514582, -0.0567672, 0.994025)
+bones/27/position = Vector3(0.0667212, -0.0472655, 0.0280403)
+bones/27/rotation = Quaternion(0.0122, 0.147664, 0.985609, -0.0813788)
+bones/28/rotation = Quaternion(0.728031, -0.00269567, 0.00441393, 0.685525)
+bones/29/position = Vector3(-0.0667213, -0.0704923, -0.0197465)
+bones/29/rotation = Quaternion(-0.00549004, 0.0663965, 0.994394, 0.0821048)
+bones/30/rotation = Quaternion(0.768258, 0.00988509, -0.0115964, 0.639959)
 
 [node name="playerskill_ui" parent="player" instance=ExtResource("5_fst25")]
 
@@ -134,59 +134,30 @@ size = 15.383
 
 [node name="firewall" parent="firewalls" instance=ExtResource("8_phmvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29887, -0.96458, 0.402216)
-tile_size = null
-warmup_speed = null
-fire_speed = null
-offset = null
-wait_time = null
 
 [node name="firewall2" parent="firewalls" instance=ExtResource("8_phmvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701125, -0.96458, -0.597784)
-tile_size = null
-warmup_speed = null
-fire_speed = null
 offset = 0.25
-wait_time = null
 
 [node name="firewall6" parent="firewalls" instance=ExtResource("8_phmvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29887, -0.96458, -0.597784)
-tile_size = null
-warmup_speed = null
-fire_speed = null
 offset = 0.25
-wait_time = null
 
 [node name="firewall7" parent="firewalls" instance=ExtResource("8_phmvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70113, -0.96458, 4.40222)
-tile_size = null
-warmup_speed = null
-fire_speed = null
 offset = 0.25
-wait_time = null
 
 [node name="firewall3" parent="firewalls" instance=ExtResource("8_phmvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2989, -0.96458, -6.59778)
-tile_size = null
-warmup_speed = null
-fire_speed = null
 offset = 0.5
-wait_time = null
 
 [node name="firewall4" parent="firewalls" instance=ExtResource("8_phmvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2989, -0.96458, -6.59778)
-tile_size = null
-warmup_speed = null
-fire_speed = null
 offset = 0.5
-wait_time = null
 
 [node name="firewall5" parent="firewalls" instance=ExtResource("8_phmvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2989, -0.96458, -8.59778)
-tile_size = null
-warmup_speed = null
-fire_speed = null
 offset = 0.5
-wait_time = null
 
 [node name="guards" type="Node3D" parent="."]
 

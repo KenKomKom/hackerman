@@ -10,8 +10,8 @@ func change_scene(file_path: String, title="", id="", color=""):
 		
 		await $AnimationPlayer.animation_finished
 		
-		#reset checkpoint jadi ke awal lg
-		GlobalEvent.checkpoint_reached = false
+		#reset ke awal semua
+		reset_level()
 		
 		get_tree().change_scene_to_file(file_path)
 			
@@ -35,3 +35,8 @@ func go_back_to_level_select():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	await get_tree().physics_frame
 	get_node("/root/main menu").set_up_levelselect()
+
+func reset_level():
+	GlobalEvent.checkpoint_reached = false
+	GlobalEvent.database_downloaded = false
+	GlobalEvent.is_hacking = false

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfx1yvho6odqg"]
+
+[ext_resource type="Texture2D" uid="uid://tg63b58ndmjn" path="res://2dassets/progress bar/text shadow.png" id="1_2nojy"]
+[ext_resource type="PackedScene" uid="uid://0euj2ry1oys1" path="res://scenes/database_progress_bar.tscn" id="1_2qul4"]
+[ext_resource type="Script" path="res://scripts/downloading_bar.gd" id="1_b77dq"]
+[ext_resource type="Texture2D" uid="uid://dek5wcncg3gwd" path="res://2dassets/progress bar/bar shadow.png" id="2_05mx3"]
+[ext_resource type="Texture2D" uid="uid://ccfhmno4lr1yq" path="res://2dassets/progress bar/hospital_progressbar.png" id="2_li0lg"]
+[ext_resource type="Texture2D" uid="uid://bukr0yyng552e" path="res://2dassets/progress bar/hospital_progressbar_progress.png" id="3_ngsbn"]
+[ext_resource type="FontFile" uid="uid://h4fgd4kgv6bo" path="res://font/MonomaniacOne-Regular.ttf" id="4_t8xku"]
+
+[node name="Downloading_Bar" type="CanvasLayer"]
+script = ExtResource("1_b77dq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 737.0
+offset_top = 767.0
+offset_right = 1165.0
+offset_bottom = 923.0
+texture = ExtResource("1_2nojy")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 546.0
+offset_top = 806.0
+offset_right = 1378.0
+offset_bottom = 983.0
+scale = Vector2(0.993416, 0.865776)
+texture = ExtResource("2_05mx3")
+
+[node name="DownloadingBar" parent="." instance=ExtResource("1_2qul4")]
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -269.0
+offset_bottom = -214.0
+grow_vertical = 0
+step = 1.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 628.0
+offset_top = 862.0
+offset_right = 1290.0
+offset_bottom = 900.0
+step = 0.1
+value = 90.0
+texture_under = ExtResource("2_li0lg")
+texture_progress = ExtResource("3_ngsbn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 838.0
+offset_top = 815.0
+offset_right = 1002.0
+offset_bottom = 866.0
+theme_override_fonts/normal_font = ExtResource("4_t8xku")
+theme_override_font_sizes/normal_font_size = 32
+text = "Downloading"
+
+[editable path="DownloadingBar"]

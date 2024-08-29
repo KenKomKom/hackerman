@@ -33,7 +33,7 @@ func _ready():
 # Mainin level
 func on_button_up():
 	if _unlocked:
-		TransitionLayer.change_scene("res://scenes/level.tscn", level_name, id, hex_color)
+		TransitionLayer.change_scene("res://scenes/levels/level_1.tscn, level_name, id, hex_color")
 		
 		# TODO Kalo udh set up semua level ganti ke bawah ini
 		#TransitionLayer.change_scene("res://scenes/level"+str(id)+".tscn") 

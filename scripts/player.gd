@@ -7,6 +7,7 @@ class_name Player
 @onready var anim_player = $"hacker animated/AnimationPlayer"
 @onready var anim_tree = $"hacker animated/AnimationTree"
 @onready var timer = $Timer
+@onready var light = $OmniLight3D
 
 @export var animation_speed := 5.0
 @export var tile_size = 1
@@ -29,16 +30,21 @@ var inputs = {"right": Vector3(0,0,-1),
 			"stand" : Vector3(0,0,0)}
 
 func _ready():
+	light.visible = true
 	position.x = position.snapped(Vector3.ONE * tile_size).x
 	position.z = position.snapped(Vector3.ONE * tile_size).z
 	position += Vector3(1,0,1) * tile_size / 2
+	
+	GlobalEvent.connect("player_is_hacking",is_hacking)
+	GlobalEvent.connect("player_hacking_done",done_hacking)
 	
 	anim_tree.active = true
 	#print(anim_player.current_animation)
 
 func _physics_process(delta):
-	update_animation("")
-	move(delta)
+	if !GlobalEvent.is_hacking:
+		update_animation("")
+		move(delta)
 
 func look_towards(dir:Vector3):
 	var rad = atan2(-dir.z,dir.x) + (PI/2)
@@ -104,6 +110,9 @@ func step(dir):
 
 func update_animation(animation: String):
 	
+	if GlobalEvent.is_hacking:
+		return
+	
 	#klo nggak ada command utk animation tertentu
 	if (animation == "none" or animation == "") :
 		#cek dia gerak atau nggak
@@ -134,17 +143,21 @@ func update_animation(animation: String):
 		timer.wait_time = anim_player.get_animation("hacker - hack").length - 0.15
 		timer.start()
 	
-	elif animation == "download":
+	elif animation == "download" or animation == "wipe":
+		can_move = false
 		anim_tree["parameters/conditions/download"] = true
 		anim_tree["parameters/conditions/run"] = false
 		anim_tree["parameters/conditions/idle"] = false
+		
+		timer.wait_time = anim_player.get_animation("hacker - download").length - 0.15
+		timer.start()
 	
 	else:
 		anim_tree["parameters/conditions/interact"] = false
 		anim_tree["parameters/conditions/hack"] = false
 		anim_tree["parameters/conditions/download"] = false
 	
-	print(anim_tree["parameters/conditions/interact"])
+	#print(anim_tree["parameters/conditions/interact"])
 	
 	#run animasi sesuai cara mati nya
 	if animation == "low_kill":
@@ -155,5 +168,23 @@ func update_animation(animation: String):
 		anim_tree["parameters/conditions/high_kill"] = false
 		anim_tree["parameters/conditions/low_kill"] = false
 
+func stop_animation():
+	can_move = true
+	anim_tree["parameters/conditions/download"] = false
+	anim_tree["parameters/conditions/run"] = false
+	anim_tree["parameters/conditions/idle"] = true
+	timer.stop()
+
 func _on_timer_timeout():
 	can_move = true
+
+func is_hacking(node):
+	can_move = false
+	light.visible = false
+	GlobalEvent.is_hacking = true
+	update_animation("none")
+	
+func done_hacking():
+	can_move = true
+	GlobalEvent.is_hacking = false
+	light.visible = true

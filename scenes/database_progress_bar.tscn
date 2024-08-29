@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://0euj2ry1oys1"]
+
+[ext_resource type="FontFile" uid="uid://h4fgd4kgv6bo" path="res://font/MonomaniacOne-Regular.ttf" id="1_vk17o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo6qh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs1nc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Node2D" type="ProgressBar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = 253.0
+offset_right = 113.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_vk17o")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_yo6qh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gs1nc")
+value = 40.0

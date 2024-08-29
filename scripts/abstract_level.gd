@@ -18,7 +18,3 @@ func _ready():
 # Atur camera
 func _process(delta):
 	pass
-
-func reset_checkpoint():
-	GlobalEvent.checkpoint_reached = false
-	$player.set_position(player_original_pos)

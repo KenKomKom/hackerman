@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://q4fn0h3q2til"]
+[gd_scene load_steps=5 format=3 uid="uid://ces6af84cy7go"]
 
 [ext_resource type="Texture2D" uid="uid://dktdceol6lirj" path="res://2dassets/ingame/Death Screen.png" id="1_ann7f"]
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_u4guq"]

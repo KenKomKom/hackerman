@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name DoorButton
+
 @export var door: Node3D
 @export_enum("medium", "high") var type: String
 

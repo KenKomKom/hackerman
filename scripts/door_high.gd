@@ -45,11 +45,19 @@ func _ready():
 		$"door frame_005/door frame_015".material_override = load(shadow_path)
 
 func _on_body_entered(body):
-	if body.is_in_group("High Guard") or body.is_in_group("Guard"):
+	#print("Body entered: ", body.name)
+	#if (body.is_in_group("Guard") or body.is_in_group("High Guard")):
+	#if body.is_in_group("High Guard"):
+	#if body.is_in_group("Guard"):
+	if body is EnemyHigh:
 		open_gate()
 
 func _on_body_exited(body):
-	if (body.is_in_group("High Guard") or body.is_in_group("Guard")) and !is_any_guard_nearby():
+	#print("Body Exited: ", body.name)
+	#if (body.is_in_group("Guard") or body.is_in_group("High Guard")) and !is_any_guard_nearby():
+	#if body.is_in_group("High Guard") and !is_any_guard_nearby():
+	#if body.is_in_group("Guard") and !is_any_guard_nearby():
+	if body is EnemyHigh and !is_any_guard_nearby():
 		close_gate()
 
 func open_gate():
@@ -69,6 +77,6 @@ func interact():
 
 func is_any_guard_nearby() -> bool:
 	for body in $Area3D.get_overlapping_bodies():
-		if (body.is_in_group("Guard") or body.is_in_group("High Guard")):
+		if body.is_in_group("Guard"):
 			return true
 	return false

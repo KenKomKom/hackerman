@@ -13,7 +13,8 @@ func ready_state():
 	pass
 
 func do_something(delta):
-	if (parent_enemy.movement_target_position-parent_enemy.global_position).length()<3:
+	#TODO:nanti ubah lagi jadi 3
+	if (parent_enemy.movement_target_position-parent_enemy.global_position).length() < 0: 
 		parent_enemy.change_current_state(next_target[0])
 		
 		#Tries to warn other hive if this enemy is connected to the central
