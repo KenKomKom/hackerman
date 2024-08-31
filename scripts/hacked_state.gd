@@ -17,14 +17,17 @@ var last_dir = "stand" # arah terakhir gerak
 var target_position_after_move :Vector3
 
 func ready_state():
-	parent_enemy.position.x = parent_enemy.position.snapped(Vector3.ONE * tile_size).x
-	parent_enemy.position.z = parent_enemy.position.snapped(Vector3.ONE * tile_size).z
+	#parent_enemy.position.x = parent_enemy.position.snapped(Vector3.ONE * tile_size).x
+	#parent_enemy.position.z = parent_enemy.position.snapped(Vector3.ONE * tile_size).z
 	#parent_enemy.position += Vector3(1,0,1) * tile_size / 2
 	parent_enemy.setup_texture_hacked()
 	#print(anim_player.current_animation)
 
 func do_something(delta):
-	print(parent_enemy.current_state,parent_enemy.hacked)
+	# klo lg dialog, gbs gerak
+	if GlobalEvent.stop_for_dialogue:
+		return
+	#print(parent_enemy.current_state,parent_enemy.hacked)
 	if(GlobalEvent.is_hacking and parent_enemy.hacked):
 		move(delta)
 
@@ -37,7 +40,7 @@ var inputs = {"right": Vector3(0,0,-1),
 func _physics_process(delta):
 	if(GlobalEvent.is_hacking):
 		move(delta)
-		if(Input.is_action_just_pressed("esc")): 
+		if(Input.is_action_just_released("esc")): 
 			GlobalEvent.is_hacking = false
 			#parent_enemy.change_current_state(parent_enemy.current_state.next_target[0])
 			GlobalEvent.emit_signal("player_hacking_done")

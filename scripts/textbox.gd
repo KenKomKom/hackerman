@@ -8,7 +8,6 @@ var still_typing=false
 
 signal go_to_next_line()
 
-
 var rng:= RandomNumberGenerator.new()
 
 func _ready():
@@ -16,12 +15,12 @@ func _ready():
 
 # Munculin satu satu huruf nya
 func display_line(nama: String, dialogue:String, emosi):
-	still_typing=true
+	still_typing = true
 	dialogue_label.visible_ratio=0.0
 	dialogue_label.text=dialogue
 	$MarginContainer.visible = false
 	
-	var type_speed = 1.2 / dialogue.length()
+	var type_speed : float = 1.0 / dialogue.length()
 	var num = rng.randi_range(1,4)
 	
 	# TODO Atur sprite emosi
@@ -33,9 +32,9 @@ func display_line(nama: String, dialogue:String, emosi):
 	
 	# Munculin karakter satu per satu
 	for characther in dialogue:
-		dialogue_label.visible_ratio+=type_speed
-		await get_tree().create_timer(0.01).timeout
-	still_typing=false
+		dialogue_label.visible_ratio += type_speed
+		await get_tree().create_timer(0.04).timeout
+	still_typing = false
 	$MarginContainer.visible = true
 
 # Terima inout user buat lanjutin dialog
@@ -47,7 +46,7 @@ func _process(delta):
 	elif Input.is_action_just_pressed("ui_accept") and not still_typing:
 		still_typing = false
 		$MarginContainer.visible = true
-		await get_tree().create_timer(0.0001).timeout #UNTUK MENJAMIN CONCURENCY AMAN, FUCK U
+		await get_tree().create_timer(0.0001).timeout #UNTUK MENJAMIN CONCURENCY AMAN
 		emit_signal("go_to_next_line")
 
 # TODO bikin input triangle nya gerak2

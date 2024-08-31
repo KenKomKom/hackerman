@@ -6,7 +6,11 @@ extends Area3D
 var interacted := false
 var can_interact:= false
 var enemy_interact:= false
+
+#simpan body player / enemy yg kena hack, bwt look towards
 var player: Player
+var enemy: Enemy
+
 var is_downloading: bool = false
 var database_script: Node
 
@@ -32,6 +36,7 @@ func _on_body_entered(body):
 	#klo enemy yg masuk
 	if (!interacted) and (GlobalEvent.is_hacking) and (body is Enemy) and (get_parent() is DoorButton):
 		#klo door button yg medium
+		enemy = body
 		print(get_parent().type)
 		if(get_parent().type == "medium"):
 			enemy_interact = true
@@ -83,7 +88,6 @@ func _process(delta):
 			is_downloading = false
 			database_script.cancel_download()
 			#player.stop_animation()  # Assuming you have a method to stop the animation
-			
 
 func interact(animation: String):
 	if command == "hijack":
@@ -92,12 +96,19 @@ func interact(animation: String):
 		return
 	
 	if !interacted and enemy_interact:
+		var dir = get_parent().object_of_interest.global_position - enemy.global_position
+		enemy.look_towards(dir)
+		
 		interacted = true
 		get_parent().interact()
 		can_interact = false
 		text.visible = false
 	
 	if !interacted and can_interact:
+		var dir = get_parent().object_of_interest.global_position - player.global_position
+		#print("posisi player: ",player.position," | posisi benda: ",dir)
+		player.look_towards(dir)
+		
 		interacted = true
 		get_parent().interact()
 		can_interact = false
@@ -112,10 +123,13 @@ func interact_hijack():
 		return
 	
 	var enemy = get_parent().get_parent().get_parent().get_parent()
-	#if(enemy.current_state.name == "chasing"):
-		#return
+	if(enemy.current_state.name == "chasing"):
+		return
 	
+	var dir = enemy.global_position - player.global_position
+	player.look_towards(dir)
 	player.update_animation("hijack")
+	
 	enemy.interact()
 	
 	can_interact = false
@@ -128,6 +142,9 @@ func download():
 	if (command == "download" or command == "wipe") and GlobalEvent.database_downloaded:
 		return
 	if (command == "download" or command == "wipe") and can_interact:
+		var dir = get_parent().object_of_interest.global_position - player.global_position
+		player.look_towards(dir)
+		
 		interacted = true
 		player.update_animation("download")
 		get_parent().interact()

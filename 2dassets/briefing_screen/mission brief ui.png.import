@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8vsogjep67mj"
-path="res://.godot/imported/h.png-da5c425b90784b2c4b7063eef6eae9ff.ctex"
+uid="uid://dutwhgnfi21h7"
+path="res://.godot/imported/mission brief ui.png-8b1158a1e1df0de2cd689b0f28e65131.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialogue/level 1/h.png"
-dest_files=["res://.godot/imported/h.png-da5c425b90784b2c4b7063eef6eae9ff.ctex"]
+source_file="res://2dassets/briefing_screen/mission brief ui.png"
+dest_files=["res://.godot/imported/mission brief ui.png-8b1158a1e1df0de2cd689b0f28e65131.ctex"]
 
 [params]
 

@@ -53,3 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00667, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
 shape = SubResource("BoxShape3D_4icig")
+
+[node name="Node3D" type="Node3D" parent="interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 1)

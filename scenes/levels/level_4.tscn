@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://1thaprnbne3s"]
+[gd_scene load_steps=22 format=3 uid="uid://1thaprnbne3s"]
 
 [ext_resource type="Script" path="res://scripts/abstract_level.gd" id="1_c2fmv"]
 [ext_resource type="PackedScene" uid="uid://ifqxvqx2xl88" path="res://scenes/camera.tscn" id="2_sdyo1"]
@@ -8,10 +8,14 @@
 [ext_resource type="MeshLibrary" uid="uid://bxd1y206vl0pa" path="res://scenes/tiles/level 4.tres" id="6_t02ya"]
 [ext_resource type="Texture2D" uid="uid://dwd2ysac8sllj" path="res://2dassets/grid.png" id="7_maugd"]
 [ext_resource type="PackedScene" uid="uid://c6ce1pduy55fj" path="res://scenes/firewall.tscn" id="8_fwmqc"]
-[ext_resource type="PackedScene" uid="uid://der7mnuhoefpo" path="res://scenes/guards/enemy.tscn" id="9_m6pnf"]
+[ext_resource type="PackedScene" uid="uid://dofogwi4uxva3" path="res://scenes/guards/enemy.tscn" id="9_m6pnf"]
 [ext_resource type="PackedScene" uid="uid://briq8hmllh7e0" path="res://scenes/door_low.tscn" id="10_bsmjy"]
 [ext_resource type="PackedScene" uid="uid://bby81bhqf480q" path="res://scenes/startui.tscn" id="11_lvgk5"]
+[ext_resource type="PackedScene" uid="uid://bckxr5a8up60m" path="res://scenes/victory_screen.tscn" id="12_k47vl"]
 [ext_resource type="PackedScene" uid="uid://ces6af84cy7go" path="res://scenes/death_screen.tscn" id="12_x8bfd"]
+[ext_resource type="PackedScene" uid="uid://ba0mf4rr0e61c" path="res://scenes/hacking_ui.tscn" id="14_k6rkl"]
+[ext_resource type="Script" path="res://scripts/hacking_ui.gd" id="15_ptfwc"]
+[ext_resource type="PackedScene" uid="uid://bfx1yvho6odqg" path="res://scenes/downloading_bar.tscn" id="16_lg51m"]
 
 [sub_resource type="Environment" id="Environment_eaoja"]
 background_mode = 1
@@ -76,28 +80,43 @@ light_color = Color(0.368507, 0.2808, 0.52, 1)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="player/hacker animated/Armature_001" index="0"]
-bones/0/rotation = Quaternion(0.161422, 1.13847e-17, 4.66833e-17, 0.986886)
-bones/2/rotation = Quaternion(0.0703384, 0.000154335, -0.00281154, 0.997519)
-bones/3/rotation = Quaternion(0.0456068, -0.17772, 0.100234, 0.9779)
-bones/4/rotation = Quaternion(-0.177398, 0.136308, -0.115368, 0.967802)
-bones/5/rotation = Quaternion(0.426543, -0.550285, 0.625048, 0.352935)
-bones/6/rotation = Quaternion(0.0216159, -0.209485, -0.0795222, 0.974333)
-bones/7/rotation = Quaternion(0.337605, -0.124382, 0.182837, 0.914944)
-bones/8/rotation = Quaternion(0.17568, 0.723568, -0.103431, 0.65946)
-bones/9/rotation = Quaternion(0.0834417, 0.0521153, 0.0567747, 0.993528)
-bones/16/rotation = Quaternion(-0.584153, -0.403523, 0.381461, -0.591964)
-bones/17/rotation = Quaternion(0.218449, -0.234742, -0.107786, 0.941041)
-bones/18/rotation = Quaternion(0.352581, -0.0860505, 0.109396, 0.925373)
-bones/19/rotation = Quaternion(0.231956, -0.703461, 0.232194, 0.630417)
-bones/20/rotation = Quaternion(0.216213, -0.0600757, -0.0394896, 0.973696)
-bones/27/position = Vector3(0.0667213, -0.0761165, -0.0299309)
-bones/27/rotation = Quaternion(0.00504313, 0.0609837, 0.994741, -0.0821335)
-bones/28/rotation = Quaternion(0.775302, -0.0111966, 0.0129057, 0.631359)
-bones/29/position = Vector3(-0.0667212, -0.0418035, 0.0406647)
-bones/29/rotation = Quaternion(-0.0139262, 0.16857, 0.982249, 0.0811012)
-bones/30/rotation = Quaternion(0.71566, 0.000576753, -0.00229604, 0.698445)
+bones/0/position = Vector3(5.96046e-09, 0.154424, -0.00257231)
+bones/1/rotation = Quaternion(0.0456111, 3.97869e-18, 1.81111e-17, 0.998959)
+bones/1/scale = Vector3(1, 0.991054, 0.99991)
+bones/2/rotation = Quaternion(0.023967, 5.23187e-17, 2.05154e-15, 0.999713)
+bones/3/rotation = Quaternion(-0.000305768, -3.10721e-10, 6.24696e-12, 1)
+bones/4/rotation = Quaternion(0.0068252, -5.45132e-10, 3.72061e-12, 0.999977)
+bones/5/rotation = Quaternion(0.51156, -0.482092, 0.519759, 0.485536)
+bones/6/rotation = Quaternion(0.220308, 0.00840829, -0.0146447, 0.975284)
+bones/7/rotation = Quaternion(0.376909, 0.0179068, 0.00776977, 0.926045)
+bones/8/rotation = Quaternion(-0.00263631, 0.694148, -0.040912, 0.718664)
+bones/9/rotation = Quaternion(0.0719015, 0.0537565, 0.0774763, 0.992944)
+bones/10/rotation = Quaternion(0.0366329, -0.693636, 0.044516, 0.718015)
+bones/11/rotation = Quaternion(0.0614582, -0.0194411, -0.305629, 0.949966)
+bones/12/rotation = Quaternion(0.0513567, 0.129972, 0.180322, 0.973629)
+bones/13/rotation = Quaternion(0.115581, 0.0961892, 0.108367, 0.982672)
+bones/14/rotation = Quaternion(0.17796, 0.0523971, -0.0119921, 0.982569)
+bones/15/rotation = Quaternion(0.146128, 0.739523, 0.160043, 0.63729)
+bones/16/rotation = Quaternion(-0.513242, -0.480778, 0.516338, -0.488703)
+bones/17/rotation = Quaternion(0.220308, -0.00840828, 0.0146447, 0.975284)
+bones/18/rotation = Quaternion(0.375212, -0.00463025, 0.00292142, 0.926923)
+bones/19/rotation = Quaternion(-0.00263646, -0.694148, 0.040912, 0.718664)
+bones/20/rotation = Quaternion(0.0719016, -0.0537566, -0.0774764, 0.992944)
+bones/21/rotation = Quaternion(0.036633, 0.693636, -0.044516, 0.718015)
+bones/22/rotation = Quaternion(0.0614581, 0.0194412, 0.305629, 0.949966)
+bones/23/rotation = Quaternion(-0.00309507, -0.118647, -0.197851, 0.97302)
+bones/24/rotation = Quaternion(0.0644056, -0.0944451, -0.118957, 0.986297)
+bones/25/rotation = Quaternion(0.13827, -0.0536674, -0.0133969, 0.988849)
+bones/26/rotation = Quaternion(0.103518, -0.751795, -0.142979, 0.635331)
+bones/27/position = Vector3(0.0667212, -0.0341158, -0.00201028)
+bones/27/rotation = Quaternion(-0.000203245, -0.00255652, 0.996605, -0.0822879)
+bones/28/rotation = Quaternion(0.712256, -7.73885e-07, 0.00172001, 0.701918)
+bones/29/position = Vector3(-0.0667213, -0.0341158, -0.00201028)
+bones/29/rotation = Quaternion(0.000203245, -0.00255652, 0.996605, 0.0822879)
+bones/30/rotation = Quaternion(0.712256, 7.00455e-07, -0.00172009, 0.701918)
 
 [node name="playerskill_ui" parent="player" instance=ExtResource("5_sh8kw")]
+visible = false
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0184076, 0)
@@ -188,7 +207,17 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.5, 
 
 [node name="startui" parent="." instance=ExtResource("11_lvgk5")]
 
+[node name="WinScreen" parent="." instance=ExtResource("12_k47vl")]
+visible = false
+
 [node name="DeathScreen" parent="." instance=ExtResource("12_x8bfd")]
+visible = false
+
+[node name="hack_ui" parent="." instance=ExtResource("14_k6rkl")]
+visible = false
+script = ExtResource("15_ptfwc")
+
+[node name="Downloading_Bar" parent="." instance=ExtResource("16_lg51m")]
 visible = false
 
 [editable path="player"]

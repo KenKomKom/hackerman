@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tc6gwi7js6wt"
-path="res://.godot/imported/s.png-87e3d797d65d1bcb56a26dd8cf64bf30.ctex"
+uid="uid://cclysn6p0wiuh"
+path="res://.godot/imported/Frame 43.png-2c70435e68a3857a54087e9a7bb5bd00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialogue/level 1/s.png"
-dest_files=["res://.godot/imported/s.png-87e3d797d65d1bcb56a26dd8cf64bf30.ctex"]
+source_file="res://2dassets/mainmenu_ui/Frame 43.png"
+dest_files=["res://.godot/imported/Frame 43.png-2c70435e68a3857a54087e9a7bb5bd00.ctex"]
 
 [params]
 

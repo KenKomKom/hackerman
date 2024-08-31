@@ -17,3 +17,4 @@ func ready_state():
 # Function di run di _process
 func do_something(delta):
 	pass
+	

@@ -1,0 +1,17 @@
+[
+	{
+		"nama":"h",
+		"dialogue":"I finally found it, the hospital’s core database.",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Wait, so all the medical records of all patients of this hospital’s will be...",
+		"emosi":"shock"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Oh man, but it's too late to back down now... and it’s not like I have any other options.",
+		"emosi":"sad"
+	}
+]

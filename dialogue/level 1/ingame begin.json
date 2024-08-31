@@ -11,16 +11,6 @@
 	},
 	{
 		"nama":"sh",
-		"dialogue":"You should be able to [color=hint]locate the database by pressing Q[/color].",
-		"emosi":"default"
-	},
-	{
-		"nama":"sh",
-		"dialogue":"You know, if you ever got lost.",
-		"emosi":"default"
-	},
-	{
-		"nama":"sh",
 		"dialogue":"Well, that’s all from me. Don’t let me down, [color=hackerman]{name}[/color].",
 		"emosi":"serious"
 	}

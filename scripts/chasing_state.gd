@@ -13,7 +13,10 @@ func ready_state():
 	parent_enemy.redo_target_location_timer.wait_time = time_for_timer
 
 func do_something(delta):	
-	# buat kamera
+	# klo lg dialog, gbs gerak
+	if GlobalEvent.stop_for_dialogue:
+		return
+	
 	GameManager.player_chased=true
 	
 	#Change state

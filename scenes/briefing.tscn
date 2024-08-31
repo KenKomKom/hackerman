@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://coynaqnexex05"]
+
+[ext_resource type="Texture2D" uid="uid://dfwi5m4sn3cqt" path="res://2dassets/briefing_screen/Waitlist General.png" id="1_qoi77"]
+[ext_resource type="Script" path="res://scripts/briefing.gd" id="1_tm5vj"]
+[ext_resource type="Texture2D" uid="uid://dutwhgnfi21h7" path="res://2dassets/briefing_screen/mission brief ui.png" id="2_ghcou"]
+[ext_resource type="PackedScene" uid="uid://bpgprrhaxtrvb" path="res://scenes/dialogue_manager.tscn" id="4_ej6tb"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_tm5vj")
+
+[node name="DialogueManager" parent="." instance=ExtResource("4_ej6tb")]
+layer = 2
+
+[node name="mission brief" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_qoi77")
+metadata/_edit_use_anchors_ = true
+
+[node name="input_ui" type="TextureRect" parent="."]
+offset_left = 1545.0
+offset_top = 993.0
+offset_right = 1870.0
+offset_bottom = 1040.0
+texture = ExtResource("2_ghcou")
+metadata/_edit_use_anchors_ = true

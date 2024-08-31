@@ -1,1 +1,1 @@
-{"anon_status" : ["UNDETECTABLE", "AAA","-","-"],"best_time" : ["00:00:00", "00:10:40","-","-"],"level_unlocked" : [true,true,false,false],"player_name":"Budi", "level_finished":[true,true,false,false]}
+{"anon_status" : ["UNDETECTABLE", "AAA","-","-"],"best_time" : ["00:00:00", "00:10:40","-","-"],"level_unlocked" : [true,true,true,true],"player_name":"Budi", "level_finished":[true,true,true,true]}

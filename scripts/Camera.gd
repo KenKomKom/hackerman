@@ -20,7 +20,7 @@ func _physics_process(delta):
 	if player_idle:
 		relative= lerp(relative,0.0,0.1)
 		var tween = create_tween()
-		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,89,rotation_degrees.z), 0.5)
+		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,88.5,rotation_degrees.z), 0.5)
 	
 	if target!=null:
 		var target_dir = (target.global_position - self.global_position).normalized()
@@ -30,20 +30,25 @@ func _physics_process(delta):
 # Offset camera kalo di kejar
 func handle_player_move(dir):
 	reset_rotation_timer.start()
-	if GameManager.player_chased and dir=="left":
-		player_idle=false
-		relative= lerp(relative,-2.0,0.5)
-		var tween = create_tween()
-		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,94,rotation_degrees.z), 0.5)
-	elif GameManager.player_chased and dir=="right":
-		player_idle=false
-		relative= lerp(relative,2.0,0.5)
-		var tween = create_tween()
-		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,82,rotation_degrees.z), 0.5)
-	else:
-		relative= lerp(relative,0.0,0.5)
-		var tween = create_tween()
-		tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,88,rotation_degrees.z), 0.5)
+	
+	relative= lerp(relative,0.0,0.5)
+	var tween = create_tween()
+	tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,90,rotation_degrees.z), 0.5)
+	
+	#if GameManager.player_chased and dir=="left":
+		#player_idle=false
+		#relative= lerp(relative,-2.0,0.5)
+		#var tween = create_tween()
+		#tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,94,rotation_degrees.z), 0.5)
+	#elif GameManager.player_chased and dir=="right":
+		#player_idle=false
+		#relative= lerp(relative,2.0,0.5)
+		#var tween = create_tween()
+		#tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,82,rotation_degrees.z), 0.5)
+	#else:
+		#relative= lerp(relative,0.0,0.5)
+		#var tween = create_tween()
+		#tween.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x,90,rotation_degrees.z), 0.5)
 
 func _on_timer_timeout():
 	player_idle = true

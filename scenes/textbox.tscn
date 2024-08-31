@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://yv225f5s5pkx"]
+[gd_scene load_steps=6 format=3 uid="uid://yv225f5s5pkx"]
 
 [ext_resource type="Script" path="res://scripts/textbox.gd" id="1_4f5eq"]
 [ext_resource type="Texture2D" uid="uid://ch3f4h8mkcejg" path="res://icon.svg" id="1_6vylv"]
 [ext_resource type="Texture2D" uid="uid://buyu4yibue6t7" path="res://2dassets/dialoguebox/dialogue continue.png" id="2_3j3dp"]
+[ext_resource type="Texture2D" uid="uid://dr8bpmotv6xau" path="res://2dassets/dialoguebox/h.png" id="2_t3jcm"]
 [ext_resource type="FontFile" uid="uid://h4fgd4kgv6bo" path="res://font/MonomaniacOne-Regular.ttf" id="4_b6v1a"]
 
 [node name="textbox" type="MarginContainer"]
@@ -11,18 +12,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -538.0
+offset_top = -378.0
+offset_right = 537.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
-theme_override_constants/margin_bottom = 120
+theme_override_constants/margin_bottom = 80
 script = ExtResource("1_4f5eq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-stretch_mode = 4
+texture = ExtResource("2_t3jcm")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -34,7 +36,7 @@ theme_override_constants/margin_bottom = 60
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
 layout_direction = 2
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 24
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer2/HBoxContainer"]
 layout_mode = 2
@@ -49,7 +51,7 @@ clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("4_b6v1a")
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "Hello testing this is my son"
 scroll_active = false
@@ -57,14 +59,6 @@ meta_underlined = false
 hint_underlined = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
-
-[node name="dialogue" type="Label" parent="MarginContainer2/HBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("4_b6v1a")
-theme_override_font_sizes/font_size = 20
-text = "dialgoue"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

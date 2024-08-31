@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var mesh:= $checkpoint
+@onready var object_of_interest = $checkpoint
 var level: int = 0
 
 # Called when the node enters the scene tree for the first time.

@@ -5,6 +5,7 @@ class_name DoorButton
 @export var door: Node3D
 @export_enum("medium", "high") var type: String
 
+@onready var object_of_interest:= $interactable/Node3D
 @onready var mesh:= $buttonMesh
 var unlocked = false
 var level: int = 0

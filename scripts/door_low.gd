@@ -4,6 +4,9 @@ extends Node3D
 @onready var door_right = $"door frame_007/door right_002"
 @onready var door_collider = $StaticBody3D
 
+#buat arah lihat player
+@onready var object_of_interest := $StaticBody3D
+
 # The open position and closed position for the gate
 var left_closed = Vector3(0.442, 0, 0) 
 var left_open = Vector3(0.89, 0, 0)

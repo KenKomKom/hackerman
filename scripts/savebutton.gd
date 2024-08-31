@@ -29,7 +29,7 @@ func set_status(array_of_finished, owner_name):
 func set_default(id, exist):
 	button_id = id
 	_exist = exist
-	disabled=false
+	disabled = false
 
 # Ganti gambar kalo focus
 func _on_v_box_container_mouse_entered():
@@ -38,6 +38,7 @@ func _on_v_box_container_mouse_entered():
 
 # Ganti gambar kalo gk focus
 func _on_v_box_container_mouse_exited():
+	print(_completed_level)
 	folder_image.texture = load("res://2dassets/save/file folder/"+str(_completed_level)+"-close.png")
 
 # Run kalo di klik biar main menu ganti screen
@@ -46,7 +47,7 @@ func on_button_up():
 
 # Ganti texture kalo ganti selected
 func set_selected(status):
-	$selected.visible=status
+	$selected.visible = status
 	if status:
 		_on_v_box_container_mouse_entered()
 	else:

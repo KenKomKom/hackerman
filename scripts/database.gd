@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var object_of_interest:= $Circle_002
+
 var is_downloading = false
 
 var downloading_canvas #canvasnya
@@ -47,6 +49,7 @@ func download_data():
 	if value >= 100:
 		print("harusnya database nya udah downloaded")
 		GlobalEvent.database_downloaded = true
+		GlobalEvent.emit_signal("database_download_finish")
 	downloading_canvas.visible = false
 	#print("Data Downloaded")
 

@@ -13,7 +13,8 @@ var _save_select_displayed = false
 
 # Set level 4 gk muncul
 func _ready():
-	level_4.visible=false
+	await get_tree().create_timer(0.01).timeout
+	level_4.visible = false
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") and not _started:
@@ -24,7 +25,7 @@ func _process(_delta):
 	elif _started and Input.is_action_just_released("esc"):
 		_started=false
 		_select_level_displayed=false
-		level_4.visible=false
+		level_4.visible = false
 		$TabContainer.current_tab=0
 		level_grid.set("theme_override_constants/separation", 0)
 		_current_selected.set_selected(true)
@@ -60,16 +61,29 @@ func _handle_select():
 
 # animsai save select
 func _on_start():
-	for i in range(0,3):
-		start_button.modulate=Color(1, 1, 1, 0)
-		await get_tree().create_timer(0.1).timeout
-		start_button.modulate=Color(1, 1, 1, 1)
-		await get_tree().create_timer(0.1).timeout
-		start_button.modulate=Color(1, 1, 1, 0)
-	await get_tree().create_timer(0.3).timeout
+	#animasi blinking
+	#for i in range(0,3):
+		#start_button.modulate=Color(1, 1, 1, 0)
+		#await get_tree().create_timer(0.1).timeout
+		#start_button.modulate=Color(1, 1, 1, 1)
+		#await get_tree().create_timer(0.1).timeout
+		#start_button.modulate=Color(1, 1, 1, 0)
+	
+	#animasi ngilang pelan2
+	var content = $TabContainer/Container/MarginContainer
+	var fade_speed := 0.01
+	while content.modulate.a > 0:
+		content.modulate.a -= fade_speed
+		await get_tree().create_timer(0.005).timeout
+	
+	await get_tree().create_timer(0.15).timeout
+	
 	$TabContainer.current_tab=1
 	_set_up_saveselect()
-	start_button.modulate=Color(1, 1, 1, 1)
+	
+	content.modulate.a = 1
+	
+	start_button.modulate = Color(1, 1, 1, 1)
 
 func _set_up_saveselect():
 	# set yang dipilih by default
@@ -78,6 +92,7 @@ func _set_up_saveselect():
 	_current_selected.set_selected(true)
 	var save_select = $TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer
 	var saves = save_select.get_children()
+	
 	
 	# Masukin informasi ke tiap save slot
 	for i in range(len(saves)):
@@ -88,11 +103,26 @@ func _set_up_saveselect():
 		if save_info['exist']:
 			save.set_status(save_info["level_finished"], save_info['player_name'])
 	
-	for i in range(0,2):
-		await get_tree().create_timer(0.1).timeout
-		save_select.modulate=Color(1, 1, 1, 0)
-		await get_tree().create_timer(0.1).timeout
-		save_select.modulate=Color(1, 1, 1, 1)
+	#animate dia pelan2 muncul
+	var content_a = $TabContainer/saveselect/MarginContainer
+	var content_b = $TabContainer/saveselect/MarginContainer3
+	var appear_speed := 0.01
+	content_a.modulate.a = 0
+	content_b.modulate.a = 0
+	
+	while content_a.modulate.a < 1:
+		content_a.modulate.a += appear_speed
+		content_b.modulate.a += appear_speed
+		await get_tree().create_timer(0.005).timeout
+	
+	await get_tree().create_timer(0.15).timeout
+	
+	#animasi blinking
+	#for i in range(0,2):
+		#await get_tree().create_timer(0.1).timeout
+		#save_select.modulate=Color(1, 1, 1, 0)
+		#await get_tree().create_timer(0.1).timeout
+		#save_select.modulate=Color(1, 1, 1, 1)
 	await get_tree().create_timer(1).timeout
 
 # set up informasi tiap level sama animasi 
@@ -111,25 +141,25 @@ func set_up_levelselect():
 	for i in range(len(levels)):
 		levels[i].set_status(GameManager.anon_status[i], GameManager.best_time[i],GameManager.level_unlocked[i])
 	
-	$TabContainer.current_tab=2
-	
-	# Animasi
-	for i in range(0,2):
-		await get_tree().create_timer(0.1).timeout
-		level_select.modulate=Color(1, 1, 1, 0)
-		await get_tree().create_timer(0.1).timeout
-		level_select.modulate=Color(1, 1, 1, 1)
-	await get_tree().create_timer(1).timeout
-	
 	# Ganti kiri kanan kalo si level 4 muncul
 	if GameManager.level_unlocked[3]:
 		$TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton.left = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton5
 		$TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton4.right = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton5
-		level_4.visible=true
-		await get_tree().create_timer(0.1).timeout
-		level_4.modulate=Color(1, 1, 1, 0)
-		await get_tree().create_timer(0.1).timeout
-		level_4.modulate=Color(1, 1, 1, 1)
+		level_4.visible = true
+		level_4.modulate.a = 0
+		await get_tree().create_timer(0.15).timeout
+		
+	$TabContainer.current_tab = 2
+	
+	if GameManager.level_unlocked[3]:
+		var fade_speed = 0.02
+		
+		await get_tree().create_timer(0.4).timeout
+		while level_4.modulate.a < 1:
+			level_4.modulate.a += fade_speed
+			await get_tree().create_timer(0.005).timeout
+		#await get_tree().create_timer(1).timeout
+
 
 func _on_savebutton_button_up(id):
 	var success = GameManager.load_file(id)
