@@ -95,9 +95,9 @@ func _step_to_available_space(available_dir):
 		parent_enemy.look_towards(dir)
 		target_position_after_move = parent_enemy.global_position + dir * parent_enemy.tile_size
 
-func _on_re_target_timer_timeout():
-	parent_enemy.movement_target_position = parent_enemy.movement_target.global_position
-	parent_enemy.set_movement_target(parent_enemy.movement_target_position)
+#func _on_re_target_timer_timeout():
+	#parent_enemy.movement_target_position = parent_enemy.movement_target.global_position
+	#parent_enemy.set_movement_target(parent_enemy.movement_target_position)
 
 func kill_player():
 	#suruh player & enemy berhenti

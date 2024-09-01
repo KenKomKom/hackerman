@@ -21,6 +21,7 @@ material = SubResource("StandardMaterial3D_3kx73")
 size = Vector2(1, 1)
 
 [node name="enemy_shield" type="CharacterBody3D" node_paths=PackedStringArray("current_state") groups=["Guard"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 5
 script = ExtResource("1_fulge")
 current_state = NodePath("states/idle")
@@ -60,15 +61,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Skeleton3D" parent="low tier/antivirus low" index="0"]
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/position = Vector3(-1.42873e-07, -0.00139856, -0.227565)
-bones/1/rotation = Quaternion(-0.702088, 5.37613e-08, 3.87788e-07, 0.71209)
-bones/2/position = Vector3(-0.191991, 0.222377, 0.0604252)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(0.191991, 0.222377, 0.060425)
-bones/3/rotation = Quaternion(0.212897, 0.949476, -0.10143, 0.207082)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/position = Vector3(1.94653e-08, 0.464516, 0.0948784)
-bones/4/rotation = Quaternion(-0.71209, 7.88278e-06, -7.95952e-06, 0.702089)
 bones/5/rotation = Quaternion(-0.00707188, -5.84262e-06, -6.66843e-08, 0.999975)
 
 [node name="interactable" parent="low tier/antivirus low/Skeleton3D" index="5" instance=ExtResource("6_k55el")]

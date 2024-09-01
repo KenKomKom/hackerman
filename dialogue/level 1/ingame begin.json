@@ -13,5 +13,15 @@
 		"nama":"sh",
 		"dialogue":"Well, that’s all from me. Don’t let me down, [color=hackerman]{name}[/color].",
 		"emosi":"serious"
+	},
+	{
+		"nama":"h",
+		"dialogue":"I’ve never hacked into a hospital before but it shouldn’t be too different to the other jobs I’ve taken.",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Let's see, I can use [color=hint]W,A,S,D keys to move around[/color].",
+		"emosi":"default"
 	}
 ]
