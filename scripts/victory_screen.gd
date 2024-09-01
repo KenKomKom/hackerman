@@ -16,6 +16,8 @@ func _set_up():
 	var level: int = get_parent().id
 	var color = GameManager.LEVEL_INFO[level]['color']
 	$VBoxContainer/Label.set("theme_override_colors/font_color", Color(color))
+	
+	$"../audio_manager".deathscreen.play(0.0)
 
 # Animasi setelah _set_up selesai
 func _process(delta):
@@ -29,8 +31,10 @@ func _process(delta):
 			
 			# -1 karena array mulai dari idx 0
 			GameManager.level_finished[GlobalEvent.current_level-1] = true
-			if(GlobalEvent.current_level != 4):
+			#if(GlobalEvent.current_level != 4):
+			if(GlobalEvent.current_level == 1):
 				GameManager.level_unlocked[GlobalEvent.current_level] = true
+			# level 3 block dulu aja
 			
 			GameManager.save_file()
 			

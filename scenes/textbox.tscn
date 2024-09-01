@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://yv225f5s5pkx"]
+[gd_scene load_steps=7 format=3 uid="uid://yv225f5s5pkx"]
 
 [ext_resource type="Script" path="res://scripts/textbox.gd" id="1_4f5eq"]
 [ext_resource type="Texture2D" uid="uid://ch3f4h8mkcejg" path="res://icon.svg" id="1_6vylv"]
 [ext_resource type="Texture2D" uid="uid://buyu4yibue6t7" path="res://2dassets/dialoguebox/dialogue continue.png" id="2_3j3dp"]
+[ext_resource type="PackedScene" uid="uid://dbe6ouvhnhrq2" path="res://scenes/audio_manager.tscn" id="2_apmkf"]
 [ext_resource type="Texture2D" uid="uid://dr8bpmotv6xau" path="res://2dassets/dialoguebox/h.png" id="2_t3jcm"]
 [ext_resource type="FontFile" uid="uid://h4fgd4kgv6bo" path="res://font/MonomaniacOne-Regular.ttf" id="4_b6v1a"]
 
@@ -21,6 +22,8 @@ grow_vertical = 0
 size_flags_horizontal = 3
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_4f5eq")
+
+[node name="audio_manager" parent="." instance=ExtResource("2_apmkf")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

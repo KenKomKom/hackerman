@@ -21,7 +21,7 @@ func _set_up():
 func _process(delta):
 	if _is_dead:
 		$TextureRect.modulate.a = lerp($TextureRect.modulate.a,1.0,0.1)
-		
+		$"../audio_manager".deathscreen.play(0.0)
 		if abs($TextureRect.modulate.a - 1.0) > 0.1:
 			$VBoxContainer.visible = true
 			

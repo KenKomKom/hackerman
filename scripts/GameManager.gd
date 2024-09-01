@@ -15,7 +15,7 @@ const _SAVE_PATH = "res://saves/"
 const LEVEL_INFO = {
 	1:{"title":"WAITLIST GENERAL", "color":"FF62D2"},
 	2:{"title":"DEBITUS BANK", "color":"FFA360"},
-	3:{"title":"DEBITUS BANK", "color":"3FCAA0"},
+	3:{"title":"MINISTRY OF DEFENSE", "color":"3FCAA0"},
 	4:{'title':'SHADOW CORP', 'color':'7350FF'}
 }
 

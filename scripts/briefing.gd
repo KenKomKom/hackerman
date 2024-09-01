@@ -8,6 +8,8 @@ func _ready():
 	input_ui.modulate.a = 0
 	current_level =  GlobalEvent.current_level
 	
+	$audio_manager.bgm_menu.play(AudioManager.last_playback_position)
+	
 	GlobalEvent.connect("end_dialogue", enable_ui)
 	setup_dialogue()
 	

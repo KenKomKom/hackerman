@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8mr4vo8thmuc"
+path="res://.godot/imported/dialogue click.mp3-6175bbe6569e9e5031a3e935905e8436.mp3str"
+
+[deps]
+
+source_file="res://audio/dialogue click.mp3"
+dest_files=["res://.godot/imported/dialogue click.mp3-6175bbe6569e9e5031a3e935905e8436.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

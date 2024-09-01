@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbe6ouvhnhrq2"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_fbpmf"]
+[ext_resource type="AudioStream" uid="uid://b06o3mp80uwch" path="res://audio/checkpoint.mp3" id="2_c0237"]
+[ext_resource type="AudioStream" uid="uid://cqdx4uncb104a" path="res://audio/dialogue.mp3" id="4_tusdr"]
+[ext_resource type="AudioStream" uid="uid://2dt3k0jac7i7" path="res://audio/door unlocked.mp3" id="6_0hj7n"]
+[ext_resource type="AudioStream" uid="uid://ce7hsmaia10r6" path="res://audio/download.mp3" id="7_4gxw5"]
+[ext_resource type="AudioStream" uid="uid://427ut4t1lxdc" path="res://audio/firewall.mp3" id="8_kvbci"]
+[ext_resource type="AudioStream" uid="uid://cqiojvnhut8vd" path="res://audio/ingame.mp3" id="9_aeaj0"]
+[ext_resource type="AudioStream" uid="uid://xj88dd2sjhvp" path="res://audio/main menu.mp3" id="10_52o68"]
+[ext_resource type="AudioStream" uid="uid://h2wx5qr0s3ht" path="res://audio/death screen.mp3" id="10_cx7h7"]
+[ext_resource type="AudioStream" uid="uid://bwvu444cum81h" path="res://audio/win screen.mp3" id="11_3inaw"]
+[ext_resource type="AudioStream" uid="uid://bgaqk6wxpnvj4" path="res://audio/robot kill.mp3" id="11_q6bee"]
+
+[node name="audio_manager" type="Node"]
+script = ExtResource("1_fbpmf")
+
+[node name="Checkpoint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_c0237")
+volume_db = -10.0
+pitch_scale = 0.85
+
+[node name="Dialogue" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tusdr")
+volume_db = -30.0
+pitch_scale = 2.2
+
+[node name="DoorUnlocked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0hj7n")
+volume_db = -10.0
+
+[node name="Download" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4gxw5")
+volume_db = -10.0
+
+[node name="Firewall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_kvbci")
+volume_db = -10.0
+
+[node name="Ingame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_aeaj0")
+volume_db = -10.0
+parameters/looping = true
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_52o68")
+volume_db = -10.0
+parameters/looping = true
+
+[node name="RobotKill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_q6bee")
+volume_db = -10.0
+
+[node name="DeathScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cx7h7")
+volume_db = -10.0
+
+[node name="WinScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_3inaw")
+volume_db = -10.0

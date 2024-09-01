@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2dt3k0jac7i7"
+path="res://.godot/imported/door unlocked.mp3-e6e01217ccdb60ff9f7e3e3e6d0099e2.mp3str"
+
+[deps]
+
+source_file="res://audio/door unlocked.mp3"
+dest_files=["res://.godot/imported/door unlocked.mp3-e6e01217ccdb60ff9f7e3e3e6d0099e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

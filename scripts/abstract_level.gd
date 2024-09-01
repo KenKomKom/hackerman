@@ -8,6 +8,7 @@ extends Node3D
 var player_original_pos: Vector3
 
 func _ready():
+	$audio_manager.bgm_ingame.play(0.0)
 	player_original_pos = $player.position
 	if GlobalEvent.checkpoint_reached:
 		$player.set_position($checkpoint.position + Vector3(1,0,0))

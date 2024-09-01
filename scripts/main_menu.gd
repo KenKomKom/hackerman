@@ -13,6 +13,7 @@ var _save_select_displayed = false
 
 # Set level 4 gk muncul
 func _ready():
+	$audio_manager.bgm_menu.play()
 	await get_tree().create_timer(0.01).timeout
 	level_4.visible = false
 
@@ -58,6 +59,7 @@ func _handle_change_selected():
 func _handle_select():
 	if Input.is_action_just_pressed("enter"):
 		_current_selected.on_button_up()
+		AudioManager.last_playback_position = $audio_manager.bgm_menu.get_playback_position()
 
 # animsai save select
 func _on_start():

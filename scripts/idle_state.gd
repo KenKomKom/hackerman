@@ -42,62 +42,62 @@ func do_something(delta):
 	#klo kosong
 	if(parent_enemy.commands == null):
 		return
-	
-	if(parent_enemy.commands[current_command].type == "move"):
-		
-		#setup variable
-		parent_enemy.movement_target = parent_enemy.commands[current_command].targetNode
-		parent_enemy.movement_target_position = parent_enemy.movement_target.global_position
-		parent_enemy.set_movement_target(parent_enemy.movement_target_position)
-		
-		#suruh kejar
-		#parent_enemy.current_state.next_target[0]
-		#print("NEXT COMMAND ", next_target[0])
-		parent_enemy.change_current_state(next_target[0])
-		
-		#Alex
-		#if(parent_enemy.global_position.x == parent_enemy.movement_target_position.x and parent_enemy.global_position.z == parent_enemy.movement_target_position.z):
-			#current_command = (current_command + 1) % max_command
-			#return
-		
-		#Nev
-		if(parent_enemy.global_position - parent_enemy.movement_target_position).length() <= 0.08:
-			#print("NEXT COMMAND ", (current_command + 1) % max_command)
-			current_command = (current_command + 1) % max_command
-			return
-		
-		#klo dh sampe tujuan, update command ke selanjutnya
-		#if parent_enemy.navigation_agent.is_navigation_finished():
-			#await get_tree().create_timer(2.0).timeout
+	#
+	#if(parent_enemy.commands[current_command].type == "move"):
+		#
+		##setup variable
+		#parent_enemy.movement_target = parent_enemy.commands[current_command].targetNode
+		#parent_enemy.movement_target_position = parent_enemy.movement_target.global_position
+		#parent_enemy.set_movement_target(parent_enemy.movement_target_position)
+		#
+		##suruh kejar
+		##parent_enemy.current_state.next_target[0]
+		##print("NEXT COMMAND ", next_target[0])
+		#parent_enemy.change_current_state(next_target[0])
+		#
+		##Alex
+		##if(parent_enemy.global_position.x == parent_enemy.movement_target_position.x and parent_enemy.global_position.z == parent_enemy.movement_target_position.z):
+			##current_command = (current_command + 1) % max_command
+			##return
+		#
+		##Nev
+		#if(parent_enemy.global_position - parent_enemy.movement_target_position).length() <= 0.08:
+			##print("NEXT COMMAND ", (current_command + 1) % max_command)
 			#current_command = (current_command + 1) % max_command
 			#return
 		#
-		#var next_path_position: Vector3 = parent_enemy.navigation_agent.get_next_path_position()
-		#print_debug("next path position: ", next_path_position)
-		#print_debug("target_position_after_move: ", target_position_after_move)
+		##klo dh sampe tujuan, update command ke selanjutnya
+		##if parent_enemy.navigation_agent.is_navigation_finished():
+			##await get_tree().create_timer(2.0).timeout
+			##current_command = (current_command + 1) % max_command
+			##return
+		##
+		##var next_path_position: Vector3 = parent_enemy.navigation_agent.get_next_path_position()
+		##print_debug("next path position: ", next_path_position)
+		##print_debug("target_position_after_move: ", target_position_after_move)
+		##
+		###ke tempatnya
+		##if moving:
+			##parent_enemy.global_position = lerp(parent_enemy.global_position, target_position_after_move, parent_enemy.movement_speed)
+			##if (parent_enemy.global_position-target_position_after_move).length()<0.08:
+				##parent_enemy.global_position = target_position_after_move
+				##moving = false
+			##return
+		##
+		##var available_dir = next_path_position - parent_enemy.global_position
+		##_step_to_available_space(available_dir)
+	#
+	#elif(parent_enemy.commands[current_command].type == "rotate"):
 		#
-		##ke tempatnya
-		#if moving:
-			#parent_enemy.global_position = lerp(parent_enemy.global_position, target_position_after_move, parent_enemy.movement_speed)
-			#if (parent_enemy.global_position-target_position_after_move).length()<0.08:
-				#parent_enemy.global_position = target_position_after_move
-				#moving = false
-			#return
+		#print("CURRENT ROTATION COMMAND ", current_command)
+		##rotation & delay
+		#is_rotating = true
+		#await parent_enemy.look_towards(parent_enemy.commands[current_command].targetNode.global_position)
+		#await get_tree().create_timer(2.0).timeout
 		#
-		#var available_dir = next_path_position - parent_enemy.global_position
-		#_step_to_available_space(available_dir)
-	
-	elif(parent_enemy.commands[current_command].type == "rotate"):
-		
-		print("CURRENT ROTATION COMMAND ", current_command)
-		#rotation & delay
-		is_rotating = true
-		await parent_enemy.look_towards(parent_enemy.commands[current_command].targetNode.global_position)
-		await get_tree().create_timer(2.0).timeout
-		
-		#klo uda selesai, current_command = (current_command + 1) % max_command
-		current_command = (current_command + 1) % max_command
-		is_rotating = false
+		##klo uda selesai, current_command = (current_command + 1) % max_command
+		#current_command = (current_command + 1) % max_command
+		#is_rotating = false
 
 func chase_using_raycast():
 	#print("FUNCTION CALLED WITH RAYCAST")
