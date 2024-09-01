@@ -4,7 +4,7 @@ extends CanvasLayer
 
 func _ready():
 	GlobalEvent.connect("start_dialogue", _load_dialog)
-	#GlobalEvent.emit_signal("start_dialogue","res://dialogue/level 1/mechanic_objective.json")
+	#GlobalEvent.emit_signal("start_dialogue","res://dialogue/level 3/postgame.json")
 
 # Masukin text ke dialog
 func _load_dialog(file_path):

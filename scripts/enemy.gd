@@ -9,7 +9,7 @@ var movement_target_position: Vector3
 @export var current_state: enemy_state
 @export var movement_target:Node3D
 
-@export var patrol_points: Array[Vector3] # Positions for patrol points
+#@export var patrol_points: Array[Vector3] # Positions for patrol points
 var current_target_index: int = 0
 var reached_point: bool = false
 var patrol_index: int = 0
@@ -23,7 +23,9 @@ var patrol_direction: int = 1
 @onready var mesh_node = $"low tier/antivirus low/Skeleton3D"
 @onready var instance_on_cam = $MeshInstance3D2
 @onready var light = $OmniLight3D
+@onready var anim_player = $"low tier/AnimationPlayer"
 
+var player: Player
 var hacked = false
 var central: Central
 
@@ -32,6 +34,7 @@ func _ready():
 	position.z = position.snapped(Vector3.ONE * tile_size).z
 	position += Vector3(1,0,1) * tile_size / 2
 	light.visible = false
+	player = get_parent().get_parent().get_node("player")
 	GlobalEvent.connect("player_hacking_done", switch_back)
 	
 	#setup light
@@ -103,9 +106,12 @@ func interact():
 	change_current_state(current_state.next_target[1])
 
 func switch_back():
-	change_current_state(current_state.next_target[0])
-	setup_texture()
-	light.visible = false
+	#cuma yg hacked doang yg berubah
+	if(hacked):
+		change_current_state(current_state.next_target[0])
+		setup_texture()
+		light.visible = false
+		hacked = false
 
 func setup_texture():
 	#siapin texture

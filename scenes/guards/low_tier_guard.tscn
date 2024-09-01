@@ -1,29 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://d26w7aroh5ag8"]
+[gd_scene load_steps=2 format=3 uid="uid://d26w7aroh5ag8"]
 
 [ext_resource type="PackedScene" uid="uid://br58whveeyl4e" path="res://3dassets/char/robot/low/low tier.glb" id="1_dhcbt"]
-[ext_resource type="Material" uid="uid://ocosk5ido6uf" path="res://scenes/guards/material/low hospital.tres" id="2_8lowk"]
 
-[node name="low tier" groups=["Guard"] instance=ExtResource("1_dhcbt")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+[node name="low tier" instance=ExtResource("1_dhcbt")]
 
 [node name="Skeleton3D" parent="antivirus low" index="0"]
-bones/1/rotation = Quaternion(-0.702089, 5.37612e-08, 3.87788e-07, 0.71209)
+bones/1/position = Vector3(-1.42873e-07, -0.00139856, -0.227565)
+bones/1/rotation = Quaternion(-0.702089, 5.37613e-08, 3.87788e-07, 0.71209)
+bones/2/position = Vector3(-0.191991, 0.222377, 0.0604251)
 bones/2/rotation = Quaternion(-0.212897, 0.949475, -0.10143, -0.207082)
-
-[node name="claw" parent="antivirus low/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("2_8lowk")
-
-[node name="claw hand" parent="antivirus low/Skeleton3D" index="1"]
-surface_material_override/0 = ExtResource("2_8lowk")
-
-[node name="shield body_007" parent="antivirus low/Skeleton3D" index="2"]
-surface_material_override/0 = ExtResource("2_8lowk")
-
-[node name="shield body_009" parent="antivirus low/Skeleton3D" index="3"]
-surface_material_override/0 = ExtResource("2_8lowk")
-
-[node name="shield body_011" parent="antivirus low/Skeleton3D" index="4"]
-surface_material_override/0 = ExtResource("2_8lowk")
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(0.191991, 0.222377, 0.060425)
+bones/3/rotation = Quaternion(0.212897, 0.949476, -0.10143, 0.207082)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(1.94657e-08, 0.464516, 0.0948784)
+bones/4/rotation = Quaternion(-0.71209, 7.88278e-06, -7.95952e-06, 0.702089)
+bones/5/rotation = Quaternion(-0.00707174, -5.84262e-06, -6.66819e-08, 0.999975)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "antivirus low - idle"

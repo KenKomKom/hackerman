@@ -52,18 +52,31 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 rotation_edit_mode = 1
 visible = false
 
-[node name="low tier" parent="." instance=ExtResource("3_r664h")]
-transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-08, 0, 0, 0)
+[node name="low tier" parent="." groups=["Guard"] instance=ExtResource("3_r664h")]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+
+[node name="antivirus low" parent="low tier" index="0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="low tier/antivirus low" index="0"]
-bones/0/position = Vector3(2.41471e-08, 0.0384611, -4.58492e-09)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/position = Vector3(-1.42873e-07, -0.00139856, -0.227565)
+bones/1/rotation = Quaternion(-0.702088, 5.37613e-08, 3.87788e-07, 0.71209)
+bones/2/position = Vector3(-0.191991, 0.222377, 0.0604252)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(0.191991, 0.222377, 0.060425)
+bones/3/rotation = Quaternion(0.212897, 0.949476, -0.10143, 0.207082)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(1.94653e-08, 0.464516, 0.0948784)
+bones/4/rotation = Quaternion(-0.71209, 7.88278e-06, -7.95952e-06, 0.702089)
+bones/5/rotation = Quaternion(-0.00707188, -5.84262e-06, -6.66843e-08, 0.999975)
 
 [node name="interactable" parent="low tier/antivirus low/Skeleton3D" index="5" instance=ExtResource("6_k55el")]
-transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0, 1.18478, 0)
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0, 1.50468, 0)
 command = "hijack"
 
 [node name="hijack_spot" type="CollisionShape3D" parent="low tier/antivirus low/Skeleton3D/interactable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.980972, 0)
+transform = Transform3D(1, 0, -4.23516e-22, 0, 1, 0, 4.23516e-22, 0, 1, -1, -1.39884, -4.23516e-22)
 shape = SubResource("BoxShape3D_ecosh")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -86,6 +99,7 @@ next_target = [NodePath("../idle")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.72482, 0)
+visible = false
 layers = 4
 mesh = SubResource("PlaneMesh_ll4v8")
 

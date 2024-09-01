@@ -16,6 +16,7 @@ signal player_is_dead()
 var checkpoint_reached = false
 var database_downloaded = false
 var is_hacking = false
+var is_downloading = false
 var stop_for_dialogue = false
 var banner_activated = false
 

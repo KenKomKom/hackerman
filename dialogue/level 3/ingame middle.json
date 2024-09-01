@@ -1,0 +1,17 @@
+[
+	{
+		"nama":"h",
+		"dialogue":"Strange... There’s so little security. Either that something’s off or the government cybersecurity division is incompetent. ",
+		"emosi":"eyeroll"
+	},
+	{
+		"nama":"h",
+		"dialogue":"It couldn’t possibly be the latter right? ",
+		"emosi":"eyeroll"
+	},
+	{
+		"nama":"h",
+		"dialogue":"I should probably stay alert for now. ",
+		"emosi":"default"
+	}
+]

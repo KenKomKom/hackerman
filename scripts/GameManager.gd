@@ -19,6 +19,18 @@ const LEVEL_INFO = {
 	4:{'title':'SHADOW CORP', 'color':'7350FF'}
 }
 
+func save_file_name(name: String,id: int):
+	var file = FileAccess.open(_SAVE_PATH+str(id)+".txt", FileAccess.WRITE)
+	var data : Dictionary = {
+		"anon_status" : anon_status,
+		"best_time" : best_time,
+		"level_unlocked" : level_unlocked,
+		"level_finished" : level_finished,
+		"player_name":name
+	}
+	var jstr = JSON.stringify(data)
+	file.store_line(jstr)
+
 # Simpen info ke file
 func save_file():
 	var file = FileAccess.open(_SAVE_PATH+str(current_save_id)+".txt", FileAccess.WRITE)

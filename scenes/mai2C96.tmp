@@ -104,17 +104,14 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="savebutton" parent="TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("left", "right") instance=ExtResource("6_l5bfh")]
-layout_mode = 2
 left = NodePath("../savebutton3")
 right = NodePath("../savebutton2")
 
 [node name="savebutton2" parent="TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("left", "right") instance=ExtResource("6_l5bfh")]
-layout_mode = 2
 left = NodePath("../savebutton")
 right = NodePath("../savebutton3")
 
 [node name="savebutton3" parent="TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("left", "right") instance=ExtResource("6_l5bfh")]
-layout_mode = 2
 left = NodePath("../savebutton2")
 right = NodePath("../savebutton")
 

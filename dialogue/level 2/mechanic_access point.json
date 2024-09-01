@@ -1,12 +1,12 @@
 [
-    {
-        "nama":"h",
-        "dialogue":"This is an [color=obstacle]intermediate security access point[/color], I don’t think I can use simple injection codes on these.",
-        "emosi":"default"
-    },
-    {
-        "nama":"h",
-        "dialogue":"But maybe [color=hint]using these antivirus guards[/color]...",
-        "emosi":"default"
-    }
+	{
+		"nama":"h",
+		"dialogue":"This is an [color=obstacle]intermediate security access point[/color], I don’t think I can use simple injection codes on these.",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"But it looks like [color=hint]the doors automatically open for these antivirus guards[/color]...",
+		"emosi":"default"
+	}
 ]

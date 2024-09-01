@@ -29,6 +29,8 @@ var inputs = {"right": Vector3(0,0,-1),
 			"down": Vector3(1,0,0),
 			"stand" : Vector3(0,0,0)}
 
+var is_interacting = false
+
 func _ready():
 	light.visible = true
 	position.x = position.snapped(Vector3.ONE * tile_size).x
@@ -56,6 +58,7 @@ func _ready():
 		$OmniLight3D.light_color = Color("a7a6ff")
 		$OmniLight3D/DirectionalLight3D.light_color = Color("5e4885")
 	
+	timer.one_shot = true
 	anim_tree.active = true
 	#print(anim_player.current_animation)
 
@@ -66,6 +69,16 @@ func _physics_process(delta):
 		
 	update_animation("")
 	move(delta)
+	
+	print("-------------------------------------------------------")
+	print("run		: ",anim_tree["parameters/conditions/run"])
+	print("idle		: ",anim_tree["parameters/conditions/idle"])
+	print("")
+	print("interact	: ",anim_tree["parameters/conditions/interact"])
+	print("hack		: ",anim_tree["parameters/conditions/hack"])
+	print("global.isdownloading: ", GlobalEvent.is_downloading)
+	print("download	: ",anim_tree["parameters/conditions/download"])
+
 
 func look_towards(dir:Vector3):
 	var rad = atan2(-dir.z,dir.x) + (PI/2)
@@ -129,8 +142,56 @@ func step(dir):
 			moving = true
 			target_position_after_move = global_position + inputs[dir] * tile_size
 
+#func update_animation(animation: String):
+	#
+	#if GlobalEvent.is_hacking:
+		#return
+	#
+	##klo nggak ada command utk animation tertentu
+	#if (animation == "none" or animation == "") :
+		##cek dia gerak atau nggak
+		#if (Input.is_action_pressed("up") or Input.is_action_pressed("down") or Input.is_action_pressed("left") or Input.is_action_pressed("right") or moving) and can_move:
+			#anim_player.play("hacker - run",0.2)
+			##anim_player.get_animation("hacker - run").loop = true
+		#else:
+			#anim_player.play("hacker - idle",0.2)
+			##anim_player.get_animation("hacker - idle").loop = true
+	#
+	##cek jenis interaction
+	#if animation == "interact":
+		#can_move = false
+		#anim_player.play("hacker - interact",0.2)
+		#await anim_player.animation_finished
+		#print_debug("ini harusnya INTERACT tp kok enggak")
+		#
+		#timer.wait_time = anim_player.get_animation("hacker - interact").length - 0.15
+		#timer.start()
+	#
+	#if animation == "hack":
+		#can_move = false
+		#anim_player.play("hacker - hack",0.2)
+		#await anim_player.animation_finished
+		#print_debug("ini harusnya HACK tp kok enggak")
+		#
+		#timer.wait_time = anim_player.get_animation("hacker - hack").length - 0.15
+		#timer.start()
+	#
+	#if animation == "download" or animation == "wipe":
+		#can_move = false
+		#anim_player.play("hacker - download",0.2)
+		#await anim_player.animation_finished
+	#
+	##run animasi sesuai cara mati nya
+	#if animation == "low_kill":
+		#can_move = false
+		#anim_player.play("hacker - low kill",0.2)
+
 func update_animation(animation: String):
 	
+	if is_interacting:
+		return
+	if GlobalEvent.is_downloading:
+		return
 	if GlobalEvent.is_hacking:
 		return
 	
@@ -140,26 +201,31 @@ func update_animation(animation: String):
 		if (Input.is_action_pressed("up") or Input.is_action_pressed("down") or Input.is_action_pressed("left") or Input.is_action_pressed("right") or moving) and can_move:
 			anim_tree["parameters/conditions/run"] = true
 			anim_tree["parameters/conditions/idle"] = false
-			#print(anim_tree["parameters/conditions/run"])
+			anim_tree["parameters/conditions/download"] = false
 		else:
 			anim_tree["parameters/conditions/run"] = false
 			anim_tree["parameters/conditions/idle"] = true
+			anim_tree["parameters/conditions/download"] = false
 	
 	#cek jenis interaction
 	if animation == "interact":
+		is_interacting = true
 		can_move = false
-		print("hrsnya abisni animasi jalan lol")
 		anim_tree["parameters/conditions/interact"] = true
-		#anim_tree.get("parameters/playback").travel("interact")
-		print("ini harusnya interact tp kok enggak")
+		anim_tree["parameters/conditions/idle"] = false
+		anim_tree["parameters/conditions/run"] = false
+		print("ini harusnya INTERACT tp kok enggak")
 		
 		timer.wait_time = anim_player.get_animation("hacker - interact").length - 0.15
 		timer.start()
 	
 	elif animation == "hack":
+		is_interacting = true
 		can_move = false
 		anim_tree["parameters/conditions/hack"] = true
-		#anim_tree.get("parameters/playback").travel("hack")
+		anim_tree["parameters/conditions/idle"] = false
+		anim_tree["parameters/conditions/run"] = false
+		print("ini harusnya HACK tp kok enggak")
 		
 		timer.wait_time = anim_player.get_animation("hacker - hack").length - 0.15
 		timer.start()
@@ -169,41 +235,47 @@ func update_animation(animation: String):
 		anim_tree["parameters/conditions/download"] = true
 		anim_tree["parameters/conditions/run"] = false
 		anim_tree["parameters/conditions/idle"] = false
-		
-		timer.wait_time = anim_player.get_animation("hacker - download").length - 0.15
-		timer.start()
 	
 	else:
 		anim_tree["parameters/conditions/interact"] = false
 		anim_tree["parameters/conditions/hack"] = false
 		anim_tree["parameters/conditions/download"] = false
 	
-	#print(anim_tree["parameters/conditions/interact"])
-	
 	#run animasi sesuai cara mati nya
 	if animation == "low_kill":
+		can_move = false
 		anim_tree["parameters/conditions/low_kill"] = true
-	elif animation == "high_kill":
-		anim_tree["parameters/conditions/high_kill"] = true
+		
+		anim_player.play("hacker - low kill",0.2)
+		await anim_tree
+	#elif animation == "high_kill":
+		#can_move = false
+		#anim_tree["parameters/conditions/high_kill"] = true
+		#anim_player.play("hacker - high kill")
+		#await anim_tree
 	else: 
 		anim_tree["parameters/conditions/high_kill"] = false
 		anim_tree["parameters/conditions/low_kill"] = false
 
-func stop_animation():
-	can_move = true
-	anim_tree["parameters/conditions/download"] = false
-	anim_tree["parameters/conditions/run"] = false
-	anim_tree["parameters/conditions/idle"] = true
-	timer.stop()
+#func stop_animation():
+	#can_move = true
+	#anim_tree["parameters/conditions/download"] = false
+	#anim_tree["parameters/conditions/run"] = false
+	#anim_tree["parameters/conditions/idle"] = true
+	#timer.stop()
 
 func _on_timer_timeout():
 	can_move = true
+	is_interacting = false
+	anim_tree["parameters/conditions/idle"] = true
+	anim_tree["parameters/conditions/interact"] = false
+	anim_tree["parameters/conditions/hack"] = false
 
 func is_hacking(node):
 	can_move = false
 	light.visible = false
 	GlobalEvent.is_hacking = true
-	update_animation("none")
+	#update_animation("none")
 	
 func done_hacking():
 	can_move = true

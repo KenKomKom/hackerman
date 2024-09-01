@@ -45,17 +45,6 @@ func _physics_process(delta):
 			#parent_enemy.change_current_state(parent_enemy.current_state.next_target[0])
 			GlobalEvent.emit_signal("player_hacking_done")
 
-func look_towards(dir:Vector3):
-	var rad = atan2(-dir.z,dir.x)
-	var q = Quaternion(Vector3.UP, rad)
-	var tween = create_tween()
-	tween.tween_property(
-		mesh_node, 
-		"quaternion", 
-		q, 
-		0.1
-	)
-
 # gerakin karakternya
 func move(delta):
 	if !can_move or !parent_enemy.hacked:
@@ -64,7 +53,7 @@ func move(delta):
 	if moving:
 		# Animasiin pergerakannya
 		#ease_move-=delta
-		look_towards(target_position_after_move - parent_enemy.global_position)
+		parent_enemy.look_towards(target_position_after_move - parent_enemy.global_position)
 		parent_enemy.global_position = lerp(parent_enemy.global_position, target_position_after_move, parent_enemy.movement_speed * 4/5)
 		if (parent_enemy.global_position - target_position_after_move).length() < 0.05:
 			parent_enemy.global_position = target_position_after_move

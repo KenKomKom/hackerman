@@ -20,8 +20,9 @@ func countdown(node):
 	
 	while value > 0 and GlobalEvent.is_hacking:
 		value -= fade_speed
-		
-		time_left.text = str(floor(value))+"s"
+		print(value)
+		#progress_number.value = floor(value)
+		time_left.text = str(floor(value / 10))+"s"
 		progress_bar.value = value
 		await get_tree().create_timer(fade_speed).timeout
 	

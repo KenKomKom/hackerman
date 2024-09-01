@@ -1,0 +1,146 @@
+[
+	{
+		"nama":"sr",
+		"dialogue":"I must say you are full of surprises. ",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"[color=shadow]Shadow[/color]! I was just about to contact you, the database is...",
+		"emosi":"shock"
+	},
+	{
+		"nama":"sr",
+		"dialogue":"Empty? ",
+		"emosi":"laugh"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Ho- How do you know that? ",
+		"emosi":"shock"
+	},
+	{
+		"nama":"sr",
+		"dialogue":"Well, I will get to that later. But first...",
+		"emosi":"default"
+	},
+	{
+		"nama":"sr",
+		"dialogue":"I gave you this task because I thought for sure it would be near impossible.",
+		"emosi":"default"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"But how disappointing, I could have done this myself with my eyes closed.",
+		"emosi":"sad"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"I guess that’s what you get for believing in the Government. ",
+		"emosi":"angry"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"Slow down, what are you even talking about.",
+		"emosi":"shock"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"Well, the point is... you have shown me that you are too dangerous. You might become a threat to my corporation.",
+		"emosi":"serious"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"No no, I would never...",
+		"emosi":"sad"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"There’s no guarantee of it, so yeah... I’ve decided to dispose of you. ",
+		"emosi":"serious"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"[color=whispher]I need to get out of here, fast-[/color]",
+		"emosi":"eyeroll"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"Don’t even bother, I’ve already alerted the Government about YOUR secret mission. ",
+		"emosi":"default"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"You won’t get away with this! ",
+		"emosi":"angry"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"See... the thing is, I’ve ALREADY gotten away with it. And for the cherry on top... ",
+		"emosi":"default"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"Stop talking- ",
+		"emosi":"angry"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"That’s right, you have NEVER escaped on your own. Now, good luck getting through all these antiviruses! HA HA HA! ",
+		"emosi":"laugh"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"This- This isn’t over, [color=shadow]Shadow[/color]! I will take you down, I will bring you to justice! ",
+		"emosi":"angry"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"Come now, we both know there’s no point in chasing [color=shadow]shadows[/color] ...",
+		"emosi":"laugh"
+	}
+	,
+	{
+		"nama":"sr",
+		"dialogue":"Oh and make sure you repent while in your jail cell.[color=shadow]Shadow[/color] out~...",
+		"emosi":"laugh"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"Calm down... I need to get out of here before I can think of anything else. ",
+		"emosi":"sad"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"Can I actually do this? Or should I just turn myself in. ",
+		"emosi":"sad"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"There’s so many antivirus guards... My odds of escaping is negative at this point. ",
+		"emosi":"sad"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"No.. I can’t give up here. I need to take him down. I will bring him to justice! ",
+		"emosi":"angry"
+	}
+]

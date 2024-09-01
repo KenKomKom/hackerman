@@ -80,21 +80,24 @@ func _process(delta):
 				is_downloading = true
 				print("DOWNLOADING")
 				download()
-	
 	elif is_downloading and not Input.is_action_pressed("interact"):
 		# If the button is released during download
 		if !GlobalEvent.database_downloaded:
 			print("DOWNLOADING INTERUPTED")
 			is_downloading = false
+			player.can_move = true
 			database_script.cancel_download()
 			#player.stop_animation()  # Assuming you have a method to stop the animation
 
 func interact(animation: String):
 	if command == "hijack":
 		return
-	if command == "download" and GlobalEvent.database_downloaded:
-		return
 	
+	if command == "download":
+		if !GlobalEvent.database_downloaded:
+			get_parent().interact()
+		return
+		
 	if !interacted and enemy_interact:
 		var dir = get_parent().object_of_interest.global_position - enemy.global_position
 		enemy.look_towards(dir)
@@ -103,12 +106,12 @@ func interact(animation: String):
 		get_parent().interact()
 		can_interact = false
 		text.visible = false
-	
-	if !interacted and can_interact:
+		
+	if command != "download" and !interacted and can_interact:
 		var dir = get_parent().object_of_interest.global_position - player.global_position
 		#print("posisi player: ",player.position," | posisi benda: ",dir)
 		player.look_towards(dir)
-		
+		player.update_animation(animation)
 		interacted = true
 		get_parent().interact()
 		can_interact = false
@@ -128,7 +131,13 @@ func interact_hijack():
 	
 	var dir = enemy.global_position - player.global_position
 	player.look_towards(dir)
-	player.update_animation("hijack")
+	player.update_animation("hack")
+	
+	#bikin diem
+	player.is_dialogue("")
+	var wait_time = player.anim_player.get_animation("hacker - hack").length
+	await get_tree().create_timer(wait_time).timeout
+	GlobalEvent.stop_for_dialogue = false
 	
 	enemy.interact()
 	
@@ -145,8 +154,9 @@ func download():
 		var dir = get_parent().object_of_interest.global_position - player.global_position
 		player.look_towards(dir)
 		
-		interacted = true
+		#interacted = true
 		player.update_animation("download")
+		GlobalEvent.is_downloading = true
 		get_parent().interact()
-		can_interact = false
+		#can_interact = false
 		text.visible = false

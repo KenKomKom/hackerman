@@ -1,52 +1,52 @@
 [
-    {
-        "nama":"sh",
-        "dialogue":"Good work on the last job. As expected of [color=hackerman]{name}[/color]",
-        "emosi":"default"
-    },
-    {
-        "nama":"h",
-        "dialogue":"Appreciate it. What will you do with the health records though?",
-        "emosi":"default"
-    },
-    {
-        "nama":"sh",
-        "dialogue":"I don’t pay you to ask questions, just do your job!",
-        "emosi":"angry"
-    },
-    {
-        "nama":"h",
-        "dialogue":"[color=whisper]Hmph, maybe this gig is a bad decision. But I really need the money...[/color]",
-        "emosi":"sad"
-    },
-    {
-        "nama":"h",
-        "dialogue":"Ok, fine. What’s this next operation?",
-        "emosi":"eyeroll"
-    },
-    {
-        "nama":"sh",
-        "dialogue":"This time you will need to break into the so-called ‘impenetrable’ Debitus Bank, and wipe out their data clean.",
-        "emosi":"default"
-    },
-    {
-        "nama":"sh",
-        "dialogue":"Apparently, my wife- I mean one of our high-profile clients, accidentally maxed out their credit cards.",
-        "emosi":"default"
-    },
-    {
-        "nama":"h",
-        "dialogue":"[color=whisper]Oh, really? I wonder how that happened...[/color]",
-        "emosi":"eyeroll"
-    },
-    {
-        "nama":"sh",
-        "dialogue":"Anyways, I don’t think I need to remind you that banks have much tighter security compared to hospitals. Especially this one.",
-        "emosi":"default"
-    },
-    {
-        "nama":"h",
-        "dialogue":"Sigh... Well, I guess I don’t have much of a choice. Time to dive in.",
-        "emosi":"default"
-    }
+	{
+		"nama":"sh",
+		"dialogue":"Good work on the last job. As expected of [color=hackerman]{name}[/color]",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Appreciate it. What will you do with the health records though?",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"I don’t pay you to ask questions, just do your job!",
+		"emosi":"angry"
+	},
+	{
+		"nama":"h",
+		"dialogue":"[color=whisper]Hmph, maybe this gig is a bad decision. But I really need the money...[/color]",
+		"emosi":"sad"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Ok, fine. What’s this next operation?",
+		"emosi":"eyeroll"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"This time you will need to break into the so-called ‘impenetrable’ Debitus Bank, and wipe out their data clean.",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Apparently, my wife- I mean one of our high-profile clients, accidentally maxed out their credit cards.",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"[color=whisper]Oh, really? I wonder how that happened...[/color]",
+		"emosi":"eyeroll"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Anyways, I don’t think I need to remind you that banks have much tighter security compared to hospitals. Especially this one.",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Sigh... Well, I guess I don’t have much of a choice. Time to dive in.",
+		"emosi":"default"
+	}
 ]

@@ -1,0 +1,24 @@
+[
+	{
+		"nama":"h",
+		"dialogue":"These antivirus guards are something else. Seems like they can [color=obstacle]alert each other[/color] when discovering possible threats. ",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"This kind of technology is rare, but not unheard of. ",
+		"emosi":"default"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"There should be a [color=hint]central hub[/color] that connects the antivirus guards together. ",
+		"emosi":"default"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"[color=hint] Disabling that hub[/color] could prove to be pretty helpful. ",
+		"emosi":"default"
+	}
+]

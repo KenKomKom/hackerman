@@ -65,21 +65,6 @@ xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nd4o"]
-xfade_time = 0.5
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fclf0"]
-xfade_time = 0.5
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p3c3l"]
-xfade_time = 0.2
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jpu8y"]
 xfade_time = 0.2
 advance_mode = 2
@@ -105,24 +90,39 @@ xfade_time = 0.25
 advance_mode = 2
 advance_condition = &"high_kill"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nak2v"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vq6ph"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6lyae"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"idle"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ed18d"]
 states/Start/position = Vector2(220, 100)
 states/download/node = SubResource("AnimationNodeAnimation_3nmqv")
-states/download/position = Vector2(555, -37)
+states/download/position = Vector2(555, -91)
 states/hack/node = SubResource("AnimationNodeAnimation_dtl15")
-states/hack/position = Vector2(370, -37)
+states/hack/position = Vector2(370, -91)
 "states/high kill/node" = SubResource("AnimationNodeAnimation_awjec")
 "states/high kill/position" = Vector2(683, 223)
 states/idle/node = SubResource("AnimationNodeAnimation_a2rbv")
 states/idle/position = Vector2(451, 100)
 states/interact/node = SubResource("AnimationNodeAnimation_5g1jq")
-states/interact/position = Vector2(747, -37)
+states/interact/position = Vector2(747, -91)
 "states/low kill/node" = SubResource("AnimationNodeAnimation_c0ph7")
 "states/low kill/position" = Vector2(451, 223)
 states/run/node = SubResource("AnimationNodeAnimation_jootd")
 states/run/position = Vector2(683, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_handf"), "idle", "hack", SubResource("AnimationNodeStateMachineTransition_qgpcm"), "idle", "download", SubResource("AnimationNodeStateMachineTransition_nh514"), "idle", "interact", SubResource("AnimationNodeStateMachineTransition_feyeu"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_dbtx5"), "idle", "low kill", SubResource("AnimationNodeStateMachineTransition_2gmqc"), "idle", "high kill", SubResource("AnimationNodeStateMachineTransition_s1c26"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ymhwp"), "hack", "idle", SubResource("AnimationNodeStateMachineTransition_2nd4o"), "download", "idle", SubResource("AnimationNodeStateMachineTransition_fclf0"), "interact", "idle", SubResource("AnimationNodeStateMachineTransition_p3c3l"), "run", "hack", SubResource("AnimationNodeStateMachineTransition_jpu8y"), "run", "download", SubResource("AnimationNodeStateMachineTransition_4iv6v"), "run", "interact", SubResource("AnimationNodeStateMachineTransition_0er4u"), "run", "low kill", SubResource("AnimationNodeStateMachineTransition_rjghq"), "run", "high kill", SubResource("AnimationNodeStateMachineTransition_wm3sk")]
-graph_offset = Vector2(-24, -99.6189)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_handf"), "idle", "hack", SubResource("AnimationNodeStateMachineTransition_qgpcm"), "idle", "download", SubResource("AnimationNodeStateMachineTransition_nh514"), "idle", "interact", SubResource("AnimationNodeStateMachineTransition_feyeu"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_dbtx5"), "idle", "low kill", SubResource("AnimationNodeStateMachineTransition_2gmqc"), "idle", "high kill", SubResource("AnimationNodeStateMachineTransition_s1c26"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ymhwp"), "run", "hack", SubResource("AnimationNodeStateMachineTransition_jpu8y"), "run", "download", SubResource("AnimationNodeStateMachineTransition_4iv6v"), "run", "interact", SubResource("AnimationNodeStateMachineTransition_0er4u"), "run", "low kill", SubResource("AnimationNodeStateMachineTransition_rjghq"), "run", "high kill", SubResource("AnimationNodeStateMachineTransition_wm3sk"), "hack", "idle", SubResource("AnimationNodeStateMachineTransition_nak2v"), "download", "idle", SubResource("AnimationNodeStateMachineTransition_vq6ph"), "interact", "idle", SubResource("AnimationNodeStateMachineTransition_6lyae")]
+graph_offset = Vector2(49, -109.619)
 
 [node name="player" type="CharacterBody3D"]
 motion_mode = 1
@@ -131,7 +131,7 @@ script = ExtResource("1_6ywd8")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 light_color = Color(1, 0.627451, 1, 1)
-light_energy = 4.0
+light_energy = 2.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="OmniLight3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

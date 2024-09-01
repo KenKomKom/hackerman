@@ -1,0 +1,18 @@
+[
+	{
+		"nama": "sr",
+		"dialogue": "Darn! The government is so damn useless, couldn’t catch one guy with the intel I gave them? ",
+		"emosi": "serious"
+	},
+	{
+		"nama": "sr",
+		"dialogue": "Well surely he’ll disappear into the shadow now… after that big spook I gave him. ",
+		"emosi": "default"
+	}
+	,
+	{
+		"nama": "sr",
+		"dialogue": "Hmph... what if he tries to go for me? Nah I’d win, no way he actually tries! ",
+		"emosi": "angry"
+	}
+]

@@ -17,16 +17,20 @@ func do_something(delta):
 	if GlobalEvent.stop_for_dialogue:
 		return
 	
-	GameManager.player_chased=true
+	GameManager.player_chased = true
 	
 	#Change state
 	if (parent_enemy.movement_target_position-parent_enemy.global_position).length()>4:
 		parent_enemy.change_current_state(next_target[0])
-		GameManager.player_chased=false
+		GameManager.player_chased = false
+	
+	if (parent_enemy.global_position - parent_enemy.player.global_position).length() <= 1.1:
+		kill_player()
+		GameManager.player_chased = false
 	
 	# Udh sampe di posisi, tunggu update posisi
-	if parent_enemy.navigation_agent.is_navigation_finished():
-		return
+	#if parent_enemy.navigation_agent.is_navigation_finished():
+		#return
 
 	var current_agent_position: Vector3 = parent_enemy.global_position
 	var next_path_position: Vector3 = parent_enemy.navigation_agent.get_next_path_position()
@@ -94,3 +98,25 @@ func _step_to_available_space(available_dir):
 func _on_re_target_timer_timeout():
 	parent_enemy.movement_target_position = parent_enemy.movement_target.global_position
 	parent_enemy.set_movement_target(parent_enemy.movement_target_position)
+
+func kill_player():
+	#suruh player & enemy berhenti
+	var player = parent_enemy.player
+	player.is_dialogue("")
+	
+	#look towards each other
+	await get_tree().create_timer(0.1).timeout
+	player.look_towards(parent_enemy.global_position - player.global_position)
+	parent_enemy.look_towards(player.global_position - parent_enemy.global_position)
+	#get_tree().paused = true
+	
+	#play animation
+	player.update_animation("low_kill")
+	parent_enemy.anim_player.play("antivirus low - kill")
+	
+	#tunggu dia play animation dulu
+	await parent_enemy.anim_player.animation_finished
+	
+	#bs jalan lg, tp abistu lgs kill
+	GlobalEvent.emit_signal("player_is_dead")
+	GlobalEvent.stop_for_dialogue = false

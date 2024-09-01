@@ -1,0 +1,66 @@
+[
+	{
+		"nama":"sh",
+		"dialogue":"This will be your biggest challenge yet, [color=hackerman]{name}[/color]! Let’s see if you can go 3 for 3. ",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"The government?! So even more people will be affected? ",
+		"emosi":"shock"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Come on, it’s not like the Government are saints. Why feel bad? ",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"Yeah, but the citizens... ",
+		"emosi":"sad"
+	}
+	,
+	{
+		"nama":"sh",
+		"dialogue":"You’ve never hesitated during your past jobs. Getting cold feet now, are we? ",
+		"emosi":"serious"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"Of course not! I’ll get this job done as per usual. ",
+		"emosi":"angry"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"That’s more like it! You’re going to need that mentality for this job, cause it is the hardest one yet. ",
+		"emosi":"laugh"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"It’s also the highest paying, wink wink. ",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"You better get going then. ",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Good luck... [color=whispher]You’re going to really need it this time[/color]",
+		"emosi":"serious"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"Even more people will be affected because of me? Well, I guess I have no choice... ",
+		"emosi":"sad"
+	}
+	,
+	{
+		"nama":"h",
+		"dialogue":"There’s no telling what would happen if I miss out on paying the hospital bills again... ",
+		"emosi":"sad"
+	}
+]

@@ -40,6 +40,9 @@ func go_back_to_level_select():
 func reset_level():
 	GlobalEvent.checkpoint_reached = false
 	GlobalEvent.database_downloaded = false
+	
 	GlobalEvent.is_hacking = false
+	GlobalEvent.is_downloading = false
+	
 	GlobalEvent.stop_for_dialogue = false
 	GlobalEvent.banner_activated = false

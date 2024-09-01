@@ -1,22 +1,22 @@
 [
-    {
-        "nama":"h",
-        "dialogue":"Okay, I’m in their systems.",
-        "emosi":"default"
-    },
-    {
-        "nama":"sh",
-        "dialogue":"Okay [color=hackerman]{name}[/color], I trust that you’ll do a good job. My wi- client’s financial situation is hanging on this.",
-        "emosi":"default"
-    },
-    {
-        "nama":"sh",
-        "dialogue":"Good luck... This time, you’re really gonna need it.",
-        "emosi":"serious"
-    },
-    {
-        "nama":"sh",
-        "dialogue":"Alright then, [color=shadow]Shadow[/color] out~",
-        "emosi":"serious"
-    }
+	{
+		"nama":"h",
+		"dialogue":"Okay, I’m in their systems.",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Okay [color=hackerman]{name}[/color], I trust that you’ll do a good job. My wi- client’s financial situation is hanging on this.",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Good luck... This time, you’re really gonna need it.",
+		"emosi":"serious"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Alright then, [color=shadow]Shadow[/color] out~",
+		"emosi":"serious"
+	}
 ]

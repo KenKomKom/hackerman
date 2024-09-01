@@ -50,11 +50,13 @@ func download_data():
 		print("harusnya database nya udah downloaded")
 		GlobalEvent.database_downloaded = true
 		GlobalEvent.emit_signal("database_download_finish")
+		GlobalEvent.is_downloading = false
 	downloading_canvas.visible = false
 	#print("Data Downloaded")
 
 func cancel_download():
 	is_downloading = false
+	GlobalEvent.is_downloading = false
 	#print("INITIATE DOWNLOAD CANCEL")
 	
 	progress_bar.value = 0

@@ -17,7 +17,7 @@ func _ready():
 	level_4.visible = false
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept") and not _started:
+	if Input.is_action_just_pressed("enter") and not _started:
 		_on_start()
 		_started=true
 	
@@ -90,9 +90,10 @@ func _set_up_saveselect():
 	_save_select_displayed = true
 	_current_selected = $TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer/savebutton
 	_current_selected.set_selected(true)
+	_current_selected._on_v_box_container_mouse_entered()
+	
 	var save_select = $TabContainer/saveselect/MarginContainer/VBoxContainer/HBoxContainer
 	var saves = save_select.get_children()
-	
 	
 	# Masukin informasi ke tiap save slot
 	for i in range(len(saves)):
