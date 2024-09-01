@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0a77klvo2axy"]
+[gd_scene load_steps=11 format=3 uid="uid://b0a77klvo2axy"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gr6ps"]
 [ext_resource type="VideoStream" path="res://2dassets/mainmenu_ui/0001-0060 (1).ogv" id="2_cdquw"]
+[ext_resource type="PackedScene" uid="uid://dbe6ouvhnhrq2" path="res://scenes/audio_manager.tscn" id="2_k331t"]
 [ext_resource type="Texture2D" uid="uid://dpvgq8ap0247a" path="res://2dassets/mainmenu_ui/title.png" id="2_siftr"]
 [ext_resource type="Texture2D" uid="uid://dusutc8i0rf6b" path="res://2dassets/mainmenu_ui/overlay img.png" id="3_tl76y"]
 [ext_resource type="FontFile" uid="uid://h4fgd4kgv6bo" path="res://font/MonomaniacOne-Regular.ttf" id="5_1rmvp"]
@@ -13,6 +14,8 @@
 
 [node name="main menu" type="CanvasLayer"]
 script = ExtResource("1_gr6ps")
+
+[node name="audio_manager" parent="." instance=ExtResource("2_k331t")]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 offset_top = -4.0

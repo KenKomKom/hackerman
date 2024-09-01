@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwvu444cum81h"
+path="res://.godot/imported/win screen.mp3-ba672015c3998a3ac4e4dab5edaafad8.mp3str"
+
+[deps]
+
+source_file="res://audio/win screen.mp3"
+dest_files=["res://.godot/imported/win screen.mp3-ba672015c3998a3ac4e4dab5edaafad8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

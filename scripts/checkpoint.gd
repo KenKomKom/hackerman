@@ -31,6 +31,7 @@ func _ready():
 func interact():
 	if !GlobalEvent.checkpoint_reached:
 		# mo infoin bahwa checkpoint reached
+		$"../audio_manager".checkpoint.play(0.0)
 		GlobalEvent.checkpoint_reached = true
 		
 		if(level == 1):

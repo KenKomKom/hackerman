@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 GlobalEvent="*res://scripts/GlobalEvent.gd"
 GameManager="*res://scripts/GameManager.gd"
 TransitionLayer="*res://scenes/transition_layer.tscn"
+AudioManager="*res://scripts/audio_manager.gd"
 
 [display]
 
