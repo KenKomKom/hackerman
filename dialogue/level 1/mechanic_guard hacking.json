@@ -1,0 +1,12 @@
+[
+	{
+		"nama":"h",
+		"dialogue":"That narrow corridor seems impossible to go through with that [color=obstacle]antivirus guard[/color].",
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"If only I can just [color=hint]get behind it[/color], I may be able to [color=hint]override its control[/color].",
+		"emosi":"default"
+	}
+]

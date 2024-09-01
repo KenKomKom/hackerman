@@ -53,12 +53,14 @@ func _ready():
 
 func _on_body_entered(body):
 	#if (body.is_in_group("Guard") or body.is_in_group("High Guard")):
-	if body.is_in_group("Guard"):
+	#if body.is_in_group("Guard"):
+	if(body is Enemy):
 		open_gate()
 
 func _on_body_exited(body):
 	#if (body.is_in_group("Guard") or body.is_in_group("High Guard")) and !is_any_guard_nearby():
-	if !unlocked and body.is_in_group("Guard") and !is_any_guard_nearby():
+	#if !unlocked and body.is_in_group("Guard") and !is_any_guard_nearby():
+	if(body is Enemy and !is_any_guard_nearby()):
 		close_gate()
 
 func open_gate():

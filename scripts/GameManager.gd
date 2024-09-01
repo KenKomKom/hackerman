@@ -5,7 +5,7 @@ var player_chased = false
 var anon_status = ["-","-",'-','-']
 var best_time = ["-","-","-",'-']
 var level_unlocked = [true, false,false, false]
-var level_finished = [true, false, false, false]
+var level_finished = [false, false, false, false]
 
 var current_save_id :=0
 var player_name := ""
@@ -39,7 +39,7 @@ func create_new_save_file(id):
 	var data : Dictionary = {
 		"anon_status" : ["-","-","-",'-'],
 		"best_time" : ["-","-","-",'-'],
-		"level_unlocked" : [true, false,false, false],
+		"level_unlocked" : [true, false,false,false],
 		"level_finished" : [false,false,false,false],
 		"player_name": "player_name"
 	}
@@ -75,6 +75,7 @@ func load_file(id_selected):
 				best_time = current_line['best_time']
 				level_unlocked = current_line['level_unlocked']
 				player_name = current_line["player_name"]
+				GlobalEvent.player_name = player_name
 				level_finished=current_line['level_finished']
 				current_save_id = id_selected
 			return true

@@ -7,6 +7,7 @@ class_name Player
 @onready var anim_player = $"hacker animated/AnimationPlayer"
 @onready var anim_tree = $"hacker animated/AnimationTree"
 @onready var timer = $Timer
+@onready var light = $OmniLight3D
 
 @export var animation_speed := 5.0
 @export var tile_size = 1
@@ -29,14 +30,40 @@ var inputs = {"right": Vector3(0,0,-1),
 			"stand" : Vector3(0,0,0)}
 
 func _ready():
+	light.visible = true
 	position.x = position.snapped(Vector3.ONE * tile_size).x
 	position.z = position.snapped(Vector3.ONE * tile_size).z
 	position += Vector3(1,0,1) * tile_size / 2
+	
+	GlobalEvent.connect("player_is_hacking",is_hacking)
+	GlobalEvent.connect("player_hacking_done",done_hacking)
+	
+	GlobalEvent.connect("start_dialogue",is_dialogue)
+	GlobalEvent.connect("end_dialogue",done_dialogue)
+	
+	var level = get_parent().id
+	
+	if(level == 1):
+		$OmniLight3D.light_color = Color("ffa0ff")
+		$OmniLight3D/DirectionalLight3D.light_color = Color("8656a6")
+	if(level == 2):
+		$OmniLight3D.light_color = Color("ffbd99")
+		$OmniLight3D/DirectionalLight3D.light_color = Color("9f8689")
+	if(level == 3):
+		$OmniLight3D.light_color = Color("96fffd")
+		$OmniLight3D/DirectionalLight3D.light_color = Color("0086c9")
+	if(level == 4):
+		$OmniLight3D.light_color = Color("a7a6ff")
+		$OmniLight3D/DirectionalLight3D.light_color = Color("5e4885")
 	
 	anim_tree.active = true
 	#print(anim_player.current_animation)
 
 func _physics_process(delta):
+	# klo lg dialog, gbs gerak
+	if GlobalEvent.stop_for_dialogue or GlobalEvent.is_hacking:
+		return
+		
 	update_animation("")
 	move(delta)
 
@@ -53,15 +80,15 @@ func look_towards(dir:Vector3):
 
 # gerakin karakternya
 func move(delta):
-	if !can_move:
+	if !can_move and !moving:
 		return
 		
 	if moving:
 		# Animasiin pergerakannya
-		#ease_move-=delta
+		ease_move-=delta
 		look_towards(target_position_after_move - global_position)
-		global_position = lerp(global_position, target_position_after_move, 0.175)
-		if (global_position - target_position_after_move).length() < 0.175:
+		global_position = lerp(global_position, target_position_after_move, 0.2)
+		if (global_position - target_position_after_move).length() < 0.125:
 			global_position = target_position_after_move
 			moving = false
 	else:
@@ -73,14 +100,14 @@ func move(delta):
 
 #mo jalan ke arah mana
 func step(dir):
-	if !can_move:
+	if !can_move and !moving:
 		return
 	
 	#if moving:
 		## Set up coyote move -> cari di google coyote jump
-		#ease_move = 0.05
-		#forced_dir = dir
-		#return
+		ease_move = 0.05
+		forced_dir = dir
+		return
 	
 	# Set raycast ke arah gerak pemain
 	ray.target_position = inputs[dir] * tile_size
@@ -103,6 +130,9 @@ func step(dir):
 			target_position_after_move = global_position + inputs[dir] * tile_size
 
 func update_animation(animation: String):
+	
+	if GlobalEvent.is_hacking:
+		return
 	
 	#klo nggak ada command utk animation tertentu
 	if (animation == "none" or animation == "") :
@@ -134,7 +164,7 @@ func update_animation(animation: String):
 		timer.wait_time = anim_player.get_animation("hacker - hack").length - 0.15
 		timer.start()
 	
-	elif animation == "download":
+	elif animation == "download" or animation == "wipe":
 		can_move = false
 		anim_tree["parameters/conditions/download"] = true
 		anim_tree["parameters/conditions/run"] = false
@@ -166,6 +196,24 @@ func stop_animation():
 	anim_tree["parameters/conditions/idle"] = true
 	timer.stop()
 
-
 func _on_timer_timeout():
 	can_move = true
+
+func is_hacking(node):
+	can_move = false
+	light.visible = false
+	GlobalEvent.is_hacking = true
+	update_animation("none")
+	
+func done_hacking():
+	can_move = true
+	GlobalEvent.is_hacking = false
+	light.visible = true
+
+func is_dialogue(file_path):
+	can_move = false
+	GlobalEvent.stop_for_dialogue = true
+
+func done_dialogue():
+	can_move = true
+	GlobalEvent.stop_for_dialogue = false

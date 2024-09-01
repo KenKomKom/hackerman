@@ -25,16 +25,19 @@ TransitionLayer="*res://scenes/transition_layer.tscn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [file_customization]
 
 folder_colors={
+"res://3dassets/char/robot/high/hacked/": "blue",
 "res://3dassets/char/robot/high/ministry/": "teal",
 "res://3dassets/char/robot/high/shadow/": "purple",
 "res://3dassets/char/robot/low/bank/": "yellow",
+"res://3dassets/char/robot/low/hacked/": "blue",
 "res://3dassets/char/robot/low/hospital/": "pink",
 "res://3dassets/char/robot/low/ministry/": "teal",
 "res://3dassets/char/robot/low/shadow/": "purple",
@@ -89,6 +92,11 @@ folder_colors={
 [filesystem]
 
 import/fbx/enabled=false
+
+[global_group]
+
+"High Guard"=""
+Guard=""
 
 [input]
 

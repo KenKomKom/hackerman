@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://der7mnuhoefpo"]
+[gd_scene load_steps=13 format=3 uid="uid://dofogwi4uxva3"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fulge"]
 [ext_resource type="PackedScene" uid="uid://d26w7aroh5ag8" path="res://scenes/guards/low_tier_guard.tscn" id="3_r664h"]
 [ext_resource type="PackedScene" uid="uid://pam3eg35uuji" path="res://scenes/guards/shield.tscn" id="4_3w22y"]
 [ext_resource type="Script" path="res://scripts/idle_state.gd" id="4_75n3e"]
+[ext_resource type="Script" path="res://scenes/guards/ray_cast_3d_scanner.gd" id="5_jar2t"]
 [ext_resource type="Script" path="res://scripts/chasing_state.gd" id="5_s11to"]
-[ext_resource type="Script" path="res://scenes/guards/ray_cast_3d_scanner.gd" id="6_nc4gv"]
+[ext_resource type="Script" path="res://scripts/hacked_state.gd" id="6_1o32m"]
+[ext_resource type="PackedScene" uid="uid://byrurivrc57cm" path="res://scenes/interactable.tscn" id="6_k55el"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3l87d"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_44wgg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ecosh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kx73"]
 shading_mode = 0
@@ -21,8 +23,20 @@ size = Vector2(1, 1)
 
 [node name="enemy_shield" type="CharacterBody3D" node_paths=PackedStringArray("current_state") groups=["Guard"]]
 collision_layer = 5
+slide_on_ceiling = false
 script = ExtResource("1_fulge")
 current_state = NodePath("states/idle")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+light_color = Color(1, 0.627451, 1, 1)
+light_energy = 4.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0, 0.784314, 0.788235, 1)
+light_bake_mode = 1
 
 [node name="re_target_timer" type="Timer" parent="."]
 wait_time = 0.2
@@ -32,7 +46,7 @@ autostart = true
 debug_enabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.00923461, 0.225653, 0.0369263)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00923461, 0.225653, 0.0369263)
 shape = SubResource("CapsuleShape3D_3l87d")
 
 [node name="shield" parent="." instance=ExtResource("4_3w22y")]
@@ -44,32 +58,43 @@ visible = false
 transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="low tier/antivirus low" index="0"]
-bones/0/position = Vector3(2.41471e-08, 0.0384611, -4.58492e-09)
+bones/1/position = Vector3(-9.9217e-08, -0.000971243, -0.158031)
+bones/2/position = Vector3(-0.133327, 0.154428, 0.0419619)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(0.133327, 0.154429, 0.0419618)
+bones/3/rotation = Quaternion(0.212897, 0.949476, -0.10143, 0.207082)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(1.35185e-08, 0.322581, 0.0658878)
 
-[node name="RayCast3D_Scanner" type="RayCast3D" parent="low tier/antivirus low/Skeleton3D" index="5"]
-transform = Transform3D(-0.00517998, -0.79997, 0.00464934, 0.799983, -0.00518007, 2.78374e-10, 3.01028e-05, 0.00464922, 0.799987, 1.95776e-10, 0.361329, -0.00447882)
-target_position = Vector3(0, 3, 0)
-debug_shape_custom_color = Color(0.966057, 0.776553, 0.136213, 1)
-debug_shape_thickness = 5
-script = ExtResource("6_nc4gv")
+[node name="interactable" parent="low tier/antivirus low/Skeleton3D" index="5" instance=ExtResource("6_k55el")]
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0, 1.18478, 0)
+command = "hijack"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("BoxMesh_44wgg")
+[node name="hijack_spot" type="CollisionShape3D" parent="low tier/antivirus low/Skeleton3D/interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.980972, 0)
+shape = SubResource("BoxShape3D_ecosh")
+
+[node name="RayCast3D_Scanner" type="RayCast3D" parent="low tier/antivirus low/Skeleton3D" index="6"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0114426, 0.498552, -0.00309749)
+target_position = Vector3(3, 0, 0)
+debug_shape_custom_color = Color(0.975389, 0.882793, 0, 1)
+script = ExtResource("5_jar2t")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249265, 0)
-visible = false
 collision_mask = 15
 
 [node name="states" type="Node" parent="."]
 
 [node name="idle" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
 script = ExtResource("4_75n3e")
-next_target = [NodePath("../chasing")]
+next_target = [NodePath("../chasing"), NodePath("../hacked")]
 
 [node name="chasing" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
 script = ExtResource("5_s11to")
+next_target = [NodePath("../idle")]
+
+[node name="hacked" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
+script = ExtResource("6_1o32m")
 next_target = [NodePath("../idle")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]

@@ -40,7 +40,9 @@ func _player_entered(body:Player):
 		if abs(safe_position.x-body.global_position.x)<0.1 and abs(safe_position.z-body.global_position.z)<0.1:
 			safe=true
 	if not safe:
-		print("player entered moving scan")
+		#print("player entered moving scan")
+		pass
+		
 	return safe
 
 # Lari lagi kalo udh timeout

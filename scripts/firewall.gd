@@ -74,3 +74,4 @@ func _check_for_kill():
 func _on_area_3d_body_entered(body):
 	if(body is Player):
 		GlobalEvent.emit_signal("player_is_dead")
+		print("player has entered fire, hrsnya ded")

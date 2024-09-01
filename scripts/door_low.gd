@@ -4,6 +4,9 @@ extends Node3D
 @onready var door_right = $"door frame_007/door right_002"
 @onready var door_collider = $StaticBody3D
 
+#buat arah lihat player
+@onready var object_of_interest := $StaticBody3D
+
 # The open position and closed position for the gate
 var left_closed = Vector3(0.442, 0, 0) 
 var left_open = Vector3(0.89, 0, 0)
@@ -53,12 +56,14 @@ func _ready():
 
 func _on_body_entered(body):
 	#if (body.is_in_group("Guard") or body.is_in_group("High Guard")):
-	if body.is_in_group("Guard"):
+	#if body.is_in_group("Guard"):
+	if body is Enemy:
 		open_gate()
 
 func _on_body_exited(body):
 	#if (body.is_in_group("Guard") or body.is_in_group("High Guard")) and !is_any_guard_nearby():
-	if body.is_in_group("Guard") and !is_any_guard_nearby():
+	#if body.is_in_group("Guard") and !is_any_guard_nearby():
+	if body is Enemy and !is_any_guard_nearby():
 		close_gate()
 
 func open_gate():

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dc6b2qfpbige7"]
+
+[ext_resource type="Texture2D" uid="uid://c1oamwebub13l" path="res://3dassets/envi/props/database/ministry/database_2k_BaseColor.jpg" id="1_asvgp"]
+[ext_resource type="Texture2D" uid="uid://catn7eud8r80a" path="res://3dassets/envi/props/database/ministry/database_2k_Emissive.jpg" id="2_0cdyu"]
+
+[resource]
+albedo_texture = ExtResource("1_asvgp")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("2_0cdyu")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba0mf4rr0e61c"]
+
+[ext_resource type="Texture2D" uid="uid://difs7v1mx7onu" path="res://2dassets/skills_ui/disconnect.png" id="1_l7ut2"]
+
+[node name="hack_ui" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1654.0
+offset_top = 984.0
+offset_right = 1849.0
+offset_bottom = 1031.0
+texture = ExtResource("1_l7ut2")

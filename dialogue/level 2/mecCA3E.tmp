@@ -1,0 +1,12 @@
+[
+	{
+		"nama":"h",
+		"dialogue":"A [color=obstacle]weak security access point[/color], haven’t seen those in a while."\
+		"emosi":"default"
+	},
+	{
+		"nama":"h",
+		"dialogue":"I can just use a [color=hint]simple injection code[/color] to open weak security doors like these by [color=hint]pressing 2[/color].",
+		"emosi":"default"
+	}
+]

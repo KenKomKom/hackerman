@@ -5,9 +5,26 @@ extends Node3D
 @onready var zoom_out_camera = $Camera3D
 @onready var dm = $DialogueManager
 
+var player_original_pos: Vector3
+
 func _ready():
-	GlobalEvent.emit_signal("start_dialogue", "res://dialogue/level 1/dialogue 1-ingame begin.json")
+	player_original_pos = $player.position
+	if GlobalEvent.checkpoint_reached:
+		$player.set_position($checkpoint.position + Vector3(1,0,0))
+	
+	#finish condition
+	GlobalEvent.connect("database_download_finish",finish_level)
+	
+	if !GlobalEvent.banner_activated:
+		await get_tree().create_timer(4.5).timeout
+		GlobalEvent.emit_signal("start_dialogue","res://dialogue/level "+str(id)+"/ingame begin.json")
 
 # Atur camera
 func _process(delta):
 	pass
+
+func finish_level():
+	GlobalEvent.emit_signal("start_dialogue","res://dialogue/level "+str(id)+"/ingame end.json")
+	await GlobalEvent.end_dialogue
+	await get_tree().create_timer(0.25).timeout
+	GlobalEvent.emit_signal("level_completed")

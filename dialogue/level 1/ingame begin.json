@@ -1,0 +1,17 @@
+[
+	{
+		"nama":"h",
+		"dialogue":"Ok, I'm in the grid.",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Good! Now you need to locate the database in order to get the data we need.",
+		"emosi":"default"
+	},
+	{
+		"nama":"sh",
+		"dialogue":"Well, that’s all from me. Don’t let me down, [color=hackerman]{name}[/color].",
+		"emosi":"serious"
+	}
+]

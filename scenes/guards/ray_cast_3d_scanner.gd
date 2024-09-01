@@ -2,7 +2,7 @@ extends RayCast3D
 var target: Player = null
 
 var angle_cone_of_vision := deg_to_rad(30.0)
-var max_view_distance := 3.0
+var max_view_distance := 2.0
 var angle_between_rays := deg_to_rad(5.0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 			var idle_state = get_parent().get_parent().get_parent().get_parent().get_node("states/idle")
 			if idle_state:
 				idle_state.chase_using_raycast()
+				pass
 			#target = get_collider() 
 			break
 	var does_see_player := target != null

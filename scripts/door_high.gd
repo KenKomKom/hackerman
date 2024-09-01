@@ -47,23 +47,22 @@ func _ready():
 func _on_body_entered(body):
 	#print("Body entered: ", body.name)
 	#if (body.is_in_group("Guard") or body.is_in_group("High Guard")):
-	#if body.is_in_group("High Guard")
-	if body.is_in_group("Guard"):
+	#if body.is_in_group("High Guard"):
+	#if body.is_in_group("Guard"):
+	if body is EnemyHigh:
 		open_gate()
 
 func _on_body_exited(body):
 	#print("Body Exited: ", body.name)
 	#if (body.is_in_group("Guard") or body.is_in_group("High Guard")) and !is_any_guard_nearby():
 	#if body.is_in_group("High Guard") and !is_any_guard_nearby():
-	if body.is_in_group("Guard") and !is_any_guard_nearby():
+	#if body.is_in_group("Guard") and !is_any_guard_nearby():
+	if body is EnemyHigh and !is_any_guard_nearby():
 		close_gate()
 
 func open_gate():
 	if not is_open:
 		is_open = true
-		# buka
-		#door_left.transform.origin = left_open 
-		#door_right.transform.origin = right_open
 		$StaticBody3D/CollisionShape3D.set_deferred("disabled", true)
 
 func close_gate():

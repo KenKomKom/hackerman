@@ -70,79 +70,90 @@ scroll_active = false
 shortcut_keys_enabled = false
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 color = Color(0.458824, 0.133333, 0.588235, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 36
 
-[node name="anon" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="anon" type="MarginContainer" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_constants/margin_left = 60
+theme_override_constants/margin_left = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/anon"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/anon"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/anon/HBoxContainer"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/anon/HBoxContainer/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("4_wcccl")
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/anon/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = -10
 
-[node name="Anonimity" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer/VBoxContainer"]
+[node name="Anonimity" type="Label" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/anon/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.486275, 1, 1)
 theme_override_fonts/font = ExtResource("3_egyvp")
 theme_override_font_sizes/font_size = 20
 text = "Anonimity"
 
-[node name="anonimity_status" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/anon/HBoxContainer/VBoxContainer"]
+[node name="anonimity_status" type="Label" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/anon/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_egyvp")
 theme_override_font_sizes/font_size = 32
 text = "-
 "
 
-[node name="time" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="time" type="MarginContainer" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_constants/margin_left = 60
+theme_override_constants/margin_left = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/time"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/time"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/time/HBoxContainer"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/time/HBoxContainer/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("5_q06be")
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/time/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = -10
 
-[node name="time" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer/VBoxContainer"]
+[node name="time" type="Label" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/time/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.486275, 1, 1)
 theme_override_fonts/font = ExtResource("3_egyvp")
 theme_override_font_sizes/font_size = 20
 text = "Anonimity"
 
-[node name="time_status" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/time/HBoxContainer/VBoxContainer"]
+[node name="time_status" type="Label" parent="VBoxContainer/MarginContainer/MarginContainer2/VBoxContainer/time/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_egyvp")
 theme_override_font_sizes/font_size = 32
@@ -155,20 +166,21 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -182.5
-offset_right = 186.5
-offset_bottom = 547.0
+offset_right = 185.5
+offset_bottom = 402.0
 grow_horizontal = 2
 texture = ExtResource("6_hlkwp")
 
 [node name="selected" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -201.5
-offset_top = -19.0
-offset_right = 200.5
-offset_bottom = 564.0
+offset_left = -258.5
+offset_top = -75.0
+offset_right = 257.5
+offset_bottom = 475.0
 grow_horizontal = 2
 texture = ExtResource("6_oso22")
 

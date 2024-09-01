@@ -4,12 +4,13 @@ extends CanvasLayer
 
 func _ready():
 	GlobalEvent.connect("start_dialogue", _load_dialog)
-	GlobalEvent.emit_signal("start_dialogue","res://dialogue/level 1/dialogue 1-ingame end.json")
+	#GlobalEvent.emit_signal("start_dialogue","res://dialogue/level 1/mechanic_objective.json")
 
 # Masukin text ke dialog
-func _load_dialog(file_path, player_name="Joni"):
+func _load_dialog(file_path):
 	textbox.visible=true
 	if FileAccess.file_exists(file_path):
+		var player_name = GlobalEvent.player_name
 		var dataFile = FileAccess.open(file_path, FileAccess.READ)
 		var parsedFile = JSON.parse_string(dataFile.get_as_text())
 		
@@ -32,6 +33,8 @@ func _load_dialog(file_path, player_name="Joni"):
 				textbox.display_line(line["nama"], line["dialogue"], line["emosi"])
 				await textbox.go_to_next_line
 			textbox.visible=false
+			
+			await get_tree().create_timer(0.15).timeout
 			GlobalEvent.emit_signal("end_dialogue")
 		else:
 			print("error")

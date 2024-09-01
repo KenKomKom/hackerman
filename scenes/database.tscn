@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwrjooejx1605"]
+[gd_scene load_steps=9 format=3 uid="uid://cwrjooejx1605"]
 
 [ext_resource type="PackedScene" uid="uid://bstb0ybwovx0h" path="res://3dassets/envi/props/database/database.glb" id="1_c7pwg"]
 [ext_resource type="Script" path="res://scripts/database.gd" id="2_x72uo"]
 [ext_resource type="PackedScene" uid="uid://byrurivrc57cm" path="res://scenes/interactable.tscn" id="3_5aa67"]
+[ext_resource type="Material" uid="uid://15uswkqnk681" path="res://3dassets/envi/props/database/database_hospital.tres" id="3_cupvf"]
 [ext_resource type="PackedScene" uid="uid://0euj2ry1oys1" path="res://scenes/database_progress_bar.tscn" id="4_nb7mh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lqsb6"]
@@ -14,8 +15,11 @@
 [node name="database" instance=ExtResource("1_c7pwg")]
 script = ExtResource("2_x72uo")
 
+[node name="Circle_002" parent="." index="0"]
+surface_material_override/0 = ExtResource("3_cupvf")
+
 [node name="interactable" parent="." index="1" instance=ExtResource("3_5aa67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57874, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36033, 0)
 command = "download"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactable" index="1"]

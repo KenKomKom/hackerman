@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://dh6fv6cxwvoma"]
+
+[ext_resource type="Script" path="res://scenes/guards/enemy_high.gd" id="1_xmxd7"]
+[ext_resource type="PackedScene" uid="uid://byrurivrc57cm" path="res://scenes/interactable.tscn" id="4_umm8s"]
+[ext_resource type="Script" path="res://scripts/idle_state.gd" id="5_phil5"]
+[ext_resource type="Script" path="res://scripts/chasing_state.gd" id="6_5jmti"]
+[ext_resource type="PackedScene" uid="uid://iobg2ntuilbv" path="res://scenes/high_tier_guard.tscn" id="6_kduns"]
+[ext_resource type="Script" path="res://scripts/hacked_state.gd" id="7_qmojo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3l87d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ecosh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kx73"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0.223529, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ll4v8"]
+material = SubResource("StandardMaterial3D_3kx73")
+size = Vector2(1, 1)
+
+[node name="enemy_high" type="CharacterBody3D" groups=["Guard", "High Guard"]]
+collision_layer = 5
+script = ExtResource("1_xmxd7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+light_color = Color(1, 0.627451, 1, 1)
+light_energy = 4.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0, 0.784314, 0.788235, 1)
+light_bake_mode = 1
+
+[node name="re_target_timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00923461, 0.225653, 0.0369263)
+shape = SubResource("CapsuleShape3D_3l87d")
+
+[node name="high tier" parent="." instance=ExtResource("6_kduns")]
+transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-08, 0, 0, 0)
+
+[node name="interactable" parent="high tier/antivirus high/Skeleton3D" index="3" instance=ExtResource("4_umm8s")]
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0, 1.18478, 0)
+command = "hijack"
+
+[node name="hijack_spot" type="CollisionShape3D" parent="high tier/antivirus high/Skeleton3D/interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.980972, 0)
+shape = SubResource("BoxShape3D_ecosh")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249265, 0)
+collision_mask = 15
+
+[node name="states" type="Node" parent="."]
+
+[node name="idle" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
+script = ExtResource("5_phil5")
+next_target = [NodePath("../chasing"), NodePath("../hacked")]
+
+[node name="chasing" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
+script = ExtResource("6_5jmti")
+next_target = [NodePath("../idle")]
+
+[node name="hacked" type="Node" parent="states" node_paths=PackedStringArray("next_target")]
+script = ExtResource("7_qmojo")
+next_target = [NodePath("../idle")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.72482, 0)
+layers = 4
+mesh = SubResource("PlaneMesh_ll4v8")
+
+[connection signal="timeout" from="re_target_timer" to="states/chasing" method="_on_re_target_timer_timeout"]
+
+[editable path="high tier"]

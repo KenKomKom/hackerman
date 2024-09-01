@@ -6,8 +6,9 @@ class_name Central
 
 func _ready():
 	#Tries to subscribe registered enemies to Central
-	for enemy in enemy_array:
-		enemy.subscribe_to_central(self)
+	#for enemy in enemy_array:
+		#enemy.subscribe_to_central(self)
+	pass
 	
 
 func _on_body_entered(body):
