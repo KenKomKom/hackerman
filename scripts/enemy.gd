@@ -29,6 +29,8 @@ var player: Player
 var hacked = false
 var central: Central
 
+@export var commands: Array[Command]
+
 func _ready():
 	position.x = position.snapped(Vector3.ONE * tile_size).x
 	position.z = position.snapped(Vector3.ONE * tile_size).z
@@ -67,6 +69,10 @@ func _physics_process(delta):
 		return
 	current_state.do_something(delta)
 	#print(current_state)
+	
+	if("enemy_shield2" in name):
+		#print(global_position,movement_target_position)
+		pass
 
 # Pasang mau target buat pathfinder
 func set_movement_target(movement_target: Vector3):

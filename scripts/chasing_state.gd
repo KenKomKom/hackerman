@@ -7,12 +7,15 @@ var target_position_after_move :Vector3
 var time_for_timer:float
 
 func ready_state():
-		# Tiap robot dibedain waktu buat update posisi player biar gk bengkak komputasi
+	# Tiap robot dibedain waktu buat update posisi player biar gk bengkak komputasi
 	var rng = RandomNumberGenerator.new()
-	time_for_timer=rng.randf_range(0.2,0.25)
+	time_for_timer = rng.randf_range(0.2,0.25)
 	parent_enemy.redo_target_location_timer.wait_time = time_for_timer
+	
+	#set target jadi player
+	parent_enemy.movement_target = parent_enemy.player
 
-func do_something(delta):	
+func do_something(delta):
 	# klo lg dialog, gbs gerak
 	if GlobalEvent.stop_for_dialogue:
 		return
@@ -20,7 +23,7 @@ func do_something(delta):
 	GameManager.player_chased = true
 	
 	#Change state
-	if (parent_enemy.movement_target_position-parent_enemy.global_position).length()>4:
+	if (parent_enemy.movement_target_position-parent_enemy.global_position).length()>4 and parent_enemy.movement_target is Player :
 		parent_enemy.change_current_state(next_target[0])
 		GameManager.player_chased = false
 	
@@ -31,16 +34,27 @@ func do_something(delta):
 	# Udh sampe di posisi, tunggu update posisi
 	#if parent_enemy.navigation_agent.is_navigation_finished():
 		#return
+	
+#	# Udh sampe di posisi, tunggu update posisi
+#	if parent_enemy.navigation_agent.is_navigation_finished():
+#		#print("MOVEMENT FINISHED FOR COMMAND NUM ", parent_enemy.get_node("states/idle").current_command)
+#		#parent_enemy.current_state.next_target[0]
+#		parent_enemy.change_current_state(next_target[0])
+#		return
 
-	var current_agent_position: Vector3 = parent_enemy.global_position
+	#var current_agent_position: Vector3 = parent_enemy.global_position
 	var next_path_position: Vector3 = parent_enemy.navigation_agent.get_next_path_position()
+	#print_debug("(chasing) next path target_position_after_move: ", target_position_after_move)
+	#print_debug("(chasing) next path position: ", next_path_position)
 	
 	# lakuin animasi
 	if moving:
 		parent_enemy.global_position = lerp(parent_enemy.global_position,target_position_after_move,parent_enemy.movement_speed)
+		#print("AFTER LERP CURRENT: ", parent_enemy.global_position, " TARGET : ", target_position_after_move)
 		if (parent_enemy.global_position-target_position_after_move).length()<0.08:
 			parent_enemy.global_position=target_position_after_move
-			moving=false
+			#print("LOCATION REACHED")
+			moving = false
 		return
 	var available_dir = next_path_position-parent_enemy.global_position
 	
@@ -93,6 +107,7 @@ func _step_to_available_space(available_dir):
 				dir = Vector3(0,0,0)
 		moving = true
 		parent_enemy.look_towards(dir)
+		#print_debug(parent_enemy.global_position)
 		target_position_after_move = parent_enemy.global_position + dir * parent_enemy.tile_size
 
 #func _on_re_target_timer_timeout():

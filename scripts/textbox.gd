@@ -31,7 +31,7 @@ func display_line(nama: String, dialogue:String, emosi):
 		dialoguebox.texture = load("res://2dassets/dialoguebox/s.png")
 	
 	# Munculin karakter satu per satu
-	for characther in dialogue:
+	for character in dialogue:
 		dialogue_label.visible_ratio += type_speed
 		await get_tree().create_timer(0.04).timeout
 	still_typing = false

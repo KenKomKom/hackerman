@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7e8by8yi67i"]
+[gd_scene load_steps=28 format=3 uid="uid://c7e8by8yi67i"]
 
 [ext_resource type="PackedScene" uid="uid://ifqxvqx2xl88" path="res://scenes/camera.tscn" id="1_3tmfv"]
 [ext_resource type="Script" path="res://scripts/abstract_level.gd" id="1_tw2qk"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dwagui8hwwald" path="res://scenes/door_high.tscn" id="10_cbpwh"]
 [ext_resource type="PackedScene" uid="uid://ces6af84cy7go" path="res://scenes/death_screen.tscn" id="12_g4ltd"]
 [ext_resource type="PackedScene" uid="uid://ba0mf4rr0e61c" path="res://scenes/hacking_ui.tscn" id="13_3grgw"]
+[ext_resource type="Script" path="res://scripts/hacking_ui.gd" id="14_pl75q"]
+[ext_resource type="Script" path="res://guard_commands.gd" id="15_7mcpy"]
 [ext_resource type="PackedScene" uid="uid://bll3456o0qb1r" path="res://scenes/door_medium.tscn" id="18_l4wsm"]
 [ext_resource type="PackedScene" uid="uid://bkor4dm43qrao" path="res://scenes/dialogue_space.tscn" id="22_83lnd"]
 [ext_resource type="PackedScene" uid="uid://bckxr5a8up60m" path="res://scenes/victory_screen.tscn" id="23_2bjsk"]
@@ -28,12 +30,11 @@ ssao_enabled = true
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4o1ai"]
-vertices = PackedVector3Array(1.5, -0.5, -1, 0.75, -0.5, -0.5, 1, -0.5, -0.25, 1.75, -0.5, -0.25, 2, -0.5, -1.25, 0.25, -0.5, -3.25, 1.5, -0.5, -2, 3.25, -0.5, -1.25, 4.75, -0.5, -1.25, 4.75, -0.5, -5.5, -0.5, -0.5, -5.75, -1, -0.5, -4.5, -0.75, -0.5, -4.25, 0.5, -0.5, 4.75, 1.5, -0.5, 5, 1.75, -0.5, 5, 3.25, -0.5, 4.75, 3, -0.5, 1.5, 1, -0.5, 1.5, -0.5, -0.5, -3.25, 3.25, -0.5, 6.25, 3.5, -0.5, 6.75, 4.75, -0.5, 6.75, 0.5, -0.5, -2.25, -2, -0.5, -4.5, -2.25, -0.5, -5.75, -3.75, -0.5, -5.75, -4.5, -0.5, -5.5, -4.75, -0.5, -3.5, -2.25, -0.5, -3.5, 3.5, -0.5, 1, 4.75, -0.5, 0.5, 3.75, -0.5, -1, 3.75, -0.5, 0.25, -2, -0.5, -4.25, 0.75, -0.5, 1, -0.5, -0.5, 5, -0.25, -0.5, 5, -1, -0.5, -0.5, -2.25, -0.5, 6.75, -2, -0.5, 6.5, -2.25, -0.5, 5, -4.5, -0.5, 6.75, -1.25, -0.5, -1.75, -2.25, -0.5, -1.75, -1, -0.5, 6.5, 2, -0.5, 6.5, 1, -0.5, 6.5, 0, -0.5, 6.5)
-polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 0), PackedInt32Array(3, 0, 4), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 5), PackedInt32Array(8, 5, 9), PackedInt32Array(9, 5, 10), PackedInt32Array(12, 11, 10), PackedInt32Array(4, 0, 6), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 16), PackedInt32Array(16, 13, 18), PackedInt32Array(16, 18, 17), PackedInt32Array(19, 12, 5), PackedInt32Array(5, 12, 10), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 16), PackedInt32Array(23, 5, 6), PackedInt32Array(7, 4, 6), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 24), PackedInt32Array(27, 24, 29), PackedInt32Array(27, 29, 28), PackedInt32Array(30, 31, 17), PackedInt32Array(17, 31, 16), PackedInt32Array(16, 31, 22), PackedInt32Array(7, 8, 32), PackedInt32Array(32, 33, 7), PackedInt32Array(7, 33, 30), PackedInt32Array(33, 31, 30), PackedInt32Array(34, 29, 24), PackedInt32Array(24, 11, 34), PackedInt32Array(34, 11, 12), PackedInt32Array(18, 13, 35), PackedInt32Array(13, 37, 36), PackedInt32Array(2, 35, 1), PackedInt32Array(1, 35, 38), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 42), PackedInt32Array(44, 43, 38), PackedInt32Array(28, 44, 38), PackedInt32Array(36, 41, 13), PackedInt32Array(13, 41, 35), PackedInt32Array(35, 41, 38), PackedInt32Array(38, 41, 42), PackedInt32Array(38, 42, 28), PackedInt32Array(28, 29, 44), PackedInt32Array(39, 40, 45), PackedInt32Array(46, 20, 21), PackedInt32Array(15, 46, 14), PackedInt32Array(14, 46, 47), PackedInt32Array(48, 47, 39), PackedInt32Array(39, 47, 21), PackedInt32Array(37, 48, 36), PackedInt32Array(36, 48, 45), PackedInt32Array(47, 46, 21), PackedInt32Array(39, 45, 48)]
+vertices = PackedVector3Array(-5.25, 0.5, -6, -4, 0.5, -6.25, -4, 0.5, -6.75, -5.75, 0.5, -6.75, -5.75, 0.5, -4, -5.25, 0.5, -4, 0, 0.5, -6.75, 0, 0.5, -6.25, 2, 0.5, -6.25, 2, 0.5, -6.75, 4, 0.5, -6.75, 4, 0.5, -6.25, 5, 0.5, -6.25, 5.75, 0.5, -6.75, 5.25, 0.5, -5, 5.75, 0.5, -5, -1.75, 0.5, -6, -1.75, 0.5, -5.25, -1.25, 0.5, -5.25, -1.25, 0.5, -6, 1.5, -0.5, -1, 0.75, -0.5, -0.5, 1, -0.5, -0.25, 1.75, -0.5, -0.25, 2, -0.5, -1.25, 0.25, -0.5, -3.25, 1.5, -0.5, -2, 3.25, -0.5, -1.25, 4.75, -0.5, -1.25, 4.75, -0.5, -5.5, -0.5, -0.5, -5.75, -1, -0.5, -4.5, -0.75, -0.5, -4.25, 0.5, -0.5, 4.75, 1.5, -0.5, 5, 1.75, -0.5, 5, 3.25, -0.5, 4.75, 3, -0.5, 1.5, 1, -0.5, 1.5, -0.5, -0.5, -3.25, 3.25, -0.5, 6.25, 3.5, -0.5, 6.75, 4.75, -0.5, 6.75, 0.5, -0.5, -2.25, -2, -0.5, -4.5, -2.25, -0.5, -5.75, -3.75, -0.5, -5.75, -4.5, -0.5, -5.5, -4.75, -0.5, -3.5, -2.25, -0.5, -3.5, 3.5, -0.5, 1, 4.75, -0.5, 0.5, 3.75, -0.5, -1, 3.75, -0.5, 0.25, -2, -0.5, -4.25, 0.75, -0.5, 1, -0.5, -0.5, 5, -0.25, -0.5, 5, -1, -0.5, -0.5, -2.25, -0.5, 6.75, -2, -0.5, 6.5, -2.25, -0.5, 5, -4.5, -0.5, 6.75, -1.25, -0.5, -1.75, -2.25, -0.5, -1.75, -1.75, 0.5, -3.75, -1.75, 0.5, -3, -1.25, 0.5, -3, -1.25, 0.5, -3.75, 5.25, 0.5, -3, 5.25, 0.5, -2, 5.75, 0.5, -2, 5.75, 0.5, -3, -1, 0.5, -2.75, -1, 0.5, -2, -0.25, 0.5, -2, -0.25, 0.5, -2.75, 0, 0.5, -1.75, 0, 0.5, -1.25, 0.75, 0.5, -1.25, 0.75, 0.5, -1.75, -5.75, 0.5, -1, -5.75, 0.5, 1, -5.25, 0.5, 1, -5.25, 0.5, -1, 4.25, 0.5, -0.75, 4.25, 0.5, -0.25, 5.25, 0.5, 0, 5.75, 0.5, -1, 5.25, 0.5, 3, 5.75, 0.5, 3, 2, 0.5, 0, 2, 0.5, 0.75, 2.75, 0.5, 0.75, 2.75, 0.5, -0.75, 2.25, 0.5, -0.75, -5.75, 0.5, 2, -5.75, 0.5, 3, -5.25, 0.5, 3, -5.25, 0.5, 2, 5.25, 0.5, 4, 5.25, 0.5, 5, 5.75, 0.5, 5, 5.75, 0.5, 4, -5.75, 0.5, 7.75, -5, 0.5, 7.75, -5.25, 0.5, 5, -5.75, 0.5, 5, -1, -0.5, 6.5, 2, -0.5, 6.5, 1, -0.5, 6.5, 0, -0.5, 6.5, -1.75, 0.5, 5.25, -1.75, 0.5, 5.75, -1.25, 0.5, 5.75, -1.25, 0.5, 5.25, 0.25, 0.5, 5.25, 0.25, 0.5, 5.75, 0.75, 0.5, 5.75, 0.75, 0.5, 5.25, 2.25, 0.5, 5.25, 2.25, 0.5, 5.75, 2.75, 0.5, 5.75, 2.75, 0.5, 5.25, 5, 0.5, 7.25, 4, 0.5, 7.25, 4, 0.5, 7.75, 5.75, 0.5, 7.75, 5.75, 0.5, 6, 5.25, 0.5, 6, -4, 0.5, 7.25, -4, 0.5, 7.75, -2, 0.5, 7.75, -2, 0.5, 7.25, 1, 0.5, 7.25, 1, 0.5, 7.75, 3, 0.5, 7.75, 3, 0.5, 7.25)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 0), PackedInt32Array(0, 4, 3), PackedInt32Array(9, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 13), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 20), PackedInt32Array(23, 20, 24), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 25), PackedInt32Array(28, 25, 29), PackedInt32Array(29, 25, 30), PackedInt32Array(32, 31, 30), PackedInt32Array(24, 20, 26), PackedInt32Array(34, 33, 35), PackedInt32Array(35, 33, 36), PackedInt32Array(36, 33, 38), PackedInt32Array(36, 38, 37), PackedInt32Array(39, 32, 25), PackedInt32Array(25, 32, 30), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 36), PackedInt32Array(43, 25, 26), PackedInt32Array(27, 24, 26), PackedInt32Array(46, 45, 47), PackedInt32Array(47, 45, 44), PackedInt32Array(47, 44, 49), PackedInt32Array(47, 49, 48), PackedInt32Array(50, 51, 37), PackedInt32Array(37, 51, 36), PackedInt32Array(36, 51, 42), PackedInt32Array(27, 28, 52), PackedInt32Array(52, 53, 27), PackedInt32Array(27, 53, 50), PackedInt32Array(53, 51, 50), PackedInt32Array(54, 49, 44), PackedInt32Array(44, 31, 54), PackedInt32Array(54, 31, 32), PackedInt32Array(38, 33, 55), PackedInt32Array(33, 57, 56), PackedInt32Array(22, 55, 21), PackedInt32Array(21, 55, 58), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 59, 62), PackedInt32Array(64, 63, 58), PackedInt32Array(48, 64, 58), PackedInt32Array(56, 61, 33), PackedInt32Array(33, 61, 55), PackedInt32Array(55, 61, 58), PackedInt32Array(58, 61, 62), PackedInt32Array(58, 62, 48), PackedInt32Array(48, 49, 64), PackedInt32Array(68, 67, 65), PackedInt32Array(65, 67, 66), PackedInt32Array(72, 71, 69), PackedInt32Array(69, 71, 70), PackedInt32Array(76, 75, 73), PackedInt32Array(73, 75, 74), PackedInt32Array(80, 79, 77), PackedInt32Array(77, 79, 78), PackedInt32Array(84, 83, 81), PackedInt32Array(81, 83, 82), PackedInt32Array(86, 85, 87), PackedInt32Array(87, 85, 88), PackedInt32Array(89, 87, 90), PackedInt32Array(90, 87, 88), PackedInt32Array(95, 94, 91), PackedInt32Array(91, 94, 92), PackedInt32Array(92, 94, 93), PackedInt32Array(99, 98, 96), PackedInt32Array(96, 98, 97), PackedInt32Array(103, 102, 100), PackedInt32Array(100, 102, 101), PackedInt32Array(107, 106, 104), PackedInt32Array(104, 106, 105), PackedInt32Array(59, 60, 108), PackedInt32Array(109, 40, 41), PackedInt32Array(35, 109, 34), PackedInt32Array(34, 109, 110), PackedInt32Array(111, 110, 59), PackedInt32Array(59, 110, 41), PackedInt32Array(57, 111, 56), PackedInt32Array(56, 111, 108), PackedInt32Array(110, 109, 41), PackedInt32Array(59, 108, 111), PackedInt32Array(115, 114, 112), PackedInt32Array(112, 114, 113), PackedInt32Array(119, 118, 116), PackedInt32Array(116, 118, 117), PackedInt32Array(123, 122, 120), PackedInt32Array(120, 122, 121), PackedInt32Array(125, 124, 126), PackedInt32Array(126, 124, 127), PackedInt32Array(129, 128, 124), PackedInt32Array(124, 128, 127), PackedInt32Array(133, 132, 130), PackedInt32Array(130, 132, 131), PackedInt32Array(137, 136, 134), PackedInt32Array(134, 136, 135)]
 agent_height = 0.0
 agent_radius = 0.2
 agent_max_climb = 0.0
-agent_max_slope = 0.02
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yy44"]
 albedo_texture = ExtResource("4_rbhdx")
@@ -61,7 +62,6 @@ environment = SubResource("Environment_eaoja")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_3tmfv")]
 transform = Transform3D(-0.0160429, -0.765876, 0.642788, 0.0134615, 0.642647, 0.766044, -0.999781, 0.0209425, -2.80971e-08, 4.78188, 4.47173, 0)
-current = true
 fov = 40.0
 target = NodePath("../player")
 speed = 20.0
@@ -69,46 +69,52 @@ speed = 20.0
 [node name="DialogueManager" parent="." instance=ExtResource("2_pr5oa")]
 
 [node name="player" parent="." instance=ExtResource("3_l5ybi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44359, -1, -3.43914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, -2.5)
 motion_mode = 0
+animation_speed = 1.0
 
 [node name="Skeleton3D" parent="player/hacker animated/Armature_001" index="0"]
-bones/0/position = Vector3(5.96046e-09, 0.154458, -0.00257143)
-bones/1/rotation = Quaternion(0.0453976, 3.97482e-18, 1.81119e-17, 0.998969)
-bones/1/scale = Vector3(1, 0.991091, 0.99991)
-bones/2/rotation = Quaternion(0.0237533, 5.18802e-17, 2.05155e-15, 0.999718)
-bones/3/rotation = Quaternion(-0.00034701, -3.10721e-10, 6.23415e-12, 1)
-bones/4/rotation = Quaternion(0.00679678, -5.45132e-10, 3.70511e-12, 0.999977)
-bones/5/rotation = Quaternion(0.511543, -0.482106, 0.519789, 0.485507)
+bones/0/position = Vector3(5.96046e-09, 0.150658, -0.00267143)
+bones/0/rotation = Quaternion(0.00484643, 3.93179e-18, 4.78903e-17, 0.999988)
+bones/1/rotation = Quaternion(0.0461371, 3.98823e-18, 1.8109e-17, 0.998935)
+bones/1/scale = Vector3(1, 0.986054, 0.99986)
+bones/2/rotation = Quaternion(0.0244934, 5.33989e-17, 2.05152e-15, 0.9997)
+bones/3/rotation = Quaternion(0.00522204, -3.10681e-10, 7.96447e-12, 0.999986)
+bones/4/rotation = Quaternion(0.0106354, -5.45114e-10, 5.79775e-12, 0.999943)
+bones/5/rotation = Quaternion(0.513841, -0.480195, 0.515678, 0.489343)
 bones/6/rotation = Quaternion(0.220308, 0.00840829, -0.0146447, 0.975284)
-bones/7/rotation = Quaternion(0.376907, 0.0178533, 0.00777933, 0.926046)
+bones/7/rotation = Quaternion(0.37712, 0.0258124, 0.00635438, 0.925783)
 bones/8/rotation = Quaternion(-0.00263631, 0.694148, -0.040912, 0.718664)
-bones/9/rotation = Quaternion(0.0718267, 0.0537357, 0.0774811, 0.99295)
-bones/10/rotation = Quaternion(0.0365786, -0.693643, 0.0445707, 0.718007)
+bones/9/rotation = Quaternion(0.0829365, 0.0568257, 0.0767401, 0.991969)
+bones/10/rotation = Quaternion(0.0446463, -0.692529, 0.0364527, 0.719083)
 bones/11/rotation = Quaternion(0.0614582, -0.0194411, -0.305629, 0.949966)
-bones/12/rotation = Quaternion(0.0511295, 0.129926, 0.180397, 0.973633)
-bones/13/rotation = Quaternion(0.115368, 0.0961824, 0.108412, 0.982693)
-bones/14/rotation = Quaternion(0.177796, 0.0524026, -0.0118862, 0.982599)
-bones/15/rotation = Quaternion(0.145951, 0.739578, 0.159972, 0.637284)
-bones/16/rotation = Quaternion(-0.513231, -0.480788, 0.516352, -0.488689)
+bones/12/rotation = Quaternion(0.0848406, 0.136734, 0.16921, 0.972355)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.146952, 0.0971322, 0.101695, 0.979096)
+bones/14/rotation = Quaternion(0.2022, 0.051556, -0.0276122, 0.977596)
+bones/15/rotation = Quaternion(0.172201, 0.731135, 0.170369, 0.637779)
+bones/16/rotation = Quaternion(-0.513872, -0.480194, 0.515488, -0.489511)
 bones/17/rotation = Quaternion(0.220308, -0.00840828, 0.0146447, 0.975284)
-bones/18/rotation = Quaternion(0.375218, -0.00463196, 0.00286684, 0.926921)
+bones/18/rotation = Quaternion(0.37442, -0.00438807, 0.0109167, 0.927184)
 bones/19/rotation = Quaternion(-0.00263646, -0.694148, 0.040912, 0.718664)
-bones/20/rotation = Quaternion(0.0718267, -0.0537357, -0.0774812, 0.99295)
-bones/21/rotation = Quaternion(0.0365787, 0.693643, -0.0445707, 0.718007)
+bones/20/rotation = Quaternion(0.0829365, -0.0568257, -0.0767402, 0.991969)
+bones/21/rotation = Quaternion(0.0446464, 0.692529, -0.0364528, 0.719083)
 bones/22/rotation = Quaternion(0.0614581, 0.0194412, 0.305629, 0.949966)
 bones/23/rotation = Quaternion(-0.00309507, -0.118647, -0.197851, 0.97302)
+bones/23/scale = Vector3(1, 1, 1)
 bones/24/rotation = Quaternion(0.0644056, -0.0944451, -0.118957, 0.986297)
 bones/25/rotation = Quaternion(0.13827, -0.0536674, -0.0133969, 0.988849)
 bones/26/rotation = Quaternion(0.103518, -0.751795, -0.142979, 0.635331)
-bones/27/position = Vector3(0.0667212, -0.0341488, -0.00200996)
+bones/27/position = Vector3(0.0667212, -0.0304154, -0.00204615)
 bones/27/rotation = Quaternion(-0.000203245, -0.00255652, 0.996605, -0.0822879)
-bones/28/rotation = Quaternion(0.712256, -7.73885e-07, 0.00172001, 0.701918)
-bones/29/position = Vector3(-0.0667213, -0.0341488, -0.00200996)
+bones/28/rotation = Quaternion(0.712256, -7.73855e-07, 0.00172001, 0.701918)
+bones/28/scale = Vector3(1, 1, 1)
+bones/29/position = Vector3(-0.0667212, -0.0304154, -0.00204615)
 bones/29/rotation = Quaternion(0.000203245, -0.00255652, 0.996605, 0.0822879)
-bones/30/rotation = Quaternion(0.712256, 7.00455e-07, -0.00172009, 0.701918)
+bones/30/rotation = Quaternion(0.712256, 7.00496e-07, -0.00172009, 0.701918)
+bones/30/scale = Vector3(1, 1, 1)
 
-[node name="firewalls" type="Node" parent="."]
+[node name="firewalls" type="Node3D" parent="."]
 
 [node name="firewall" parent="firewalls" instance=ExtResource("5_n8x58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29887, -0.96458, 0.402216)
@@ -153,7 +159,8 @@ offset = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2989, -0.96458, -8.59778)
 offset = 0.5
 
-[node name="doors" type="Node" parent="."]
+[node name="doors" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018, 0)
 
 [node name="door medium" parent="doors" instance=ExtResource("18_l4wsm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.982, 5.5)
@@ -175,16 +182,6 @@ type = "high"
 
 [node name="door high" parent="doors" instance=ExtResource("10_cbpwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.982, 5.5)
-
-[node name="enemy" type="Node" parent="."]
-
-[node name="enemy_shield2" parent="enemy" node_paths=PackedStringArray("movement_target") instance=ExtResource("5_6dvog")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.595, -0.95, 1.399)
-movement_target = NodePath("../../player")
-
-[node name="enemy_shield3" parent="enemy" node_paths=PackedStringArray("movement_target") instance=ExtResource("5_6dvog")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.595, -0.95, 4.399)
-movement_target = NodePath("../../player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018, 0)
@@ -217,10 +214,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -1, -3.5)
 [node name="database" parent="." instance=ExtResource("8_pglwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, -5.5)
 
+[node name="enemy" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 4)
+
+[node name="enemy_shield2" parent="enemy" node_paths=PackedStringArray("movement_target", "commands") groups=["High Guard"] instance=ExtResource("5_6dvog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.969486, 0.2, 0.0307865)
+movement_target = NodePath("../../player")
+commands = [NodePath("../../Node")]
+
+[node name="enemy_shield3" parent="enemy" node_paths=PackedStringArray("movement_target") instance=ExtResource("5_6dvog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00731, 0.2, -2.01062)
+movement_target = NodePath("../../player")
+
 [node name="startui" parent="." instance=ExtResource("7_2xxsu")]
 
 [node name="hack_ui" parent="." instance=ExtResource("13_3grgw")]
 visible = false
+script = ExtResource("14_pl75q")
 
 [node name="WinScreen" parent="." instance=ExtResource("23_2bjsk")]
 visible = false
@@ -231,52 +241,21 @@ visible = false
 [node name="Downloading_Bar" parent="." instance=ExtResource("9_cw818")]
 visible = false
 
-[node name="dialogue triggers" type="Node" parent="."]
-
-[node name="dialogue_space" parent="dialogue triggers" instance=ExtResource("22_83lnd")]
+[node name="dialogue_space" parent="." instance=ExtResource("22_83lnd")]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 0.5)
-dialogue_path = "res://dialogue/level 1/mechanic_door injector.json"
+dialogue_path = "res://dialogue/level 2/mechanic_door injector.json"
 
-[node name="Command1_A" type="Node" parent="." node_paths=PackedStringArray("targetNode")]
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("targetNode")]
 script = ExtResource("15_7mcpy")
 type = "move"
-targetNode = NodePath("Target_Location")
+targetNode = NodePath("Guard_A1")
 
-[node name="Target_Location" type="Node3D" parent="Command1_A"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, 4.60473)
-
-[node name="Command1_B" type="Node" parent="." node_paths=PackedStringArray("targetNode")]
-script = ExtResource("15_7mcpy")
-type = "move"
-targetNode = NodePath("Target_Location")
-
-[node name="Target_Location" type="Node3D" parent="Command1_B"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1, 4.45058)
-
-[node name="Command2_A" type="Node" parent="." node_paths=PackedStringArray("targetNode")]
-script = ExtResource("15_7mcpy")
-type = "rotate"
-targetNode = NodePath("Target_Location")
-
-[node name="Target_Location" type="Node3D" parent="Command2_A"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61264, -1, 0.459625)
-
-[node name="Command2_B" type="Node" parent="." node_paths=PackedStringArray("targetNode")]
-script = ExtResource("15_7mcpy")
-type = "rotate"
-targetNode = NodePath("Target_Location")
-
-[node name="Target_Location" type="Node3D" parent="Command2_B"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59193, -1, 2.56457)
-
-[node name="Command2_C" type="Node" parent="." node_paths=PackedStringArray("targetNode")]
-script = ExtResource("15_7mcpy")
-type = "rotate"
-targetNode = NodePath("Target_Location")
-
-[node name="Target_Location" type="Node3D" parent="Command2_C"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.258874, -1, 0.5)
+[node name="Guard_A1" type="Node3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, 3)
 
 [editable path="player"]
 [editable path="player/hacker animated"]
-[editable path="dialogue triggers/dialogue_space"]
+[editable path="enemy/enemy_shield2"]
+[editable path="enemy/enemy_shield2/low tier"]
+[editable path="enemy/enemy_shield3"]
+[editable path="enemy/enemy_shield3/low tier"]
