@@ -1,1 +1,1 @@
-{"anon_status":["-","-","-","-"],"best_time":["-","-","-","-"],"level_finished":[true,true,false,false],"level_unlocked":[true,true,true,false],"player_name":"player_name"}
+{"anon_status":["-","-","-","-"],"best_time":["-","-","-","-"],"level_finished":[true,false,false,false],"level_unlocked":[true,true,false,false],"player_name":""}

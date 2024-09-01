@@ -21,8 +21,9 @@ var initial_position: Vector3
 func _ready():
 	initial_position = parent_enemy.global_position
 	moving = true
-	max_command = parent_enemy.commands.size()
 	print("MAX COMMANDS ", max_command)
+	max_command = parent_enemy.commands.size()
+	print("MAX COMMANDS 2 ", max_command)
 
 func ready_state():
 	# Reset moving status and set the target
@@ -43,8 +44,8 @@ func do_something(delta):
 	if(parent_enemy.commands == null):
 		return
 	
-	if(parent_enemy.commands[current_command].type == "move"):
-		
+	
+	if(parent_enemy.commands[current_command].type == "move" and max_command != 0):
 		#setup variable
 		parent_enemy.movement_target = parent_enemy.commands[current_command].targetNode
 		parent_enemy.movement_target_position = parent_enemy.movement_target.global_position
@@ -87,13 +88,12 @@ func do_something(delta):
 		#var available_dir = next_path_position - parent_enemy.global_position
 		#_step_to_available_space(available_dir)
 	
-	elif(parent_enemy.commands[current_command].type == "rotate"):
+	elif(parent_enemy.commands[current_command].type == "rotate" and max_command != 0):
 		
-		print("CURRENT ROTATION COMMAND ", current_command)
 		#rotation & delay
 		is_rotating = true
 		await parent_enemy.look_towards(parent_enemy.commands[current_command].targetNode.global_position)
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(3.0).timeout
 		
 		#klo uda selesai, current_command = (current_command + 1) % max_command
 		current_command = (current_command + 1) % max_command
