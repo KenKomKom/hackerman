@@ -16,12 +16,13 @@ func _set_up():
 	var level: int = get_parent().id
 	var color = GameManager.LEVEL_INFO[level]['color']
 	$VBoxContainer/Label.set("theme_override_colors/font_color", Color(color))
+	
+	get_parent().audio_manager.deathscreen.play(0.0)
 
 # Animasi setelah _set_up selesai
 func _process(delta):
 	if _is_dead:
 		$TextureRect.modulate.a = lerp($TextureRect.modulate.a,1.0,0.1)
-		$"../audio_manager".deathscreen.play(0.0)
 		if abs($TextureRect.modulate.a - 1.0) > 0.1:
 			$VBoxContainer.visible = true
 			

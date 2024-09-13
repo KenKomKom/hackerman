@@ -11,11 +11,12 @@ config_version=5
 [application]
 
 config/name="Hackerman"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.121569, 0.121569, 0.121569, 1)
 boot_splash/image="res://2dassets/tim.png"
 boot_splash/fullsize=false
-config/icon="res://icon.svg"
+config/icon="res://2dassets/game icon.png"
 
 [autoload]
 

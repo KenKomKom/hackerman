@@ -17,7 +17,7 @@ func _set_up():
 	var color = GameManager.LEVEL_INFO[level]['color']
 	$VBoxContainer/Label.set("theme_override_colors/font_color", Color(color))
 	
-	$"../audio_manager".deathscreen.play(0.0)
+	get_parent().audio_manager.winscreen.play(0.0)
 
 # Animasi setelah _set_up selesai
 func _process(delta):

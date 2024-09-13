@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var input_ui := $input_ui
+@onready var audio_manager = $audio_manager
 var current_level: int
 
 func _ready():
@@ -8,7 +9,7 @@ func _ready():
 	input_ui.modulate.a = 0
 	current_level =  GlobalEvent.current_level
 	
-	$audio_manager.bgm_menu.play(AudioManager.last_playback_position)
+	audio_manager.bgm_menu.play(AudioManager.last_playback_position)
 	
 	GlobalEvent.connect("end_dialogue", enable_ui)
 	setup_dialogue()

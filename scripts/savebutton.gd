@@ -41,7 +41,6 @@ func set_default(id, exist):
 # Ganti gambar kalo focus
 func _on_v_box_container_mouse_entered():
 	if _exist or button_id == 0:
-		#print_debug(button_id)
 		folder_button.texture = load("res://2dassets/save/file folder/"+str(_completed_level)+"-open.png")
 
 # Ganti gambar kalo gk focus

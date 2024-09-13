@@ -1,0 +1,306 @@
+[gd_scene load_steps=26 format=3 uid="uid://d24eugwcrmft0"]
+
+[ext_resource type="Script" path="res://scripts/abstract_level.gd" id="1_h78lv"]
+[ext_resource type="PackedScene" uid="uid://dbe6ouvhnhrq2" path="res://scenes/audio_manager.tscn" id="2_4amws"]
+[ext_resource type="PackedScene" uid="uid://kcei8js78ras" path="res://scenes/vignette.tscn" id="2_vge4k"]
+[ext_resource type="PackedScene" uid="uid://ifqxvqx2xl88" path="res://scenes/camera.tscn" id="3_hictf"]
+[ext_resource type="PackedScene" uid="uid://bpgprrhaxtrvb" path="res://scenes/dialogue_manager.tscn" id="4_h5dxy"]
+[ext_resource type="PackedScene" uid="uid://phh0wi1xv21q" path="res://scenes/player.tscn" id="5_wk1gx"]
+[ext_resource type="MeshLibrary" uid="uid://e8l32x2ybfjl" path="res://scenes/tiles/level 1.tres" id="6_bjvl8"]
+[ext_resource type="Texture2D" uid="uid://dwd2ysac8sllj" path="res://2dassets/grid.png" id="7_dyar1"]
+[ext_resource type="PackedScene" uid="uid://3uksaxpktt17" path="res://scenes/checkpoint.tscn" id="8_00oaw"]
+[ext_resource type="PackedScene" uid="uid://cwrjooejx1605" path="res://scenes/database.tscn" id="9_imjl1"]
+[ext_resource type="PackedScene" uid="uid://c6ce1pduy55fj" path="res://scenes/firewall.tscn" id="10_5tiyu"]
+[ext_resource type="PackedScene" uid="uid://dofogwi4uxva3" path="res://scenes/guards/enemy.tscn" id="11_anfao"]
+[ext_resource type="PackedScene" uid="uid://briq8hmllh7e0" path="res://scenes/door_low.tscn" id="12_fa26q"]
+[ext_resource type="PackedScene" uid="uid://bkor4dm43qrao" path="res://scenes/dialogue_space.tscn" id="13_lrnku"]
+[ext_resource type="Script" path="res://guard_commands.gd" id="14_hfsbq"]
+[ext_resource type="PackedScene" uid="uid://bby81bhqf480q" path="res://scenes/startui.tscn" id="15_qc1vl"]
+[ext_resource type="PackedScene" uid="uid://bckxr5a8up60m" path="res://scenes/victory_screen.tscn" id="16_18rh8"]
+[ext_resource type="PackedScene" uid="uid://ces6af84cy7go" path="res://scenes/death_screen.tscn" id="17_rlkuf"]
+[ext_resource type="PackedScene" uid="uid://ba0mf4rr0e61c" path="res://scenes/hacking_ui.tscn" id="18_w6l6c"]
+[ext_resource type="PackedScene" uid="uid://bfx1yvho6odqg" path="res://scenes/downloading_bar.tscn" id="19_01j6d"]
+
+[sub_resource type="Environment" id="Environment_eaoja"]
+background_mode = 1
+ambient_light_color = Color(0.388235, 0.192157, 0.294118, 1)
+ssao_enabled = true
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_4o1ai"]
+vertices = PackedVector3Array(-7.25, -0.5, 3, -5.75, -0.5, 2.75, -6, -0.5, 2.5, -7.25, -0.5, 2.25, -7, -0.5, -3.25, -7.25, -0.5, -3.75, -8.5, -0.5, 5.75, -7.25, -0.5, 5.75, -7.25, -0.5, -7.5, -8.5, -0.5, -7.5, -5.5, -0.5, -3, -5.5, -0.5, 1.5, -5.25, -0.5, 1.25, -5.25, -0.5, -3.5, -4.25, -0.5, 3, -4, -0.5, 1.5, -4.25, -0.5, 7.25, -5.5, -0.5, 7, -6, -0.5, 7.5, -2.5, -0.5, 4.5, -2.5, -0.5, 5.75, -1.5, -0.5, 6, -1.25, -0.5, 5, -3.25, -0.5, -1, -3.25, -0.5, -3.75, -3.5, -0.5, -5, -3.5, -0.5, 1, -2.25, -0.5, 2.75, -2.25, -0.5, 0.5, -3.25, -0.5, 0.25, -0.75, -0.5, -1.25, 0.75, -0.5, -1.25, 0.75, -0.5, -3.5, -8.5, -0.5, 7.5, -8.5, -0.5, 8.75, 0.75, -0.5, 8.75, 0.75, -0.5, 6.5, -1, -0.5, 6.5, -1.5, -0.5, 7, -3.25, -0.5, -7.5, -5.5, -0.5, -7.5, -5.5, -0.5, -5.25, 2.25, -0.5, 4.75, 2, -0.5, 4.5, -2, -0.5, 7.5, 2.5, -0.5, 4, -1.5, -0.5, -5.25, 0.75, -0.5, -5.25, 0.75, -0.5, -7, -1.5, -0.5, -7.5, 3.75, -0.5, -6, 2.5, -0.5, -7, 2.5, -0.5, 1, 3.75, -0.5, 7.25, 0.75, -0.5, 1.25, -0.5, -0.5, 2.75, 8.75, -0.5, -7.5, 7.5, -0.5, -6, 7.5, -0.5, 7, 8.75, -0.5, 8.75, 2.25, -0.5, 2.75, 2, -0.5, 1.5, 7, -0.5, 7.5, 2.5, -0.5, 8.75, 5.25, -0.5, -4.75, 5.25, -0.5, 5.75, 5.75, -0.5, 5.75, 5.75, -0.5, -4.75)
+polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(0, 7, 6), PackedInt32Array(3, 0, 6), PackedInt32Array(9, 8, 5), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(3, 6, 5), PackedInt32Array(5, 6, 9), PackedInt32Array(10, 4, 13), PackedInt32Array(13, 4, 5), PackedInt32Array(2, 11, 1), PackedInt32Array(1, 11, 12), PackedInt32Array(1, 12, 15), PackedInt32Array(1, 15, 14), PackedInt32Array(18, 17, 16), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 19), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 26), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(32, 31, 30), PackedInt32Array(34, 33, 18), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 35), PackedInt32Array(41, 40, 25), PackedInt32Array(25, 40, 39), PackedInt32Array(15, 26, 14), PackedInt32Array(14, 26, 27), PackedInt32Array(25, 39, 24), PackedInt32Array(42, 22, 43), PackedInt32Array(43, 22, 19), PackedInt32Array(16, 17, 14), PackedInt32Array(14, 17, 1), PackedInt32Array(16, 44, 18), PackedInt32Array(18, 44, 34), PackedInt32Array(34, 44, 35), PackedInt32Array(38, 21, 37), PackedInt32Array(37, 21, 22), PackedInt32Array(23, 24, 30), PackedInt32Array(30, 24, 32), PackedInt32Array(26, 23, 29), PackedInt32Array(35, 44, 38), PackedInt32Array(45, 42, 43), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 53), PackedInt32Array(31, 54, 30), PackedInt32Array(30, 54, 55), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(61, 60, 54), PackedInt32Array(54, 60, 55), PackedInt32Array(59, 62, 58), PackedInt32Array(52, 60, 61), PackedInt32Array(60, 52, 45), PackedInt32Array(45, 52, 53), PackedInt32Array(48, 49, 51), PackedInt32Array(51, 49, 56), PackedInt32Array(45, 53, 42), PackedInt32Array(42, 53, 63), PackedInt32Array(50, 51, 57), PackedInt32Array(57, 51, 56), PackedInt32Array(53, 62, 63), PackedInt32Array(63, 62, 59), PackedInt32Array(67, 66, 64), PackedInt32Array(64, 66, 65)]
+agent_height = 0.0
+agent_radius = 0.2
+agent_max_climb = 0.0
+agent_max_slope = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yy44"]
+albedo_texture = ExtResource("7_dyar1")
+roughness = 0.0
+clearcoat_enabled = true
+clearcoat_roughness = 1.0
+detail_blend_mode = 2
+uv1_scale = Vector3(3, 3, 3)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_hswgx"]
+material = SubResource("StandardMaterial3D_1yy44")
+size = Vector2(100, 100)
+orientation = 1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5tjpu"]
+
+[node name="level" type="Node3D"]
+script = ExtResource("1_h78lv")
+id = 1
+
+[node name="vignette" parent="." instance=ExtResource("2_vge4k")]
+
+[node name="audio_manager" parent="." instance=ExtResource("2_4amws")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eaoja")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_hictf")]
+transform = Transform3D(0.999781, -0.0209424, 0, 0.0134615, 0.642647, 0.766044, -0.0160428, -0.765876, 0.642788, 4.78188, 4.47173, 0)
+current = true
+fov = 40.0
+target = NodePath("../player")
+speed = 20.0
+
+[node name="DialogueManager" parent="." instance=ExtResource("4_h5dxy")]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57313, -0.610539, -2.4043)
+
+[node name="player" parent="." instance=ExtResource("5_wk1gx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5104, -1, 5.46638)
+motion_mode = 0
+
+[node name="DirectionalLight3D" parent="player/OmniLight3D" index="0"]
+light_color = Color(0.5252, 0.338, 0.65, 1)
+
+[node name="hacker animated" parent="player" index="3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Skeleton3D" parent="player/hacker animated/Armature_001" index="0"]
+bones/0/position = Vector3(5.96046e-09, 0.156586, -0.00251543)
+bones/1/rotation = Quaternion(0.0448152, 3.96426e-18, 1.81142e-17, 0.998995)
+bones/1/scale = Vector3(1, 0.993465, 0.999934)
+bones/2/rotation = Quaternion(0.0231706, 5.06843e-17, 2.05158e-15, 0.999732)
+bones/3/rotation = Quaternion(-0.00298655, -3.10736e-10, 5.41397e-12, 0.999996)
+bones/4/rotation = Quaternion(0.00497735, -5.45138e-10, 2.71327e-12, 0.999988)
+bones/5/rotation = Quaternion(0.510442, -0.483001, 0.521733, 0.483689)
+bones/6/rotation = Quaternion(0.220308, 0.00840829, -0.0146447, 0.975284)
+bones/7/rotation = Quaternion(0.376806, 0.0144269, 0.00839052, 0.926142)
+bones/8/rotation = Quaternion(-0.00263631, 0.694148, -0.040912, 0.718664)
+bones/9/rotation = Quaternion(0.0670335, 0.0524007, 0.0777822, 0.993333)
+bones/10/rotation = Quaternion(0.0331037, -0.694095, 0.0480725, 0.717513)
+bones/11/rotation = Quaternion(0.0614582, -0.0194411, -0.305629, 0.949966)
+bones/12/rotation = Quaternion(0.03659, 0.126941, 0.185142, 0.973791)
+bones/13/rotation = Quaternion(0.101726, 0.095742, 0.111271, 0.983923)
+bones/14/rotation = Quaternion(0.167234, 0.0527533, -0.00510803, 0.984492)
+bones/15/rotation = Quaternion(0.134603, 0.743017, 0.15545, 0.636901)
+bones/16/rotation = Quaternion(-0.512855, -0.481136, 0.516858, -0.488206)
+bones/17/rotation = Quaternion(0.220308, -0.00840828, 0.0146447, 0.975284)
+bones/18/rotation = Quaternion(0.375559, -0.00474044, -0.000587126, 0.926786)
+bones/19/rotation = Quaternion(-0.00263646, -0.694148, 0.040912, 0.718664)
+bones/20/rotation = Quaternion(0.0670335, -0.0524007, -0.0777823, 0.993333)
+bones/21/rotation = Quaternion(0.0331038, 0.694095, -0.0480726, 0.717513)
+bones/22/rotation = Quaternion(0.0614581, 0.0194412, 0.305629, 0.949966)
+bones/23/rotation = Quaternion(-0.00309507, -0.118647, -0.197851, 0.97302)
+bones/24/rotation = Quaternion(0.0644056, -0.0944451, -0.118957, 0.986297)
+bones/25/rotation = Quaternion(0.13827, -0.0536674, -0.0133969, 0.988849)
+bones/26/rotation = Quaternion(0.103518, -0.751795, -0.142979, 0.635331)
+bones/27/position = Vector3(0.0667212, -0.0362392, -0.0019897)
+bones/27/rotation = Quaternion(-0.000203245, -0.00255652, 0.996605, -0.0822879)
+bones/28/rotation = Quaternion(0.712256, -7.73885e-07, 0.00172001, 0.701918)
+bones/29/position = Vector3(-0.0667212, -0.0362392, -0.0019897)
+bones/29/rotation = Quaternion(0.000203245, -0.00255652, 0.996605, 0.0822879)
+bones/30/rotation = Quaternion(0.712256, 7.00455e-07, -0.00172009, 0.701918)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0184076, 0)
+navigation_mesh = SubResource("NavigationMesh_4o1ai")
+
+[node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
+mesh_library = ExtResource("6_bjvl8")
+cell_size = Vector3(1, 1, 1)
+collision_layer = 2
+data = {
+"cells": PackedInt32Array(-65546, 65527, 0, -65546, 65528, 0, -65546, 65529, 0, -65546, 65530, 0, -65546, 65531, 0, -65546, 65532, 0, -65546, 65533, 0, -65546, 65534, 0, -65546, 65535, 0, -65546, 0, 0, -65546, 1, 0, -65546, 2, 0, -65546, 3, 0, -65546, 4, 0, -65546, 5, 0, -65546, 6, 0, -65546, 7, 0, -65546, 8, 0, -65546, 9, 0, -65545, 65527, 0, -65545, 65528, 0, -65545, 65529, 0, -65545, 65530, 0, -65545, 65531, 0, -65545, 65532, 0, -65545, 65533, 0, -65545, 65534, 0, -65545, 65535, 0, -65545, 0, 0, -65545, 1, 0, -65545, 2, 0, -65545, 3, 0, -65545, 4, 0, -65545, 5, 0, -65545, 6, 0, -65545, 7, 0, -65545, 8, 0, -65545, 9, 0, -65544, 65527, 0, -65544, 65528, 0, -65544, 65529, 0, -65544, 65530, 0, -65544, 65531, 0, -65544, 65532, 0, -65544, 65533, 0, -65544, 65534, 0, -65544, 65535, 0, -65544, 0, 0, -65544, 1, 0, -65544, 2, 0, -65544, 3, 0, -65544, 4, 0, -65544, 5, 0, -65544, 6, 0, -65544, 7, 0, -65544, 8, 0, -65544, 9, 0, -65543, 65527, 0, -65543, 65528, 0, -65543, 65529, 0, -65543, 65530, 0, -65543, 65531, 0, -65543, 65532, 0, -65543, 65533, 0, -65543, 65534, 0, -65543, 65535, 0, -65543, 0, 0, -65543, 1, 0, -65543, 2, 0, -65543, 3, 0, -65543, 4, 0, -65543, 5, 0, -65543, 6, 0, -65543, 7, 0, -65543, 8, 0, -65543, 9, 0, -65542, 65527, 0, -65542, 65528, 0, -65542, 65529, 0, -65542, 65530, 0, -65542, 65531, 0, -65542, 65532, 0, -65542, 65533, 0, -65542, 65534, 0, -65542, 65535, 0, -65542, 0, 0, -65542, 1, 0, -65542, 2, 0, -65542, 3, 0, -65542, 4, 0, -65542, 5, 0, -65542, 6, 0, -65542, 7, 0, -65542, 8, 0, -65542, 9, 0, -65541, 65527, 0, -65541, 65528, 0, -65541, 65529, 0, -65541, 65530, 0, -65541, 65531, 0, -65541, 65532, 0, -65541, 65533, 0, -65541, 65534, 0, -65541, 65535, 0, -65541, 0, 0, -65541, 1, 0, -65541, 2, 0, -65541, 3, 0, -65541, 4, 0, -65541, 5, 0, -65541, 6, 0, -65541, 7, 0, -65541, 8, 0, -65541, 9, 0, -65540, 65527, 0, -65540, 65528, 0, -65540, 65529, 0, -65540, 65530, 0, -65540, 65531, 0, -65540, 65532, 0, -65540, 65533, 0, -65540, 65534, 0, -65540, 65535, 0, -65540, 0, 0, -65540, 1, 0, -65540, 2, 0, -65540, 3, 0, -65540, 4, 0, -65540, 5, 0, -65540, 6, 0, -65540, 7, 0, -65540, 8, 0, -65540, 9, 0, -65539, 65527, 0, -65539, 65528, 0, -65539, 65529, 0, -65539, 65530, 0, -65539, 65531, 0, -65539, 65532, 0, -65539, 65533, 0, -65539, 65534, 0, -65539, 65535, 0, -65539, 0, 0, -65539, 1, 0, -65539, 2, 0, -65539, 3, 0, -65539, 4, 0, -65539, 5, 0, -65539, 6, 0, -65539, 7, 0, -65539, 8, 0, -65539, 9, 0, -65538, 65527, 0, -65538, 65528, 0, -65538, 65529, 0, -65538, 65530, 0, -65538, 65531, 0, -65538, 65532, 0, -65538, 65533, 0, -65538, 65534, 0, -65538, 65535, 0, -65538, 0, 0, -65538, 1, 0, -65538, 2, 0, -65538, 3, 0, -65538, 4, 0, -65538, 5, 0, -65538, 6, 0, -65538, 7, 0, -65538, 8, 0, -65538, 9, 0, -65537, 65527, 0, -65537, 65528, 0, -65537, 65529, 0, -65537, 65530, 0, -65537, 65531, 0, -65537, 65532, 0, -65537, 65533, 0, -65537, 65534, 0, -65537, 65535, 0, -65537, 0, 0, -65537, 1, 0, -65537, 2, 0, -65537, 3, 0, -65537, 4, 0, -65537, 5, 0, -65537, 6, 0, -65537, 7, 0, -65537, 8, 0, -65537, 9, 0, -131072, 65527, 0, -131072, 65528, 0, -131072, 65529, 0, -131072, 65530, 0, -131072, 65531, 0, -131072, 65532, 0, -131072, 65533, 0, -131072, 65534, 0, -131072, 65535, 0, -131072, 0, 0, -131072, 1, 0, -131072, 2, 0, -131072, 3, 0, -131072, 4, 0, -131072, 5, 0, -131072, 6, 0, -131072, 7, 0, -131072, 8, 0, -131072, 9, 0, -131071, 65527, 0, -131071, 65528, 0, -131071, 65529, 0, -131071, 65530, 0, -131071, 65531, 0, -131071, 65532, 0, -131071, 65533, 0, -131071, 65534, 0, -131071, 65535, 0, -131071, 0, 0, -131071, 1, 0, -131071, 2, 0, -131071, 3, 0, -131071, 4, 0, -131071, 5, 0, -131071, 6, 0, -131071, 7, 0, -131071, 8, 0, -131071, 9, 0, -131070, 65527, 0, -131070, 65528, 0, -131070, 65529, 0, -131070, 65530, 0, -131070, 65531, 0, -131070, 65532, 0, -131070, 65533, 0, -131070, 65534, 0, -131070, 65535, 0, -131070, 0, 0, -131070, 1, 0, -131070, 2, 0, -131070, 3, 0, -131070, 4, 0, -131070, 5, 0, -131070, 6, 0, -131070, 7, 0, -131070, 8, 0, -131070, 9, 0, -131069, 65527, 0, -131069, 65528, 0, -131069, 65529, 0, -131069, 65530, 0, -131069, 65531, 0, -131069, 65532, 0, -131069, 65533, 0, -131069, 65534, 0, -131069, 65535, 0, -131069, 0, 0, -131069, 1, 0, -131069, 2, 0, -131069, 3, 0, -131069, 4, 0, -131069, 5, 0, -131069, 6, 0, -131069, 7, 0, -131069, 8, 0, -131069, 9, 0, -131068, 65527, 0, -131068, 65528, 0, -131068, 65529, 0, -131068, 65530, 0, -131068, 65531, 0, -131068, 65532, 0, -131068, 65533, 0, -131068, 65534, 0, -131068, 65535, 0, -131068, 0, 0, -131068, 1, 0, -131068, 2, 0, -131068, 3, 0, -131068, 4, 0, -131068, 5, 0, -131068, 6, 0, -131068, 7, 0, -131068, 8, 0, -131068, 9, 0, -131067, 65527, 0, -131067, 65528, 0, -131067, 65529, 0, -131067, 65530, 0, -131067, 65531, 0, -131067, 65532, 0, -131067, 65533, 0, -131067, 65534, 0, -131067, 65535, 0, -131067, 0, 0, -131067, 1, 0, -131067, 2, 0, -131067, 3, 0, -131067, 4, 0, -131067, 5, 0, -131067, 6, 0, -131067, 7, 0, -131067, 8, 0, -131067, 9, 0, -131066, 65527, 0, -131066, 65528, 0, -131066, 65529, 0, -131066, 65530, 0, -131066, 65531, 0, -131066, 65532, 0, -131066, 65533, 0, -131066, 65534, 0, -131066, 65535, 0, -131066, 0, 0, -131066, 1, 0, -131066, 2, 0, -131066, 3, 0, -131066, 4, 0, -131066, 5, 0, -131066, 6, 0, -131066, 7, 0, -131066, 8, 0, -131066, 9, 0, -131065, 65527, 0, -131065, 65528, 0, -131065, 65529, 0, -131065, 65530, 0, -131065, 65531, 0, -131065, 65532, 0, -131065, 65533, 0, -131065, 65534, 0, -131065, 65535, 0, -131065, 0, 0, -131065, 1, 0, -131065, 2, 0, -131065, 3, 0, -131065, 4, 0, -131065, 5, 0, -131065, 6, 0, -131065, 7, 0, -131065, 8, 0, -131065, 9, 0, -131064, 65527, 0, -131064, 65528, 0, -131064, 65529, 0, -131064, 65530, 0, -131064, 65531, 0, -131064, 65532, 0, -131064, 65533, 0, -131064, 65534, 0, -131064, 65535, 0, -131064, 0, 0, -131064, 1, 0, -131064, 2, 0, -131064, 3, 0, -131064, 4, 0, -131064, 5, 0, -131064, 6, 0, -131064, 7, 0, -131064, 8, 0, -131064, 9, 0, -131063, 65527, 0, -131063, 65528, 0, -131063, 65529, 0, -131063, 65530, 0, -131063, 65531, 0, -131063, 65532, 0, -131063, 65533, 0, -131063, 65534, 0, -131063, 65535, 0, -131063, 0, 0, -131063, 1, 0, -131063, 2, 0, -131063, 3, 0, -131063, 4, 0, -131063, 5, 0, -131063, 6, 0, -131063, 7, 0, -131063, 8, 0, -131063, 9, 0, -10, 65527, 2, -9, 65527, 2, -8, 65527, 2, -7, 65527, 2, -6, 65527, 2, -5, 65527, 2, -4, 65527, 2, -3, 65527, 2, -1, 65527, 2, -65536, 65527, 2, -65535, 65527, 2, -65534, 65527, 2, -65533, 65527, 2, -65532, 65527, 2, -65531, 65527, 2, -65530, 65527, 2, -65529, 65527, 2, -65528, 65527, 2, -65527, 65527, 2, -65527, 65528, 2, -65527, 65529, 2, -65527, 65530, 2, -65527, 65531, 2, -65527, 65532, 2, -65527, 65533, 2, -65527, 65534, 2, -65527, 65535, 2, -65527, 0, 2, -65527, 1, 2, -65527, 2, 2, -65527, 3, 2, -65527, 4, 2, -65527, 5, 2, -65527, 6, 2, -65527, 7, 2, -65527, 8, 2, -65527, 9, 2, -65528, 9, 2, -65529, 9, 2, -65530, 9, 2, -65531, 9, 2, -65532, 9, 2, -65533, 9, 2, -65534, 9, 2, -65535, 9, 2, -65536, 9, 2, -1, 9, 2, -2, 9, 2, -3, 9, 2, -4, 9, 2, -5, 9, 2, -6, 9, 2, -7, 9, 2, -8, 9, 2, -9, 9, 2, -10, 9, 2, -10, 8, 2, -10, 7, 2, -10, 6, 2, -10, 5, 2, -10, 4, 2, -10, 3, 2, -10, 2, 2, -10, 1, 2, -10, 0, 2, -10, 65535, 2, -10, 65534, 2, -10, 65533, 2, -10, 65532, 2, -10, 65531, 2, -10, 65530, 2, -10, 65529, 2, -10, 65528, 2, -7, 3, 2, -7, 4, 2, -7, 5, 2, -7, 6, 2, -7, 65528, 2, -7, 65529, 2, -7, 65530, 2, -7, 65531, 2, -7, 1, 2, -7, 0, 2, -7, 65535, 2, -5, 65532, 2, -5, 65533, 2, -5, 65534, 2, -5, 65535, 2, -5, 0, 2, -4, 3, 2, -4, 4, 2, -4, 5, 2, -3, 3, 2, -2, 3, 2, -2, 2, 2, -2, 1, 2, -2, 0, 2, -2, 65535, 2, -3, 65535, 2, -2, 65531, 2, -65535, 65532, 2, -65535, 65533, 2, -65535, 65534, 2, -65535, 65535, 2, -65535, 0, 2, -1, 3, 2, -65536, 3, 2, -65535, 5, 2, -65535, 6, 2, -65535, 7, 2, -65535, 8, 2, -65535, 3, 2, -65535, 65531, 2, -65535, 65530, 2, -7, 65534, 2, -6, 65531, 2, -5, 65531, 2, -1, 65531, 2, -65536, 65531, 2, -7, 65533, 2, -3, 65531, 2, -3, 65530, 2, -3, 65529, 2, -3, 65528, 2, -65535, 65529, 2, -2, 65527, 2, -9, 6, 2, -8, 6, 2, -65536, 5, 2, -1, 5, 2, -4, 6, 2, -3, 6, 2, -65532, 6, 2, -65532, 5, 2, -65532, 65530, 1, -65532, 65531, 1, -65532, 65532, 1, -65532, 65533, 1, -65532, 65534, 1, -65532, 65535, 1, -65532, 0, 1, -65532, 1, 1, -65532, 2, 1, -65532, 3, 1, -65532, 4, 2, -65530, 65530, 1, -65530, 65531, 1, -65530, 65532, 1, -65530, 65533, 1, -65530, 65534, 1, -65530, 65535, 1, -65530, 0, 1, -65530, 1, 1, -65530, 2, 1, -65530, 3, 1, -65530, 4, 2, -65530, 5, 2, -65530, 6, 2, -65531, 6, 2, -65531, 65530, 1)
+}
+metadata/_editor_floor_ = Vector3(0, -1, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.8929, 0)
+mesh = SubResource("QuadMesh_hswgx")
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.362061, 0.0670755, -0.12207)
+quality = 3
+directional = true
+interior = true
+camera_attributes = SubResource("CameraAttributesPractical_5tjpu")
+generate_probes_subdiv = 4
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 12.3275, 0)
+cull_mask = 1048571
+projection = 1
+size = 15.383
+
+[node name="checkpoint" parent="." instance=ExtResource("8_00oaw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, -6.5)
+
+[node name="database" parent="." instance=ExtResource("9_imjl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, -1, -6.5)
+
+[node name="firewalls" type="Node" parent="."]
+
+[node name="firewall" parent="firewalls" instance=ExtResource("10_5tiyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51604, -0.96458, -1.53255)
+
+[node name="firewall2" parent="firewalls" instance=ExtResource("10_5tiyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59194, -0.96458, -1.56279)
+offset = 0.25
+
+[node name="guards" type="Node" parent="."]
+
+[node name="enemy_shield13" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_anfao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.405, -0.95, 5.399)
+movement_target = NodePath("../../player")
+commands = [NodePath("../../Commands Group/Enemy 1/Move 1"), NodePath("../../Commands Group/Enemy 1/Rotate A"), NodePath("../../Commands Group/Enemy 1/Rotate B"), NodePath("../../Commands Group/Enemy 1/Rotate C"), NodePath("../../Commands Group/Enemy 2/Move 2"), NodePath("../../Commands Group/Enemy 1/Rotate D"), NodePath("../../Commands Group/Enemy 1/Rotate E"), NodePath("../../Commands Group/Enemy 1/Rotate E")]
+
+[node name="enemy_shield14" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_anfao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.595, -0.95, 7.399)
+movement_target = NodePath("../../player")
+commands = [NodePath("../../Commands Group/Enemy 2/Move 1"), NodePath("../../Commands Group/Enemy 2/Move 2")]
+
+[node name="doors" type="Node" parent="."]
+
+[node name="door low" parent="doors" instance=ExtResource("12_fa26q")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5, -1, 2.5)
+
+[node name="door low2" parent="doors" instance=ExtResource("12_fa26q")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -3.5, -1, -4.5)
+
+[node name="door low3" parent="doors" instance=ExtResource("12_fa26q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, -1, -7.5)
+
+[node name="door low4" parent="doors" instance=ExtResource("12_fa26q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, -1, 0.5)
+visible = false
+
+[node name="door low5" parent="doors" instance=ExtResource("12_fa26q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.5, -1, -11.5)
+visible = false
+
+[node name="dialogue" type="Node" parent="."]
+
+[node name="dialogue_space_patrol_guards" parent="dialogue" instance=ExtResource("13_lrnku")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1, 0, 2, 0, -4.37114e-08, 7.49525, -0.899115, 8.49308)
+visible = false
+dialogue_path = "res://dialogue/level 1/mechanic_patrol guards.json"
+
+[node name="dialogue_space_door_injector" parent="dialogue" instance=ExtResource("13_lrnku")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -6.43971, -0.899115, 3.00178)
+visible = false
+dialogue_path = "res://dialogue/level 1/mechanic_door injector.json"
+
+[node name="dialogue_space_door_injector2" parent="dialogue" instance=ExtResource("13_lrnku")]
+transform = Transform3D(-2.62268e-07, 0, 1, 0, 1, 0, -6, 0, -4.37114e-08, 4.54192, -0.899115, -9.49021)
+visible = false
+dialogue_path = "res://dialogue/level 1/mechanic_guard hacking.json"
+
+[node name="dialogue_space_objective_database" parent="dialogue" instance=ExtResource("13_lrnku")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1, 0, 2, 0, -4.37114e-08, 8.42321, -0.899115, 0.655288)
+visible = false
+dialogue_path = "res://dialogue/level 1/mechanic_objective database.json"
+
+[node name="Commands Group" type="Node" parent="."]
+
+[node name="Enemy 1" type="Node" parent="Commands Group"]
+
+[node name="Move 1" type="Node" parent="Commands Group/Enemy 1" node_paths=PackedStringArray("target_node")]
+script = ExtResource("14_hfsbq")
+type = "move"
+target_node = NodePath("Target 1")
+
+[node name="Target 1" type="Node3D" parent="Commands Group/Enemy 1/Move 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40933, -1, 5.4332)
+
+[node name="Rotate A" type="Node" parent="Commands Group/Enemy 1"]
+script = ExtResource("14_hfsbq")
+type = "rotate"
+rotate_dir = "up"
+
+[node name="Rotate B" type="Node" parent="Commands Group/Enemy 1"]
+script = ExtResource("14_hfsbq")
+type = "rotate"
+rotate_dir = "left"
+
+[node name="Rotate C" type="Node" parent="Commands Group/Enemy 1"]
+script = ExtResource("14_hfsbq")
+type = "rotate"
+rotate_dir = "down"
+
+[node name="Move 2" type="Node" parent="Commands Group/Enemy 1" node_paths=PackedStringArray("target_node")]
+script = ExtResource("14_hfsbq")
+type = "move"
+target_node = NodePath("Target 2")
+
+[node name="Target 2" type="Node3D" parent="Commands Group/Enemy 1/Move 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40933, -1, -4.5668)
+
+[node name="Rotate D" type="Node" parent="Commands Group/Enemy 1"]
+script = ExtResource("14_hfsbq")
+type = "rotate"
+rotate_dir = "down"
+
+[node name="Rotate E" type="Node" parent="Commands Group/Enemy 1"]
+script = ExtResource("14_hfsbq")
+type = "rotate"
+rotate_dir = "right"
+
+[node name="Rotate F" type="Node" parent="Commands Group/Enemy 1"]
+script = ExtResource("14_hfsbq")
+type = "rotate"
+rotate_dir = "up"
+
+[node name="Enemy 2" type="Node" parent="Commands Group"]
+
+[node name="Move 1" type="Node" parent="Commands Group/Enemy 2" node_paths=PackedStringArray("target_node")]
+script = ExtResource("14_hfsbq")
+type = "move"
+target_node = NodePath("Target 1")
+
+[node name="Target 1" type="Node3D" parent="Commands Group/Enemy 2/Move 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.59067, -1, 7.4332)
+
+[node name="Move 2" type="Node" parent="Commands Group/Enemy 2" node_paths=PackedStringArray("target_node")]
+script = ExtResource("14_hfsbq")
+type = "move"
+target_node = NodePath("Target 2")
+
+[node name="Target 2" type="Node3D" parent="Commands Group/Enemy 2/Move 2"]
+transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, -0.66361, -1, 7.56243)
+
+[node name="startui" parent="." instance=ExtResource("15_qc1vl")]
+
+[node name="WinScreen" parent="." instance=ExtResource("16_18rh8")]
+visible = false
+
+[node name="DeathScreen" parent="." instance=ExtResource("17_rlkuf")]
+visible = false
+
+[node name="hack_ui" parent="." instance=ExtResource("18_w6l6c")]
+visible = false
+
+[node name="Downloading_Bar" parent="." instance=ExtResource("19_01j6d")]
+visible = false
+
+[editable path="player"]
+[editable path="player/hacker animated"]

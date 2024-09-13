@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://cud1tup3p1tr7"]
+[gd_scene load_steps=25 format=3 uid="uid://cud1tup3p1tr7"]
 
 [ext_resource type="Script" path="res://scripts/abstract_level.gd" id="1_ii4n3"]
 [ext_resource type="PackedScene" uid="uid://ifqxvqx2xl88" path="res://scenes/camera.tscn" id="2_1gure"]
 [ext_resource type="PackedScene" uid="uid://dbe6ouvhnhrq2" path="res://scenes/audio_manager.tscn" id="2_2ylbj"]
-[ext_resource type="PackedScene" uid="uid://kcei8js78ras" path="res://scenes/vignette.tscn" id="2_fflcb"]
 [ext_resource type="PackedScene" uid="uid://bpgprrhaxtrvb" path="res://scenes/dialogue_manager.tscn" id="3_nvcj5"]
 [ext_resource type="MeshLibrary" uid="uid://e8l32x2ybfjl" path="res://scenes/tiles/level 1.tres" id="5_35k8d"]
 [ext_resource type="PackedScene" uid="uid://phh0wi1xv21q" path="res://scenes/player.tscn" id="6_shq4i"]
@@ -56,8 +55,6 @@ orientation = 1
 script = ExtResource("1_ii4n3")
 id = 1
 
-[node name="vignette" parent="." instance=ExtResource("2_fflcb")]
-
 [node name="audio_manager" parent="." instance=ExtResource("2_2ylbj")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -76,7 +73,7 @@ speed = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57313, -0.610539, -2.4043)
 
 [node name="player" parent="." instance=ExtResource("6_shq4i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4896, -1, 0.466376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4896, -1, 0.524763)
 motion_mode = 0
 
 [node name="DirectionalLight3D" parent="player/OmniLight3D" index="0"]
@@ -86,38 +83,38 @@ light_color = Color(0.5252, 0.338, 0.65, 1)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="player/hacker animated/Armature_001" index="0"]
-bones/0/position = Vector3(5.96046e-09, 0.16175, -0.00237954)
-bones/1/rotation = Quaternion(0.0428279, 3.92822e-18, 1.81221e-17, 0.999083)
-bones/1/scale = Vector3(1, 0.999101, 0.999991)
-bones/2/rotation = Quaternion(0.0211817, 4.6603e-17, 2.05168e-15, 0.999776)
-bones/3/rotation = Quaternion(-0.00921246, -3.10764e-10, 3.47922e-12, 0.999958)
-bones/4/rotation = Quaternion(0.000685706, -5.45145e-10, 3.73697e-13, 1)
-bones/5/rotation = Quaternion(0.507733, -0.485153, 0.526446, 0.479259)
+bones/0/position = Vector3(5.96046e-09, 0.16188, -0.00237612)
+bones/1/rotation = Quaternion(0.0428827, 3.92921e-18, 1.81219e-17, 0.99908)
+bones/1/scale = Vector3(1, 0.999372, 0.999994)
+bones/2/rotation = Quaternion(0.0212366, 4.67156e-17, 2.05168e-15, 0.999775)
+bones/3/rotation = Quaternion(-0.00951188, -3.10765e-10, 3.38616e-12, 0.999955)
+bones/4/rotation = Quaternion(0.000479304, -5.45145e-10, 2.61176e-13, 1)
+bones/5/rotation = Quaternion(0.507579, -0.485273, 0.526711, 0.479009)
 bones/6/rotation = Quaternion(0.220308, 0.00840829, -0.0146447, 0.975284)
-bones/7/rotation = Quaternion(0.376536, 0.0061515, 0.0098609, 0.926329)
+bones/7/rotation = Quaternion(0.376519, 0.00568437, 0.00994365, 0.926338)
 bones/8/rotation = Quaternion(-0.00263631, 0.694148, -0.040912, 0.718664)
-bones/9/rotation = Quaternion(0.0554503, 0.0491702, 0.0784619, 0.994159)
-bones/10/rotation = Quaternion(0.0247214, -0.695116, 0.0565345, 0.716244)
+bones/9/rotation = Quaternion(0.0545372, 0.0489152, 0.0785127, 0.994218)
+bones/10/rotation = Quaternion(0.0240615, -0.695193, 0.0572015, 0.71614)
 bones/11/rotation = Quaternion(0.0614582, -0.0194411, -0.305629, 0.949966)
-bones/12/rotation = Quaternion(0.00154868, 0.119629, 0.196382, 0.973201)
-bones/13/rotation = Quaternion(0.0687798, 0.094604, 0.118066, 0.986093)
-bones/14/rotation = Quaternion(0.141671, 0.0535635, 0.0112305, 0.9884)
-bones/15/rotation = Quaternion(0.107165, 0.750814, 0.144449, 0.635554)
-bones/16/rotation = Quaternion(-0.511965, -0.481955, 0.518052, -0.487067)
+bones/12/rotation = Quaternion(-0.00120494, 0.119047, 0.197254, 0.973097)
+bones/13/rotation = Quaternion(0.0661862, 0.0945099, 0.118595, 0.986216)
+bones/14/rotation = Quaternion(0.139655, 0.0536251, 0.0125151, 0.988668)
+bones/15/rotation = Quaternion(0.105003, 0.751397, 0.143578, 0.635423)
+bones/16/rotation = Quaternion(-0.511947, -0.481971, 0.518075, -0.487044)
 bones/17/rotation = Quaternion(0.220308, -0.00840828, 0.0146447, 0.975284)
-bones/18/rotation = Quaternion(0.376387, -0.00501428, -0.00894513, 0.926406)
+bones/18/rotation = Quaternion(0.376434, -0.00503021, -0.00941683, 0.926382)
 bones/19/rotation = Quaternion(-0.00263646, -0.694148, 0.040912, 0.718664)
-bones/20/rotation = Quaternion(0.0554504, -0.0491702, -0.078462, 0.994159)
-bones/21/rotation = Quaternion(0.0247215, 0.695116, -0.0565345, 0.716244)
+bones/20/rotation = Quaternion(0.0545372, -0.0489153, -0.0785127, 0.994218)
+bones/21/rotation = Quaternion(0.0240616, 0.695193, -0.0572015, 0.71614)
 bones/22/rotation = Quaternion(0.0614581, 0.0194412, 0.305629, 0.949966)
 bones/23/rotation = Quaternion(-0.00309507, -0.118647, -0.197851, 0.97302)
 bones/24/rotation = Quaternion(0.0644056, -0.0944451, -0.118957, 0.986297)
 bones/25/rotation = Quaternion(0.13827, -0.0536674, -0.0133969, 0.988849)
 bones/26/rotation = Quaternion(0.103518, -0.751795, -0.142979, 0.635331)
-bones/27/position = Vector3(0.0667212, -0.0413121, -0.00194053)
+bones/27/position = Vector3(0.0667212, -0.0414398, -0.00193929)
 bones/27/rotation = Quaternion(-0.000203245, -0.00255652, 0.996605, -0.0822879)
 bones/28/rotation = Quaternion(0.712256, -7.73885e-07, 0.00172001, 0.701918)
-bones/29/position = Vector3(-0.0667212, -0.0413121, -0.00194053)
+bones/29/position = Vector3(-0.0667212, -0.0414398, -0.00193929)
 bones/29/rotation = Quaternion(0.000203245, -0.00255652, 0.996605, 0.0822879)
 bones/30/rotation = Quaternion(0.712256, 7.00455e-07, -0.00172009, 0.701918)
 
@@ -193,59 +190,48 @@ offset = 0.25
 
 [node name="guards" type="Node" parent="."]
 
-[node name="enemy_shield13" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield13" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.405, -0.95, 9.399)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_1_A"), NodePath("../../Commands Group/Command_Enemy_1_B")]
 
-[node name="enemy_shield14" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield14" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.405, -0.95, 9.399)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_2_A"), NodePath("../../Commands Group/Command_Enemy_2_B")]
 
-[node name="enemy_shield15" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield15" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.595, -0.95, 5.399)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_3_A"), NodePath("../../Commands Group/Command_Enemy_3_B")]
 
-[node name="enemy_shield16" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield16" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.595, -0.95, 8.399)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_4_A"), NodePath("../../Commands Group/Command_Enemy_4_B")]
 
-[node name="enemy_shield17" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield17" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.595, -0.95, -2.601)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_5_A"), NodePath("../../Commands Group/Command_Enemy_5_B")]
 
-[node name="enemy_shield18" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield18" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.595, -0.95, -5.601)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_6_A"), NodePath("../../Commands Group/Command_Enemy_6_B")]
 
-[node name="enemy_shield19" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield19" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.405, -0.95, -9.601)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_7_A"), NodePath("../../Commands Group/Command_Enemy_7_B")]
 
-[node name="enemy_shield20" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield20" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.405, -0.95, -9.601)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_8_A"), NodePath("../../Commands Group/Command_Enemy_8_B")]
 
-[node name="enemy_shield21" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield21" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.24538, -0.95, -3.45926)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_9_A"), NodePath("../../Commands Group/Command_Enemy_9_B")]
 
-[node name="enemy_shield22" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield22" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.405, -0.95, -4.601)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_10_A"), NodePath("../../Commands Group/Command_Enemy_10_B")]
 
-[node name="enemy_shield23" parent="guards" node_paths=PackedStringArray("movement_target", "commands") instance=ExtResource("11_4etk2")]
+[node name="enemy_shield23" parent="guards" node_paths=PackedStringArray("commands") instance=ExtResource("11_4etk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49423, -0.95, 4.4177)
-movement_target = NodePath("../../player")
 commands = [NodePath("../../Commands Group/Command_Enemy_11_A"), NodePath("../../Commands Group/Command_Enemy_11_B")]
 
 [node name="doors" type="Node" parent="."]
@@ -264,6 +250,20 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, -
 
 [node name="door low5" parent="doors" instance=ExtResource("15_y4agh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.5, -1, -11.5)
+
+[node name="startui" parent="." instance=ExtResource("16_iaiu2")]
+
+[node name="WinScreen" parent="." instance=ExtResource("13_g552s")]
+visible = false
+
+[node name="DeathScreen" parent="." instance=ExtResource("17_ohtxa")]
+visible = false
+
+[node name="hack_ui" parent="." instance=ExtResource("14_reheo")]
+visible = false
+
+[node name="Downloading_Bar" parent="." instance=ExtResource("15_utuoe")]
+visible = false
 
 [node name="dialogue" type="Node" parent="."]
 
@@ -285,173 +285,181 @@ dialogue_path = "res://dialogue/level 1/mechanic_objective database.json"
 
 [node name="Commands Group" type="Node" parent="."]
 
-[node name="Command_Enemy_1_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_1_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_1_A")
 
 [node name="Enemy_1_A" type="Node3D" parent="Commands Group/Command_Enemy_1_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47879, -1, -23.7938)
 
-[node name="Command_Enemy_1_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_1_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_1_B")
 
 [node name="Enemy_1_B" type="Node3D" parent="Commands Group/Command_Enemy_1_B"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47879, -1, 53.0788)
 
-[node name="Command_Enemy_2_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_2_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_2_A")
 
 [node name="Enemy_2_A" type="Node3D" parent="Commands Group/Command_Enemy_2_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40933, -1, 71.4332)
 
-[node name="Command_Enemy_2_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_2_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_2_B")
 
 [node name="Enemy_2_B" type="Node3D" parent="Commands Group/Command_Enemy_2_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, 1.39009, -1, -67.5161)
 
-[node name="Command_Enemy_3_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_3_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_3_A")
 
 [node name="Enemy_3_A" type="Node3D" parent="Commands Group/Command_Enemy_3_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45394, -1, 48.1967)
 
-[node name="Command_Enemy_3_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_3_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_3_B")
 
 [node name="Enemy_3_B" type="Node3D" parent="Commands Group/Command_Enemy_3_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, -84.293, -1, 5.01882)
 
-[node name="Command_Enemy_4_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_4_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_4_A")
 
 [node name="Enemy_4_A" type="Node3D" parent="Commands Group/Command_Enemy_4_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.6209, -1, 8.55101)
 
-[node name="Command_Enemy_4_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_4_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_4_B")
 
 [node name="Enemy_4_B" type="Node3D" parent="Commands Group/Command_Enemy_4_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, -10.5776, -1, -43.4595)
 
-[node name="Command_Enemy_5_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_5_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_5_A")
 
 [node name="Enemy_5_A" type="Node3D" parent="Commands Group/Command_Enemy_5_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -187.31, -1, -2.45783)
 
-[node name="Command_Enemy_5_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_5_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_5_B")
 
 [node name="Enemy_5_B" type="Node3D" parent="Commands Group/Command_Enemy_5_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, 230.702, -1, -2.5153)
 
-[node name="Command_Enemy_6_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_6_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_6_A")
 
 [node name="Enemy_6_A" type="Node3D" parent="Commands Group/Command_Enemy_6_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62816, -1, -101.466)
 
-[node name="Command_Enemy_6_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_6_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_6_B")
 
 [node name="Enemy_6_B" type="Node3D" parent="Commands Group/Command_Enemy_6_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, 257.201, -1, -5.51933)
 
-[node name="Command_Enemy_7_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_7_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_7_A")
 
 [node name="Enemy_7_A" type="Node3D" parent="Commands Group/Command_Enemy_7_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -218.471, -1, -9.60824)
 
-[node name="Command_Enemy_7_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_7_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_7_B")
 
 [node name="Enemy_7_B" type="Node3D" parent="Commands Group/Command_Enemy_7_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, 249.583, -1, -9.59024)
 
-[node name="Command_Enemy_8_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_8_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_8_A")
 
 [node name="Enemy_8_A" type="Node3D" parent="Commands Group/Command_Enemy_8_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.544, -1, -9.60824)
 
-[node name="Command_Enemy_8_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_8_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_8_B")
 
 [node name="Enemy_8_B" type="Node3D" parent="Commands Group/Command_Enemy_8_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, -210.455, -1, -9.59024)
 
-[node name="Command_Enemy_9_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_9_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_9_A")
 
 [node name="Enemy_9_A" type="Node3D" parent="Commands Group/Command_Enemy_9_A"]
 transform = Transform3D(0.616912, 0, 0.787032, 0, 1, 0, -0.787032, 0, 0.616912, 147.739, -1, -2.71974)
 
-[node name="Command_Enemy_9_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_9_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_9_B")
 
 [node name="Enemy_9_B" type="Node3D" parent="Commands Group/Command_Enemy_9_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, 8.01664, -1, -230.899)
 
-[node name="Command_Enemy_10_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_10_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_10_A")
 
 [node name="Enemy_10_A" type="Node3D" parent="Commands Group/Command_Enemy_10_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337, -1, 201.907)
 
-[node name="Command_Enemy_10_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_10_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_10_B")
 
 [node name="Enemy_10_B" type="Node3D" parent="Commands Group/Command_Enemy_10_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, -527.611, -1, -4.68866)
 
-[node name="Command_Enemy_11_A" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_11_A" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_11_A")
 
 [node name="Enemy_11_A" type="Node3D" parent="Commands Group/Command_Enemy_11_A"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -707.581, -1, 4.44804)
 
-[node name="Command_Enemy_11_B" type="Node" parent="Commands Group"]
+[node name="Command_Enemy_11_B" type="Node" parent="Commands Group" node_paths=PackedStringArray("targetNode")]
 script = ExtResource("18_h6y01")
 type = "rotate"
+targetNode = NodePath("Enemy_11_B")
 
 [node name="Enemy_11_B" type="Node3D" parent="Commands Group/Command_Enemy_11_B"]
 transform = Transform3D(0.999664, 0, 0.0259327, 0, 1, 0, -0.0259327, 0, 0.999664, 776.278, -1, 4.47491)
-
-[node name="startui" parent="." instance=ExtResource("16_iaiu2")]
-
-[node name="WinScreen" parent="." instance=ExtResource("13_g552s")]
-visible = false
-
-[node name="DeathScreen" parent="." instance=ExtResource("17_ohtxa")]
-visible = false
-
-[node name="hack_ui" parent="." instance=ExtResource("14_reheo")]
-visible = false
-
-[node name="Downloading_Bar" parent="." instance=ExtResource("15_utuoe")]
-visible = false
 
 [editable path="player"]
 [editable path="player/hacker animated"]

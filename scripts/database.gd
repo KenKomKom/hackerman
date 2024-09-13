@@ -31,6 +31,7 @@ func _process(delta):
 	pass
 
 func download_data():
+	play_sfx()
 	if GlobalEvent.database_downloaded:
 		return
 	is_downloading = true
@@ -54,7 +55,13 @@ func download_data():
 	downloading_canvas.visible = false
 	#print("Data Downloaded")
 
+func play_sfx():
+	await get_tree().create_timer(1).timeout
+	get_parent().audio_manager.download.play(0.0)
+
 func cancel_download():
+	get_parent().audio_manager.download.stop()
+	
 	is_downloading = false
 	GlobalEvent.is_downloading = false
 	#print("INITIATE DOWNLOAD CANCEL")

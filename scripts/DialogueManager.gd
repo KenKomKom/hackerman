@@ -16,7 +16,7 @@ func _load_dialog(file_path):
 		
 		if parsedFile is Array:
 			for line in parsedFile:
-				print(line)
+				#print(line)
 				line["dialogue"] = line["dialogue"].replace("{name}", player_name)
 				
 				#ubah warna, replace nama jadi hexcode

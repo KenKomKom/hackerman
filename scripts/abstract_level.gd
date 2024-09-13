@@ -3,17 +3,20 @@ extends Node3D
 @export var id: int
 @onready var main_camera = $Camera
 @onready var zoom_out_camera = $Camera3D
-@onready var dm = $DialogueManager
+@onready var dialogue_manager = $DialogueManager
+@onready var audio_manager = $audio_manager
 
 var player_original_pos: Vector3
 
 func _ready():
-	$audio_manager.bgm_ingame.play(0.0)
+	audio_manager.bgm_ingame.play(0.0)
 	player_original_pos = $player.position
+	
+	#spawn at checkpoint klo uda reached
 	if GlobalEvent.checkpoint_reached:
 		$player.set_position($checkpoint.position + Vector3(1,0,0))
 	
-	#finish condition
+	#win condition
 	GlobalEvent.connect("database_download_finish",finish_level)
 	
 	if !GlobalEvent.banner_activated:

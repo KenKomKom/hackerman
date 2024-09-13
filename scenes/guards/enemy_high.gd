@@ -7,10 +7,10 @@ func interact():
 	light.visible = false
 	GlobalEvent.emit_signal("player_is_hacking", self)
 	#print("is hacking = ", GlobalEvent.is_hacking)
-	change_current_state(current_state.next_target[1])
+	change_current_state(current_state. next_state[1])
 
 func switch_back():
-	change_current_state(current_state.next_target[0])
+	change_current_state(current_state. next_state[0])
 	setup_texture()
 	light.visible = false
 

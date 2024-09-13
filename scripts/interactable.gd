@@ -27,13 +27,13 @@ func _on_body_entered(body):
 		return
 	
 	#klo player yg masuk
-	if !interacted and body is Player:
+	if !interacted and body is Player and !GlobalEvent.is_hacking:
 		player = body
 		can_interact = true
 		text.visible = true
 		#print("player masuk")
 	
-	#klo enemy yg masuk
+	#klo enemy masuk ke door
 	if (!interacted) and (GlobalEvent.is_hacking) and (body is Enemy) and (get_parent() is DoorButton):
 		#klo door button yg medium
 		enemy = body
@@ -120,12 +120,13 @@ func interact(animation: String):
 func interact_hijack():
 	if !can_interact:
 		return
-	print("interact hijack dh jalan")
+	#print("interact hijack dh jalan")
 	if command != "hijack" or GlobalEvent.is_hacking:
 		print("keluar woi ini bukan hijack")
 		return
 	
 	var enemy = get_parent().get_parent().get_parent().get_parent()
+	#gbs dihack klo enemy nya lg chasing player
 	if(enemy.current_state.name == "chasing"):
 		return
 	

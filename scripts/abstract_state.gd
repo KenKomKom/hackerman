@@ -2,7 +2,7 @@ extends Node
 
 class_name enemy_state
 
-@export var next_target: Array[enemy_state]
+@export var next_state: Array[enemy_state]
 @onready var parent_enemy = get_parent().get_parent()
 
 # Run saat pertama kali set up node

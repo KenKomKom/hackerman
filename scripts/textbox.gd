@@ -3,6 +3,7 @@ extends MarginContainer
 @onready var dialogue_label =  $MarginContainer2/HBoxContainer/RichTextLabel
 @onready var emote = $MarginContainer2/HBoxContainer/CenterContainer/TextureRect
 @onready var dialoguebox = $TextureRect
+@onready var audio_manager = $audio_manager
 
 var still_typing=false
 
@@ -44,10 +45,10 @@ func _process(delta):
 		still_typing = false
 		$MarginContainer.visible = true
 	elif Input.is_action_just_pressed("ui_accept") and not still_typing:
-		#var rng = RandomNumberGenerator.new()
+		#var rng_pitch = RandomNumberGenerator.new()
 		#$audio_manager.dialogue.pitch_scale = rng.randf_range(1.45, 1.6)
 		if(self.visible):
-			$audio_manager.dialogue.play(0.0)
+			audio_manager.dialogue.play(0.0)
 		still_typing = false
 		$MarginContainer.visible = true
 		await get_tree().create_timer(0.0001).timeout #UNTUK MENJAMIN CONCURENCY AMAN

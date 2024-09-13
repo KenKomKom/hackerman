@@ -13,6 +13,8 @@ var left_open = Vector3(0.89, 0, 0)
 var right_closed = Vector3(-0.442, 0, 0)
 var right_open = Vector3(-0.89, 0, 0)
 
+var level: int
+
 var unlocked = false
 var is_open = false
 var speed = 4.0  # Speed of the door movement
@@ -30,7 +32,7 @@ func _ready():
 	$Area3D.body_exited.connect(_on_body_exited)
 	
 	#setup material
-	var level: int = get_parent().get_parent().id
+	level = get_parent().get_parent().id
 	
 	var hospital_path:= "res://3dassets/envi/props/gates/low/door_low_hospital.tres"
 	var bank_path:= "res://3dassets/envi/props/gates/low/door_low_bank.tres"
@@ -79,6 +81,8 @@ func close_gate():
 func interact():
 	unlocked = true
 	open_gate()
+	await get_tree().create_timer(0.25).timeout
+	get_parent().get_parent().audio_manager.door_unlocked.play(0.0)
 	pass
 
 func is_any_guard_nearby() -> bool:

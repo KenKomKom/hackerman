@@ -10,6 +10,7 @@ extends MeshInstance3D
 @export var wait_time: float = 1 #default wait time
 
 var onfire := false
+var level: int
 
 func _ready():
 	position.x = position.snapped(Vector3.ONE * tile_size).x
@@ -20,7 +21,7 @@ func _ready():
 	#set default pos
 	$base.transparency = 1
 	$fire.position.y = -1.264
-	var level: int = get_parent().get_parent().id
+	level = get_parent().get_parent().id
 	
 	#set materials
 	if(level == 1):
@@ -73,5 +74,8 @@ func _check_for_kill():
 
 func _on_area_3d_body_entered(body):
 	if(body is Player):
+		get_parent().get_parent().audio_manager.firewall.play(0.0)
+		await get_tree().create_timer(0.15).timeout
+		get_parent().get_parent().audio_manager.firewall.stop()
 		GlobalEvent.emit_signal("player_is_dead")
 		#print("player has entered fire, hrsnya ded")

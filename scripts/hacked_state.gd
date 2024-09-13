@@ -17,19 +17,21 @@ var last_dir = "stand" # arah terakhir gerak
 var target_position_after_move :Vector3
 
 func ready_state():
-	#parent_enemy.position.x = parent_enemy.position.snapped(Vector3.ONE * tile_size).x
-	#parent_enemy.position.z = parent_enemy.position.snapped(Vector3.ONE * tile_size).z
-	#parent_enemy.position += Vector3(1,0,1) * tile_size / 2
+	print_debug("setup hacked  state")
 	parent_enemy.setup_texture_hacked()
-	#print(anim_player.current_animation)
 
 func do_something(delta):
+	if(parent_enemy.current_state.name != "hacked"):
+		print_debug(parent_enemy.current_state.name)
+		return
+	
 	# klo lg dialog, gbs gerak
 	if GlobalEvent.stop_for_dialogue:
 		return
+		
 	#print(parent_enemy.current_state,parent_enemy.hacked)
-	if(GlobalEvent.is_hacking and parent_enemy.hacked):
-		move(delta)
+	if GlobalEvent.is_hacking and parent_enemy.hacked:
+		_move(delta)
 
 var inputs = {"right": Vector3(0,0,-1),
 			"left": Vector3(0,0,1),
@@ -39,20 +41,20 @@ var inputs = {"right": Vector3(0,0,-1),
 
 func _physics_process(delta):
 	if(GlobalEvent.is_hacking):
-		move(delta)
+		_move(delta)
 		if(Input.is_action_just_released("esc")): 
 			GlobalEvent.is_hacking = false
-			#parent_enemy.change_current_state(parent_enemy.current_state.next_target[0])
+			#parent_enemy.change_current_state(parent_enemy.current_state.next_state[0])
 			GlobalEvent.emit_signal("player_hacking_done")
 
 # gerakin karakternya
-func move(delta):
+func _move(delta):
 	if !can_move or !parent_enemy.hacked:
 		return
 		
 	if moving:
-		# Animasiin pergerakannya
-		#ease_move-=delta
+		#Animasiin pergerakannya
+		#ease_move -= delta
 		parent_enemy.look_towards(target_position_after_move - parent_enemy.global_position)
 		parent_enemy.global_position = lerp(parent_enemy.global_position, target_position_after_move, parent_enemy.movement_speed * 4/5)
 		if (parent_enemy.global_position - target_position_after_move).length() < 0.05:
@@ -63,10 +65,10 @@ func move(delta):
 		for dir in inputs.keys():
 			if dir != "stand" and Input.is_action_pressed(dir):
 				last_dir = dir
-				step(dir)
+				_step(dir)
 
 #mo jalan ke arah mana
-func step(dir):
+func _step(dir):
 	if !can_move or !parent_enemy.hacked:
 		return
 		# Set raycast ke arah gerak pemain
@@ -80,7 +82,7 @@ func step(dir):
 		# Gerak kalo raycat gk ketemu apapun
 		if !ray.is_colliding():
 			moving = true
-			ease_move=0
+			ease_move = 0
 			target_position_after_move = parent_enemy.global_position + inputs[forced_dir] * tile_size
 	
 	# gak gerak

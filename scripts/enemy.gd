@@ -9,17 +9,10 @@ var movement_target_position: Vector3
 @export var current_state: enemy_state
 @export var movement_target:Node3D
 
-#@export var patrol_points: Array[Vector3] # Positions for patrol points
-var current_target_index: int = 0
-var reached_point: bool = false
-var patrol_index: int = 0
-var patrol_direction: int = 1
-
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var redo_target_location_timer = $re_target_timer
 @onready var ray = $RayCast3D
 @onready var states = $states
-#@onready var mesh_node = $"shield/shield body"
 @onready var mesh_node = $"low tier/antivirus low/Skeleton3D"
 @onready var instance_on_cam = $MeshInstance3D2
 @onready var light = $OmniLight3D
@@ -37,7 +30,9 @@ func _ready():
 	position += Vector3(1,0,1) * tile_size / 2
 	light.visible = false
 	player = get_parent().get_parent().get_node("player")
+	movement_target = player
 	GlobalEvent.connect("player_hacking_done", switch_back)
+	current_state.ready_state()
 	
 	#setup light
 	var level: int = get_parent().get_parent().id
@@ -104,20 +99,23 @@ func unsubscribe_to_central():
 	central = null
 
 func interact():
-	GlobalEvent.is_hacking = true
 	light.visible = true
 	hacked = true
+	GlobalEvent.is_hacking = true
 	GlobalEvent.emit_signal("player_is_hacking", self)
-	#print("is hacking = ", GlobalEvent.is_hacking)
-	change_current_state(current_state.next_target[1])
+	#print_debug(current_state)
+	change_current_state(current_state.next_state[1])
 
 func switch_back():
 	#cuma yg hacked doang yg berubah
 	if(hacked):
-		change_current_state(current_state.next_target[0])
 		setup_texture()
 		light.visible = false
+		
+		#tunggu 3 detik
+		change_current_state(current_state.next_state[0])
 		hacked = false
+		await get_tree().create_timer(3.0).timeout
 
 func setup_texture():
 	#siapin texture

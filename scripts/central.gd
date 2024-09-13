@@ -30,7 +30,7 @@ func send_alert_signal():
 		if(enemy.current_state.name == "chasing"): 
 			continue
 		#TODO: Gantiin ini ke enemy-ny ke last know position dari player
-		enemy.change_current_state(enemy.current_state.next_target[0])
+		enemy.change_current_state(enemy.current_state.next_state[0])
 
 # Run ketika central rusak
 func delete_central_func():

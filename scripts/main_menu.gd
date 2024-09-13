@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var start_button = $TabContainer/Container/MarginContainer/CenterContainer/VBoxContainer/Button
+@onready var audio_manager = $audio_manager
 
 @onready var level_4 = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer/TextureButton5
 @onready var level_grid = $TabContainer/LevelSelect/MarginContainer/VBoxContainer/HBoxContainer
@@ -13,12 +14,13 @@ var _save_select_displayed = false
 
 # Set level 4 gk muncul
 func _ready():
-	$audio_manager.bgm_menu.play()
+	audio_manager.bgm_menu.play(0.0)
 	await get_tree().create_timer(0.01).timeout
 	level_4.visible = false
 
 func _process(_delta):
 	if Input.is_action_just_pressed("enter") and not _started:
+		audio_manager.dialogue.play(0.0)
 		_on_start()
 		_started=true
 	
@@ -47,10 +49,12 @@ func _process(_delta):
 # Ganti save yang di select
 func _handle_change_selected():
 	if Input.is_action_just_pressed("left") and _current_selected.left!=null :
+		audio_manager.dialogue.play(0.0)
 		_current_selected.set_selected(false)
 		_current_selected = _current_selected.left
 		_current_selected.set_selected(true)
 	if Input.is_action_just_pressed("right") and _current_selected.right!=null :
+		audio_manager.dialogue.play(0.0)
 		_current_selected.set_selected(false)
 		_current_selected = _current_selected.right
 		_current_selected.set_selected(true)
@@ -58,8 +62,9 @@ func _handle_change_selected():
 # Handle kalo player pencet yang di select di save/level selection
 func _handle_select():
 	if Input.is_action_just_pressed("enter"):
+		audio_manager.dialogue.play(0.0)
 		_current_selected.on_button_up()
-		AudioManager.last_playback_position = $audio_manager.bgm_menu.get_playback_position()
+		AudioManager.last_playback_position = $audio_manager.bgm_menu.get_playback_position() - 0.15
 
 # animsai save select
 func _on_start():

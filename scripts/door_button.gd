@@ -44,3 +44,6 @@ func interact():
 			mesh.material_override = load("res://3dassets/envi/props/button/button_shadow_off.tres")
 		elif(level == 4 and type == "high"):
 			mesh.material_override = load("res://3dassets/envi/props/button/button_high_shadow_off.tres")
+		
+		await get_tree().create_timer(0.25).timeout
+		get_parent().get_parent().audio_manager.door_unlocked.play(0.0)

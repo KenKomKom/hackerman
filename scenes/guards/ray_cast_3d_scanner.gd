@@ -4,9 +4,13 @@ var target: Player = null
 var angle_cone_of_vision := deg_to_rad(30.0)
 var max_view_distance := 2.0
 var angle_between_rays := deg_to_rad(5.0)
+
+var parent_enemy: Enemy
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	enabled = true
+	parent_enemy = get_parent().get_parent().get_parent().get_parent()
 	#generate_raycasts()
 
 #func generate_raycasts() -> void:
@@ -39,10 +43,10 @@ func _process(delta: float) -> void:
 		force_raycast_update()
 		if is_colliding() and get_collider() is Player:
 			#print("Guard Raycast Found A Player")
-			var idle_state = get_parent().get_parent().get_parent().get_parent().get_node("states/idle")
+			var idle_state = parent_enemy.get_node("states/idle")
+			#print("idle state: ", idle_state)
 			if idle_state:
 				idle_state.chase_using_raycast()
-				pass
 			#target = get_collider() 
 			break
 	var does_see_player := target != null

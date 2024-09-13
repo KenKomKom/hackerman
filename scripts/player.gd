@@ -70,14 +70,14 @@ func _physics_process(delta):
 	update_animation("")
 	move(delta)
 	
-	print("-------------------------------------------------------")
-	print("run		: ",anim_tree["parameters/conditions/run"])
-	print("idle		: ",anim_tree["parameters/conditions/idle"])
-	print("")
-	print("interact	: ",anim_tree["parameters/conditions/interact"])
-	print("hack		: ",anim_tree["parameters/conditions/hack"])
-	print("global.isdownloading: ", GlobalEvent.is_downloading)
-	print("download	: ",anim_tree["parameters/conditions/download"])
+	#print("-------------------------------------------------------")
+	#print("run		: ",anim_tree["parameters/conditions/run"])
+	#print("idle		: ",anim_tree["parameters/conditions/idle"])
+	#print("")
+	#print("interact	: ",anim_tree["parameters/conditions/interact"])
+	#print("hack		: ",anim_tree["parameters/conditions/hack"])
+	#print("global.isdownloading: ", GlobalEvent.is_downloading)
+	#print("download	: ",anim_tree["parameters/conditions/download"])
 
 
 func look_towards(dir:Vector3):
@@ -142,50 +142,6 @@ func step(dir):
 			moving = true
 			target_position_after_move = global_position + inputs[dir] * tile_size
 
-#func update_animation(animation: String):
-	#
-	#if GlobalEvent.is_hacking:
-		#return
-	#
-	##klo nggak ada command utk animation tertentu
-	#if (animation == "none" or animation == "") :
-		##cek dia gerak atau nggak
-		#if (Input.is_action_pressed("up") or Input.is_action_pressed("down") or Input.is_action_pressed("left") or Input.is_action_pressed("right") or moving) and can_move:
-			#anim_player.play("hacker - run",0.2)
-			##anim_player.get_animation("hacker - run").loop = true
-		#else:
-			#anim_player.play("hacker - idle",0.2)
-			##anim_player.get_animation("hacker - idle").loop = true
-	#
-	##cek jenis interaction
-	#if animation == "interact":
-		#can_move = false
-		#anim_player.play("hacker - interact",0.2)
-		#await anim_player.animation_finished
-		#print_debug("ini harusnya INTERACT tp kok enggak")
-		#
-		#timer.wait_time = anim_player.get_animation("hacker - interact").length - 0.15
-		#timer.start()
-	#
-	#if animation == "hack":
-		#can_move = false
-		#anim_player.play("hacker - hack",0.2)
-		#await anim_player.animation_finished
-		#print_debug("ini harusnya HACK tp kok enggak")
-		#
-		#timer.wait_time = anim_player.get_animation("hacker - hack").length - 0.15
-		#timer.start()
-	#
-	#if animation == "download" or animation == "wipe":
-		#can_move = false
-		#anim_player.play("hacker - download",0.2)
-		#await anim_player.animation_finished
-	#
-	##run animasi sesuai cara mati nya
-	#if animation == "low_kill":
-		#can_move = false
-		#anim_player.play("hacker - low kill",0.2)
-
 func update_animation(animation: String):
 	
 	if is_interacting:
@@ -214,7 +170,7 @@ func update_animation(animation: String):
 		anim_tree["parameters/conditions/interact"] = true
 		anim_tree["parameters/conditions/idle"] = false
 		anim_tree["parameters/conditions/run"] = false
-		print("ini harusnya INTERACT tp kok enggak")
+		#print("ini harusnya INTERACT tp kok enggak")
 		
 		timer.wait_time = anim_player.get_animation("hacker - interact").length - 0.15
 		timer.start()
@@ -225,7 +181,7 @@ func update_animation(animation: String):
 		anim_tree["parameters/conditions/hack"] = true
 		anim_tree["parameters/conditions/idle"] = false
 		anim_tree["parameters/conditions/run"] = false
-		print("ini harusnya HACK tp kok enggak")
+		#print("ini harusnya HACK tp kok enggak")
 		
 		timer.wait_time = anim_player.get_animation("hacker - hack").length - 0.15
 		timer.start()
